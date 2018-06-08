@@ -1,0 +1,14 @@
+.num {
+    margin: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.rating {
+    margin-left: 30px;
+    display: flex;
+}
+
+#rate {
+    margin-right: 50px;
+}
