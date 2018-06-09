@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Modal } from 'react-bootstrap';
+import { Glyphicon, Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 
@@ -28,9 +28,8 @@ class Example extends React.Component<{}, {show:boolean}> {
       return (
         <div>
           <p>Click to get the full Modal experience!</p>
-          <Button color="primary">Primary</Button>
           <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-        LOL
+          <Glyphicon glyph="user" />
         </Button>
           <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton={true}>
