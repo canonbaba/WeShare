@@ -28,9 +28,9 @@ class Example extends React.Component<{}, {show:boolean}> {
       return (
         <div>
           <p>Click to get the full Modal experience!</p>
-          
+          <Button color="primary">Primary</Button>
           <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-          <i className="fa fa-user-circle"></i>
+        LOL
         </Button>
           <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton={true}>
@@ -51,8 +51,7 @@ class Example extends React.Component<{}, {show:boolean}> {
   
 
 
-export default Example;
-
+export default Example; 
 
 
 

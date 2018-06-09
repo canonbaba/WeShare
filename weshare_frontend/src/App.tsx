@@ -1,6 +1,7 @@
 // import { Provider } from 'react-redux';
 import * as React from 'react';
-import Example from './popup_login';
+import ModalPage from 'src/popup_login';
+// import Example from './popup_login';
 
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, ...
         </p>
-        <Example />
+        <ModalPage />
       </div>
       //   </Router>
       // </Provider>
