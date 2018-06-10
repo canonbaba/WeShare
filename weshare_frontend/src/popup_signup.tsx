@@ -2,34 +2,14 @@ import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-// interface ILoginProp {
-//     onLinkAdd:  (toggle: boolean) => void
-//     // context: any
-// }
-
-// interface ILoginState {
-//     show: boolean
-// }
-
-class LoginPopup extends React.Component {
+class SignupPopup extends React.Component {
     // constructor(props: any) {
     //     super(props);
-
-    //     this.handleShow = this.handleShow.bind(this);
-    //     this.handleClose = this.handleClose.bind(this);
 
     //     this.state = {
     //         show: false
     //     };
     // }
-
-    //   public handleClose() {
-    //     this.setState({ show: false });
-    //   }
-
-    //   public handleShow() {
-    //     this.setState({ show: true });
-    //   }
 
     public render() {
         return (
@@ -66,21 +46,20 @@ class LoginPopup extends React.Component {
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Checkbox>Remember me</Checkbox>
+                                <Checkbox>I agree to the Terms and Conditions</Checkbox>
                             </Col>
                         </FormGroup>
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Button type="submit">Sign in</Button>
+                                <Button type="submit">Commit</Button>
                             </Col>
                         </FormGroup>
                     </Form>
 
 
                     <Modal.Footer>
-
-                        <Button bsStyle="primary">Save changes</Button>
+                        <Button bsStyle="primary">forget password</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>
@@ -88,7 +67,7 @@ class LoginPopup extends React.Component {
     }
 }
 
-export default LoginPopup;
+export default SignupPopup;
 
 
 
