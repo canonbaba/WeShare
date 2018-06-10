@@ -79,8 +79,7 @@ class LoginPopup extends React.Component {
 
 
                     <Modal.Footer>
-
-                        <Button bsStyle="primary">Save changes</Button>
+                        <Button bsStyle="primary">forget password</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>

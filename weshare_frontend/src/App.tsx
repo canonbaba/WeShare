@@ -3,7 +3,7 @@ import { Button, Glyphicon } from 'react-bootstrap';
 // import { Provider } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import LoginPopup from 'src/popup_login';
-import SignupPopup from 'src/popup_login';
+import SignupPopup from 'src/popup_signup';
 
 class App extends React.Component {
   public handleShow: any;
@@ -14,7 +14,7 @@ class App extends React.Component {
         <div className="App">
          <header>
           <h1>Welcome to React</h1>
-            <Link to="/login ">
+            <Link to="/login">
               <Button bsStyle="primary" bsSize="small">
                 <Glyphicon glyph="user" />
               </Button>
