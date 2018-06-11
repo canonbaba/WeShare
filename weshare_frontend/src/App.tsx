@@ -5,24 +5,24 @@ import { Link, Route, Switch } from 'react-router-dom';
 import LoginPopup from 'src/screens/popup_login';
 import SignupPopup from 'src/screens/popup_signup';
 
-class App extends React.Component<{}, { show: boolean }> {
-  constructor(props: {}) {
-    super({});
+class App extends React.Component<{}, { signupshow: boolean }> {
+  constructor(props: any) {
+    super(props);
 
     this.state = {
-      show: false
+      signupshow: false
     }
   }
 
   public signupShow = () => {
     this.setState({
-      show: !this.state.show
+      signupshow: !this.state.signupshow
     })
   }
 
   public signuphide = () => {
     this.setState({
-      show: false
+      signupshow: false
     })
   }
 
@@ -39,7 +39,7 @@ class App extends React.Component<{}, { show: boolean }> {
           </Link>
         </header>
         <div>
-            <SignupPopup signupPopup={this.state.show} signupClose={this.signuphide}/>
+            <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide}/>
           <Switch>
             <Route path="/login" exact={true} component={LoginPopup} />
           </Switch>
@@ -48,8 +48,6 @@ class App extends React.Component<{}, { show: boolean }> {
       // </Provider>
     );
   }
-
-
 }
 
 export default App;
