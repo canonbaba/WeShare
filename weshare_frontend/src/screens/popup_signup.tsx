@@ -2,28 +2,41 @@ import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-class SignupPopup extends React.Component {
-    // constructor(props: any) {
-    //     super(props);
+interface ISignupProps {
+    signupPopup: boolean
+    signupClose: () => void
+}
 
-    //     this.state = {
-    //         show: false
-    //     };
-    // }
+interface ISignupState {
+    show: boolean;
+}
 
+class SignupPopup extends React.Component<ISignupProps, ISignupState> {
+    constructor(props: ISignupProps) {
+        super(props);
+    
+        this.state = {
+          show: false
+        };
+      }
+    
+      public handleClose = () => {
+        this.setState({ show: false });
+      }
+
+      
     public render() {
         return (
             <div className="static-modal">
-                <Modal.Dialog>
+                <Modal show={this.props.signupPopup} onHide={this.handleClose}>
                     <Modal.Header>
                         <div className="text-right">
                             {/* *** actually it should be redirected to previous component, not "/" */}
-                            <Link to="/"><Glyphicon glyph="remove" /></Link>
+                            <Button bsStyle="primary" onClick={this.props.signupClose}><Glyphicon glyph="remove" /></Button>
                         </div>
                         <Link to="/login"><Button bsStyle="primary">Login</Button></Link>
                         <Link to="/signup"><Button bsStyle="primary">Sign up</Button></Link>
                     </Modal.Header>
-
 
                     <Form horizontal={true}>
                         <FormGroup controlId="formHorizontalEmail">
@@ -52,7 +65,7 @@ class SignupPopup extends React.Component {
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Button type="submit">Commit</Button>
+                                <Button type="submit">Submit</Button>
                             </Col>
                         </FormGroup>
                     </Form>
@@ -61,7 +74,7 @@ class SignupPopup extends React.Component {
                     <Modal.Footer>
                         <Button bsStyle="primary">forget password</Button>
                     </Modal.Footer>
-                </Modal.Dialog>
+                </Modal>
             </div>
         );
     }

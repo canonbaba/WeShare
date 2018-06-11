@@ -2,34 +2,8 @@ import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-// interface ILoginProp {
-//     onLinkAdd:  (toggle: boolean) => void
-//     // context: any
-// }
-
-// interface ILoginState {
-//     show: boolean
-// }
 
 class LoginPopup extends React.Component {
-    // constructor(props: any) {
-    //     super(props);
-
-    //     this.handleShow = this.handleShow.bind(this);
-    //     this.handleClose = this.handleClose.bind(this);
-
-    //     this.state = {
-    //         show: false
-    //     };
-    // }
-
-    //   public handleClose() {
-    //     this.setState({ show: false });
-    //   }
-
-    //   public handleShow() {
-    //     this.setState({ show: true });
-    //   }
 
     public render() {
         return (
@@ -37,11 +11,10 @@ class LoginPopup extends React.Component {
                 <Modal.Dialog>
                     <Modal.Header>
                         <div className="text-right">
-                            {/* *** actually it should be redirected to previous component, not "/" */}
                             <Link to="/"><Glyphicon glyph="remove" /></Link>
                         </div>
-                        <Link to="/login"><Button bsStyle="primary">Login</Button></Link>
-                        <Link to="/signup"><Button bsStyle="primary">Sign up</Button></Link>
+                        <Button bsStyle="primary">Login</Button>
+                        <Button bsStyle="primary">Sign up</Button>
                     </Modal.Header>
 
 
