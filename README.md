@@ -12,6 +12,9 @@
 - react-router-dom
 
 11 June 2018: 
-- create Signup pop(frontend)
-- yarn add dotenv(backend)
-- add .env(backend)
+- create Signup pop (frontend)
+- yarn add dotenv passport passport-jwt jwt-simple axios (backend)
+- add .env (backend)
+
+12 June 2018:
+- ****set REACT_APP_API_SERVER=http://localhost:8000

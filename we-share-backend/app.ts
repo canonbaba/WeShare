@@ -19,7 +19,6 @@ import CreateContractRouter from './routers/createContractRouter';
 import CreateContractService from './services/createContractService';
 
 
-
 const app = express();
 
 app.use(cors());

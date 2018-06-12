@@ -20,17 +20,16 @@ class ProfileRouter {
     return router;
   }
 
-
   get(req,res){
       return this.profileService
-      .getUser(req.user)
+      .getUser(req.body.token)
       .then(arr => res.json(arr))
       .catch(err => res.status(500).json(err));
   }
 
   getPost(req,res){
         return this.profileService
-        .extractPost(req.user)
+        .extractPost(req.body.token)
         .then(arr => res.json(arr))
         .catch(err => res.status(500).json(err));
     }
