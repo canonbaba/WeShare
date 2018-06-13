@@ -15,6 +15,7 @@
     "pg": "^7.4.3"
   },
   "devDependencies": {
+    "@types/jwt-simple": "^0.5.33",
     "@types/knex": "^0.14.14"
   }
 }

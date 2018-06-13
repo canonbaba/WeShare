@@ -40,7 +40,7 @@ let createContractService = new CreateContractService(knex);
 let createContractRouter = new CreateContractRouter(createContractService);
 
 
-
+// need use `${process.env.REACT_APP_API_SERVER}/api/login` ???
 app.use("/api/login", userRouter.route());
 app.use("/api/random", randomRouter.route());
 app.use("api/profile", profileRouter.route());

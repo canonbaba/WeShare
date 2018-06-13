@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 interface ISignupProps {
     signupPopup: boolean
     signupClose: () => void
@@ -9,6 +10,9 @@ interface ISignupProps {
 
 interface ISignupState {
     show: boolean;
+    name: string;
+    email: string;
+    password: string;
 }
 
 class SignupPopup extends React.Component<ISignupProps, ISignupState> {
@@ -16,15 +20,19 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
         super(props);
     
         this.state = {
-          show: false
+          show: false,
+          // tslint:disable-next-line:object-literal-sort-keys
+          name: '',
+          email: '',
+          password: ''
         };
       }
     
+
       public handleClose = () => {
         this.setState({ show: false });
       }
 
-      
     public render() {
         return (
             <div className="static-modal">
@@ -81,6 +89,3 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 }
 
 export default SignupPopup;
-
-
-

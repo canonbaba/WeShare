@@ -1,6 +1,6 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 // import { GenericStoreEnhancer } from 'redux';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
 // declare global {
@@ -19,5 +19,5 @@ export const store = createStore(
   combineReducers({
     auth: AuthReducer
   }),
-  composeEnhancers(applyMiddleware(thunk))
+  // composeEnhancers(applyMiddleware(thunk))
 );
