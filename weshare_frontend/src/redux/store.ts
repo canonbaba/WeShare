@@ -1,6 +1,7 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 // import { GenericStoreEnhancer } from 'redux';
-// import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
+import { UserReducer } from 'src/redux/login/reducer';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
 // declare global {
@@ -11,13 +12,14 @@ import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
 export interface IRootState {
   auth: IAuthState;
+  users: IUser;
 }
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   combineReducers({
-    auth: AuthReducer
-  }),
-  // composeEnhancers(applyMiddleware(thunk))
+    auth: AuthReducer,
+    users: UserReducer
+  }), applyMiddleware(thunk)
 );

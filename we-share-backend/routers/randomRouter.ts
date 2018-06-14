@@ -1,13 +1,7 @@
-import express from "express";
+import * as express from "express";
 
 class RandomRouter {
-    
-    static route(): any {
-        throw new Error("Method not implemented.");
-    }
-   static randomService: any;
-
-   randomService;
+   private randomService: any;
 
   constructor(randomService) {
     this.randomService = randomService;

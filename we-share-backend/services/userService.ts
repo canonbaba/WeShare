@@ -1,16 +1,15 @@
 
 
 class UserService {
-
-  static knex: any;
-  knex;
+  private knex;
 
   constructor(knex) {
     this.knex = knex;
   }
 
+  // return 
   signup(input) {
-    knex('user').insert({name: input.name}, {email: input.password}, {password: input.password})
+    return this.knex('users').insert({name: input.name,'e-mail': input.email,password: input.password})
   }
 
   login() {

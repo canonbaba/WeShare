@@ -1,10 +1,10 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
-import knex from 'knex';
+import * as Knex from 'knex';
+import * as knexfile from './knexfile';
 
-
-const router = require("./router")(express);
+const knex = Knex(knexfile.development)
 
 import UserRouter from './routers/userRouter';
 import UserService from './services/userService';
@@ -19,13 +19,14 @@ import CreateContractRouter from './routers/createContractRouter';
 import CreateContractService from './services/createContractService';
 
 
+
+
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use("/", router);
 
 let userService = new UserService(knex);
 let userRouter = new UserRouter(userService);
@@ -48,7 +49,7 @@ app.use("api/createContract",createContractRouter.route());
 
 
 
-app.listen(8000); 
+app.listen(8000);
 
 
 

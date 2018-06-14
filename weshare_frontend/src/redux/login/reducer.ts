@@ -1,21 +1,23 @@
-import { LOAD_USERS, UserActions } from './actions';
+import { IUserActions, SIGNUP_USERS } from './actions';
 
 export interface IUserState {
-  users: IUser[];
+  users?: IUser;
 }
 
 const initialState = {
-  users: []
+  users: undefined
 };
 
-export const reducer = (state: IUserState = initialState, action: UserActions) => {
+export const UserReducer = (oldState: IUserState = initialState, action: IUserActions) => {
   switch (action.type) {
-    case LOAD_USERS:
+    case SIGNUP_USERS:
+    {
       return {
-        ...state,
+        ...oldState,
         users: action.users
       };
+    }
     default:
-      return initialState;
+      return oldState;
   }
 };

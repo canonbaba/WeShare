@@ -14,10 +14,10 @@ export interface ILoadUsersAction {
 
 export interface ISignupUsersAction {
   type: SIGNUP_USERS;
-  users: IUser[];
+  users: IUser;
 }
 
-export type UserActions = ILoadUsersAction | ISignupUsersAction;
+export type IUserActions = ILoadUsersAction | ISignupUsersAction;
 
 export function loadUsers(users: IUser[]): ILoadUsersAction {
   return {
@@ -28,7 +28,7 @@ export function loadUsers(users: IUser[]): ILoadUsersAction {
 }
 
 export function fetchUsers() {
-  return (dispatch: Dispatch<UserActions>) => {
+  return (dispatch: Dispatch<IUserActions>) => {
     axios
       .get<IUser[]>(`${process.env.REACT_APP_API_SERVER}/api/users`, {
         headers: {
@@ -42,7 +42,7 @@ export function fetchUsers() {
 }
 
 // for react-redux store user info??
-export function signupUsers(users: IUser[]): ISignupUsersAction {
+export function signupUsers(users: IUser): ISignupUsersAction {
   return {
     type: SIGNUP_USERS,
     // tslint:disable-next-line:object-literal-shorthand
@@ -51,16 +51,17 @@ export function signupUsers(users: IUser[]): ISignupUsersAction {
 }
 
 // for DB store user info???
-export function saveUsers() {
+export function remoteSignupUsers(email: string, password: string, name: string) {
+  return (dispatch: Dispatch<IUserActions>) => {
     axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
-        name: '',
-        // tslint:disable-next-line:object-literal-sort-keys
-        email: '',
-        password: ''
+        email, 
+        name,
+        password, 
       }).then(res => {
-        alert(res.data);
+        dispatch(signupUsers(res.data))
       }).catch(err => {
-        alert(err);
+        alert(err)
       });
   };
+}

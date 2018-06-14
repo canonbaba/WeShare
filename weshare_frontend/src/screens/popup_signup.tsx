@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
+import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { remoteSignupUsers } from 'src/redux/login/actions';
+import { IRootState } from 'src/redux/store';
+
 
 
 interface ISignupProps {
     signupPopup: boolean
     signupClose: () => void
+    saveUser: (email: string, name: string, password: string) => void;
 }
 
 interface ISignupState {
@@ -13,25 +18,37 @@ interface ISignupState {
     name: string;
     email: string;
     password: string;
+
 }
 
 class SignupPopup extends React.Component<ISignupProps, ISignupState> {
     constructor(props: ISignupProps) {
         super(props);
-    
-        this.state = {
-          show: false,
-          // tslint:disable-next-line:object-literal-sort-keys
-          name: '',
-          email: '',
-          password: ''
-        };
-      }
-    
 
-      public handleClose = () => {
+        this.state = {
+            show: false,
+            // tslint:disable-next-line:object-literal-sort-keys
+            name: '',
+            email: '',
+            password: ''
+        };
+    }
+
+    public handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    public handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+    public handleClose = () => {
         this.setState({ show: false });
-      }
+    }
 
     public render() {
         return (
@@ -52,7 +69,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                 Email
                             </Col>
                             <Col sm={7}>
-                                <FormControl type="email" placeholder="Email" />
+                                <input type="text" onChange={this.handleEmail} value={this.state.email} />
                             </Col>
                         </FormGroup>
 
@@ -61,7 +78,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                 Password
                              </Col>
                             <Col sm={7}>
-                                <FormControl type="password" placeholder="Password" />
+                                <input type="password" onChange={this.handlePassword} value={this.state.password} />
                             </Col>
                         </FormGroup>
 
@@ -73,19 +90,33 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Button type="submit">Submit</Button>
+                                <Button onClick={this.props.saveUser.bind(this, this.state.email, this.state.name
+                                , this.state.password)} >Submit</Button>
                             </Col>
                         </FormGroup>
                     </Form>
 
-
-                    <Modal.Footer>
-                        <Button bsStyle="primary">forget password</Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );
     }
 }
 
-export default SignupPopup;
+const mapStateToProps = (rootState: IRootState) => {
+    return {
+        name: rootState.users.name,
+        // tslint:disable-next-line:object-literal-sort-keys
+        email: rootState.users.email,
+        password: rootState.users.password
+    }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        saveUser: (email: string, name:string, password:string) =>  dispatch(remoteSignupUsers(email, password , name))
+    }
+}
+
+const MapUser = connect(mapStateToProps, mapDispatchToProps)(SignupPopup)
+
+export default MapUser;
