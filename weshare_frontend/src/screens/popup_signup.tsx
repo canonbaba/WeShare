@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { remoteSignupUsers } from 'src/redux/login/actions';
+import { remoteSignupUsers } from 'src/redux/signup/actions';
 import { IRootState } from 'src/redux/store';
 
 

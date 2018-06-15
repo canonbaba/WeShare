@@ -18,6 +18,8 @@ import ProfileService from './services/profileService';
 import CreateContractRouter from './routers/createContractRouter';
 import CreateContractService from './services/createContractService';
 
+import LoginRouter from './routers/loginRouter';
+import LoginService from './services/loginService';
 
 
 
@@ -27,6 +29,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+let loginService = new LoginService(knex);
+let loginRouter = new  LoginRouter(loginService)
 
 let userService = new UserService(knex);
 let userRouter = new UserRouter(userService);
@@ -42,7 +46,8 @@ let createContractRouter = new CreateContractRouter(createContractService);
 
 
 // need use `${process.env.REACT_APP_API_SERVER}/api/login` ???
-app.use("/api/login", userRouter.route());
+app.use("/api/login", loginRouter.route());
+app.use("/api/signup", userRouter.route());
 app.use("/api/random", randomRouter.route());
 app.use("api/profile", profileRouter.route());
 app.use("api/createContract",createContractRouter.route());

@@ -1,25 +1,22 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-// import { GenericStoreEnhancer } from 'redux';
 import thunk from 'redux-thunk';
-import { UserReducer } from 'src/redux/login/reducer';
+import { ILoginState, LoginReducer } from 'src/redux/login/reducer';
+import { UserReducer } from 'src/redux/signup/reducer';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
-// declare global {
-//   interface IWindow {
-//     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (enhancer: GenericStoreEnhancer) => GenericStoreEnhancer;
-//   }
-// }
+
 
 export interface IRootState {
   auth: IAuthState;
-  users: IUser;
+  users: IUser; // need to rewrite because it should be 'IUserState' from signup state
+  islogin: ILoginState;
 }
-
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   combineReducers({
     auth: AuthReducer,
-    users: UserReducer
+    users: UserReducer,
+    // tslint:disable-next-line:object-literal-sort-keys
+    islogin: LoginReducer
   }), applyMiddleware(thunk)
 );

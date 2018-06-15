@@ -1,23 +1,41 @@
-import { IUserActions, SIGNUP_USERS } from './actions';
+import { ILoginAction, SET_LOGIN_ERROR, SET_LOGIN_PENDING, SET_LOGIN_SUCCESS } from "src/redux/login/actions";
 
-export interface IUserState {
-  users?: IUser;
+export interface ILoginState {
+    isLoginPending: boolean;
+    isLoginSuccess: boolean;
+    loginError: string | null
 }
 
 const initialState = {
-  users: undefined
+    isLoginPending: false,
+    isLoginSuccess: false,
+    loginError: null
 };
 
-export const UserReducer = (oldState: IUserState = initialState, action: IUserActions) => {
-  switch (action.type) {
-    case SIGNUP_USERS:
-    {
-      return {
-        ...oldState,
-        users: action.users
-      };
+export const LoginReducer = (oldState: ILoginState = initialState, action: ILoginAction) => {
+    switch (action.type) {
+        case SET_LOGIN_PENDING:
+            {
+                return {
+                    ...oldState,
+                    isLoginPending: action.isLoginPending
+                };
+            }
+        case SET_LOGIN_SUCCESS:
+            {
+                return {
+                    ...oldState,
+                    isLoginSuccess: action.isLoginSuccess
+                };
+            }
+        case SET_LOGIN_ERROR:
+            {
+                return {
+                    ...oldState,
+                    loginError: action.loginError
+                };
+            }
+        default:
+            return oldState;
     }
-    default:
-      return oldState;
-  }
 };

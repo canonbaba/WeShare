@@ -1,11 +1,35 @@
 import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { remoteFetchUsers } from 'src/redux/login/actions';
+import { IRootState } from 'src/redux/store';
 
+interface ILoginProps {
+    isLoginPending: boolean;
+    isLoginSuccess: boolean;
+    loginError: string;
+    login: (email: string, password: string) => void;
+}
 
-class LoginPopup extends React.Component {
+interface ILoginSate {
+    email: string;
+    password: string
+}
+
+class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
+    constructor(props: ILoginProps) {
+        super(props);
+
+        this.state = {
+            email: '',
+            password: ''
+        };
+        // this.onSubmit = this.onSubmit.bind(this);
+    }
 
     public render() {
+        const {isLoginPending, isLoginSuccess, loginError} = this.props;
         return (
             <div className="static-modal">
                 <Modal.Dialog>
@@ -45,14 +69,17 @@ class LoginPopup extends React.Component {
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Button type="submit">Sign in</Button>
+                                <Button type="submit" onClick={this.props.login.bind(this, this.state.email, this.state.password)}>Sign in</Button>
                             </Col>
                         </FormGroup>
                     </Form>
 
-
                     <Modal.Footer>
-                        <Button bsStyle="primary">forget password</Button>
+                        <div>
+                            {isLoginPending && <div>Please wait...</div>}
+                            {isLoginSuccess && <div>Success.</div>}
+                            {loginError && <div>{loginError}</div>}
+                        </div>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>
@@ -60,7 +87,33 @@ class LoginPopup extends React.Component {
     }
 }
 
-export default LoginPopup;
+// public onSubmit(e) {
+//     e.preventDefault();
+//     let { email, password } = this.state;
+//     this.props.login(email, password);
+//     this.setState({
+//       email: '',
+//       password: ''
+//     });
+//   }
+
+const mapStateToProps = (rootState: IRootState) => {
+    return {
+        isLoginPending: rootState.islogin.isLoginPending,
+        isLoginSuccess: rootState.islogin.isLoginSuccess,
+        loginError: rootState.islogin.loginError
+    };
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        login: (email: string, password: string) => dispatch(remoteFetchUsers(email, password))
+    };
+}
+
+const LoginUser = connect(mapStateToProps, mapDispatchToProps)(LoginPopup);
+
+export default LoginUser;
 
 
 

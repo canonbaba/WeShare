@@ -1,67 +1,91 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
-export const LOAD_USERS = 'LOAD_USERS';
-export type LOAD_USERS = typeof LOAD_USERS;
+export const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
+export type SET_LOGIN_PENDING = typeof SET_LOGIN_PENDING;
 
-export const SIGNUP_USERS = 'SIGNUP_USERS';
-export type SIGNUP_USERS = typeof SIGNUP_USERS;
+export const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';
+export type SET_LOGIN_SUCCESS = typeof SET_LOGIN_SUCCESS;
 
-export interface ILoadUsersAction {
-  type: LOAD_USERS;
-  users: IUser[];
+export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
+export type SET_LOGIN_ERROR = typeof SET_LOGIN_ERROR;
+
+export interface ISetLoginPending {
+    type: SET_LOGIN_PENDING,
+    isLoginPending: boolean
 }
 
-export interface ISignupUsersAction {
-  type: SIGNUP_USERS;
-  users: IUser;
+export interface ISetLoginSuccess {
+    type: SET_LOGIN_SUCCESS,
+    isLoginSuccess: boolean
 }
 
-export type IUserActions = ILoadUsersAction | ISignupUsersAction;
+export interface ISetLoginError {
+    type: SET_LOGIN_ERROR,
+    loginError: string
+}
 
-export function loadUsers(users: IUser[]): ILoadUsersAction {
+export type ILoginAction = ISetLoginPending | ISetLoginSuccess | ISetLoginError;
+
+export function setLoginPending(isLoginPending: boolean): ILoginAction {
   return {
-    type: LOAD_USERS,
-    // tslint:disable-next-line:object-literal-shorthand
-    users: users
+    type: SET_LOGIN_PENDING,
+    // tslint:disable-next-line:object-literal-sort-keys
+    isLoginPending
   };
 }
 
-export function fetchUsers() {
-  return (dispatch: Dispatch<IUserActions>) => {
-    axios
-      .get<IUser[]>(`${process.env.REACT_APP_API_SERVER}/api/users`, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
-        }
-      })
-      .then(res => {
-        dispatch(loadUsers(res.data));
-      });
-  };
-}
-
-// for react-redux store user info??
-export function signupUsers(users: IUser): ISignupUsersAction {
+export function setLoginSuccess(isLoginSuccess: boolean): ILoginAction {
   return {
-    type: SIGNUP_USERS,
-    // tslint:disable-next-line:object-literal-shorthand
-    users: users
+    type: SET_LOGIN_SUCCESS,
+    // tslint:disable-next-line:object-literal-sort-keys
+    isLoginSuccess
   };
 }
 
-// for DB store user info???
-export function remoteSignupUsers(email: string, password: string, name: string) {
-  return (dispatch: Dispatch<IUserActions>) => {
-    axios
-      .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
-        email, 
-        name,
-        password, 
-      }).then(res => {
-        dispatch(signupUsers(res.data))
-      }).catch(err => {
-        alert(err)
-      });
+export function setLoginError(loginError: string): ISetLoginError {
+  return {
+    type: SET_LOGIN_ERROR,
+    // tslint:disable-next-line:object-literal-sort-keys
+    loginError
   };
 }
+
+export function remoteFetchUsers(email: string, password: string) {
+    return (dispatch: Dispatch<ILoginAction>) => {
+      // dispatch(setLoginPending(true));
+      // dispatch(setLoginSuccess(false));
+      // dispatch(setLoginError('error la hahaha'));
+
+      axios
+        .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
+          email, 
+          password, 
+        }).then(res => {
+          setTimeout(() => {
+            dispatch(setLoginPending(false));
+            
+            if (res.data.isdataempty === true) {
+              dispatch(setLoginSuccess(true));
+            } else {
+              dispatch(setLoginError('error la hahaha'));
+            }
+        })}).catch(err => {
+          alert(err)
+        });
+    };
+  }
+
+//   export function fetchUsers() {
+//     return (dispatch: Dispatch<IUserActions>) => {
+//       axios
+//         .get<IUser[]>(`${process.env.REACT_APP_API_SERVER}/api/users`, {
+//           headers: {
+//             Authorization: 'Bearer ' + localStorage.getItem('token')
+//           }
+//         })
+//         .then(res => {
+//           dispatch(loadUsers(res.data));
+//         });
+//     };
+//   }
