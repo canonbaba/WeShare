@@ -30,6 +30,7 @@ export function remoteSignupUsers(email: string, password: string, name: string)
         name,
         password, 
       }).then(res => {
+        alert(res.data);
         dispatch(signupUsers(res.data))
       }).catch(err => {
         alert(err)

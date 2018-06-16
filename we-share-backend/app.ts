@@ -49,8 +49,8 @@ let createContractRouter = new CreateContractRouter(createContractService);
 app.use("/api/login", loginRouter.route());
 app.use("/api/signup", userRouter.route());
 app.use("/api/random", randomRouter.route());
-app.use("api/profile", profileRouter.route());
-app.use("api/createContract",createContractRouter.route());
+app.use("/api/profile", profileRouter.route());
+app.use("/api/createContract",createContractRouter.route());
 
 
 

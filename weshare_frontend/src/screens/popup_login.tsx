@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
+import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { remoteFetchUsers } from 'src/redux/login/actions';
@@ -8,7 +8,7 @@ import { IRootState } from 'src/redux/store';
 interface ILoginProps {
     isLoginPending: boolean;
     isLoginSuccess: boolean;
-    loginError: string;
+    loginError: boolean;
     login: (email: string, password: string) => void;
 }
 
@@ -27,6 +27,23 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
         };
         // this.onSubmit = this.onSubmit.bind(this);
     }
+
+    public handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    public handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+    // public onSubmit = (event: any) => {
+    //     event.preventDefault()
+    //     this.props.login.bind(this, this.state.email, this.state.password)
+    // }
 
     public render() {
         const {isLoginPending, isLoginSuccess, loginError} = this.props;
@@ -48,7 +65,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
                                 Email
                             </Col>
                             <Col sm={7}>
-                                <FormControl type="email" placeholder="Email" />
+                            <input type="text" onChange={this.handleEmail} value={this.state.email} />
                             </Col>
                         </FormGroup>
 
@@ -57,7 +74,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
                                 Password
                              </Col>
                             <Col sm={7}>
-                                <FormControl type="password" placeholder="Password" />
+                            <input type="password" onChange={this.handlePassword} value={this.state.password} />
                             </Col>
                         </FormGroup>
 
@@ -69,7 +86,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
 
                         <FormGroup>
                             <Col smOffset={2} sm={10}>
-                                <Button type="submit" onClick={this.props.login.bind(this, this.state.email, this.state.password)}>Sign in</Button>
+                                <Button onClick={this.props.login.bind(this, this.state.email, this.state.password)}>Sign in</Button>
                             </Col>
                         </FormGroup>
                     </Form>
@@ -78,7 +95,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
                         <div>
                             {isLoginPending && <div>Please wait...</div>}
                             {isLoginSuccess && <div>Success.</div>}
-                            {loginError && <div>{loginError}</div>}
+                            {loginError && <div>{"loginError"}</div>}
                         </div>
                     </Modal.Footer>
                 </Modal.Dialog>
@@ -87,15 +104,6 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
     }
 }
 
-// public onSubmit(e) {
-//     e.preventDefault();
-//     let { email, password } = this.state;
-//     this.props.login(email, password);
-//     this.setState({
-//       email: '',
-//       password: ''
-//     });
-//   }
 
 const mapStateToProps = (rootState: IRootState) => {
     return {

@@ -7,9 +7,9 @@ class LoginService {
 
   login(input) {
     return this.knex('users').where({
-      'e-mail': input.email,
+      email: input.email,
       password: input.password
-    }).select('e-mail', 'password')
+    }).select('email', 'password')
   }
 
 

@@ -9,5 +9,5 @@
   interface IsLogin {
     isLoginPending: boolean;
     isLoginSuccess: boolean;
-    loginError: string
+    loginError: boolean;
   }

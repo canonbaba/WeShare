@@ -22,7 +22,7 @@ export interface ISetLoginSuccess {
 
 export interface ISetLoginError {
     type: SET_LOGIN_ERROR,
-    loginError: string
+    loginError: boolean
 }
 
 export type ILoginAction = ISetLoginPending | ISetLoginSuccess | ISetLoginError;
@@ -43,7 +43,7 @@ export function setLoginSuccess(isLoginSuccess: boolean): ILoginAction {
   };
 }
 
-export function setLoginError(loginError: string): ISetLoginError {
+export function setLoginError(loginError: boolean): ISetLoginError {
   return {
     type: SET_LOGIN_ERROR,
     // tslint:disable-next-line:object-literal-sort-keys
@@ -54,7 +54,7 @@ export function setLoginError(loginError: string): ISetLoginError {
 export function remoteFetchUsers(email: string, password: string) {
     return (dispatch: Dispatch<ILoginAction>) => {
       // dispatch(setLoginPending(true));
-      // dispatch(setLoginSuccess(false));
+      // dispatch(setLoginSuccess(true));
       // dispatch(setLoginError('error la hahaha'));
 
       axios
@@ -62,16 +62,26 @@ export function remoteFetchUsers(email: string, password: string) {
           email, 
           password, 
         }).then(res => {
-          setTimeout(() => {
-            dispatch(setLoginPending(false));
-            
-            if (res.data.isdataempty === true) {
+          // tslint:disable-next-line:no-console
+          console.log(res.data.data)
+          // 
+            dispatch(setLoginPending(true));
+            dispatch(setLoginSuccess(false));
+            dispatch(setLoginError(false));
+            setTimeout(() => {
+            if (res.data.data === true) {
               dispatch(setLoginSuccess(true));
+              dispatch(setLoginError(false));
+              dispatch(setLoginPending(false));
             } else {
-              dispatch(setLoginError('error la hahaha'));
+              dispatch(setLoginError(true));
+              dispatch(setLoginSuccess(false));
+              dispatch(setLoginPending(false));
             }
-        })}).catch(err => {
-          alert(err)
+          }, 1000);
+        }).catch(err => {
+          // tslint:disable-next-line:no-console
+          console.log(err)
         });
     };
   }

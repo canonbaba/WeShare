@@ -19,7 +19,7 @@ class UserRouter {
     return this.userService
     .signup(req.body)
     .then(data => {
-      res.json({ data: 'success' });
+      res.json(data);
     })
     .catch(err => res.status(500).json(err));
   }

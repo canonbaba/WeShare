@@ -2,7 +2,7 @@ exports.up = function (knex, Promise) {
     return knex.schema.createTable('users', (user) => {
         user.increments();
         user.string("name");
-        user.text("e-mail");
+        user.text("email");
         user.text("password");
         user.bigInteger("fbid");
         user.timestamps(false, true);

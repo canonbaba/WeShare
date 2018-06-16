@@ -60,7 +60,6 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                             <Button bsStyle="primary" onClick={this.props.signupClose}><Glyphicon glyph="remove" /></Button>
                         </div>
                         <Link to="/login"><Button bsStyle="primary">Login</Button></Link>
-                        <Link to="/signup"><Button bsStyle="primary">Sign up</Button></Link>
                     </Modal.Header>
 
                     <Form horizontal={true}>

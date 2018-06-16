@@ -3,13 +3,13 @@ import { ILoginAction, SET_LOGIN_ERROR, SET_LOGIN_PENDING, SET_LOGIN_SUCCESS } f
 export interface ILoginState {
     isLoginPending: boolean;
     isLoginSuccess: boolean;
-    loginError: string | null
+    loginError: boolean;
 }
 
 const initialState = {
     isLoginPending: false,
     isLoginSuccess: false,
-    loginError: null
+    loginError: false
 };
 
 export const LoginReducer = (oldState: ILoginState = initialState, action: ILoginAction) => {
