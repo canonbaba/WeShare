@@ -3,6 +3,7 @@ import { Button, Glyphicon } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { store } from 'src/redux/store';
+import PostForm from 'src/screens/create_post';
 import LoginPopup from 'src/screens/popup_login';
 import SignupPopup from 'src/screens/popup_signup';
 
@@ -45,6 +46,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
             <Switch>
               <Route path="/login" exact={true} component={LoginPopup} />
+              <Route path="/postform" exact={true} component={PostForm} />
             </Switch>
           </div>
         </div>

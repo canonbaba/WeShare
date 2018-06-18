@@ -12,12 +12,12 @@ interface ILoginProps {
     login: (email: string, password: string) => void;
 }
 
-interface ILoginSate {
+interface ILoginState {
     email: string;
-    password: string
+    password: string;
 }
 
-class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
+class LoginPopup extends React.Component<ILoginProps, ILoginState> {
     constructor(props: ILoginProps) {
         super(props);
 
@@ -25,7 +25,6 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
             email: '',
             password: ''
         };
-        // this.onSubmit = this.onSubmit.bind(this);
     }
 
     public handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +45,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
     // }
 
     public render() {
-        const {isLoginPending, isLoginSuccess, loginError} = this.props;
+        const { isLoginPending, isLoginSuccess, loginError } = this.props;
         return (
             <div className="static-modal">
                 <Modal.Dialog>
@@ -65,7 +64,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
                                 Email
                             </Col>
                             <Col sm={7}>
-                            <input type="text" onChange={this.handleEmail} value={this.state.email} />
+                                <input type="text" onChange={this.handleEmail} value={this.state.email} />
                             </Col>
                         </FormGroup>
 
@@ -74,7 +73,7 @@ class LoginPopup extends React.Component<ILoginProps, ILoginSate> {
                                 Password
                              </Col>
                             <Col sm={7}>
-                            <input type="password" onChange={this.handlePassword} value={this.state.password} />
+                                <input type="password" onChange={this.handlePassword} value={this.state.password} />
                             </Col>
                         </FormGroup>
 
