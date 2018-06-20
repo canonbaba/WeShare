@@ -15,16 +15,17 @@ class LoginRouter {
 
 
   post(req,res){
-      console.log(req.body.email, req.body.password )
+    // console.log(req.body.email, req.body.password )
     return this.loginService
     .login({email: req.body.email, password: req.body.password})
     .then(data => {
         console.log(data)
-      if (data.length > 0){ 
-        res.json({data: true});
-      } else {
-        res.json({data: false});
-      }
+        res.json({data});
+      // if (data.length > 0){ 
+      //   res.json({data: true});
+      // } else {
+      //   res.json({data: false});
+      // }
     })
     .catch(err => res.status(500).json(err));
     }

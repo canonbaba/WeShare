@@ -11,7 +11,7 @@ exports.up = function (knex, Promise) {
         return knex.schema.createTable("contract", (contract) => {
             contract.increments();
             contract.string("productName");
-            contract.integer("price").unsigned();
+            contract.text("price");
             contract.text("additionalRequest");
             contract.text("photo");
             contract.dateTime("createDate");
@@ -33,8 +33,8 @@ exports.up = function (knex, Promise) {
         return knex.schema.createTable("post", (post) => {
             post.increments();
             post.string("nameOfProduct");
-            post.integer("price")
-            post.integer("numberOfShareUser");
+            post.text("price")
+            post.text("numberOfShareUser");
             post.string("percentageOfPay");
             post.text("location");
             post.text("description");

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { remoteFetchUsers } from 'src/redux/login/actions';
 import { IRootState } from 'src/redux/store';
 
@@ -39,13 +39,12 @@ class LoginPopup extends React.Component<ILoginProps, ILoginState> {
         })
     }
 
-    // public onSubmit = (event: any) => {
-    //     event.preventDefault()
-    //     this.props.login.bind(this, this.state.email, this.state.password)
-    // }
-
     public render() {
         const { isLoginPending, isLoginSuccess, loginError } = this.props;
+
+        if (isLoginSuccess === true) {
+            return <Redirect to='/home' />
+          } else{
         return (
             <div className="static-modal">
                 <Modal.Dialog>
@@ -100,7 +99,8 @@ class LoginPopup extends React.Component<ILoginProps, ILoginState> {
                 </Modal.Dialog>
             </div>
         );
-    }
+    }}
+
 }
 
 
@@ -121,6 +121,3 @@ const mapDispatchToProps = (dispatch: any) => {
 const LoginUser = connect(mapStateToProps, mapDispatchToProps)(LoginPopup);
 
 export default LoginUser;
-
-
-

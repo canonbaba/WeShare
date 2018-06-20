@@ -1,10 +1,10 @@
 import * as express from "express";
 
-class UserRouter {
-  private userService: any;
+class PostFormRouter {
+  private postFormService: any;
 
-  constructor(userService) {
-    this.userService = userService;
+  constructor(postFormService) {
+    this.postFormService = postFormService;
   }
 
   route() {
@@ -16,18 +16,19 @@ class UserRouter {
 
 
   post(req,res){
-    return this.userService
-    .signup(req.body)
+    // what's is photo???
+    console.log(req.body.productName, req.body.productPrice, req.body.productPricePercent, req.body.numberOfShareUser,req.body.productDescription, req.body.productCategory,req.body.userid, req.body.photo)
+    return this.postFormService
+    .savepost(req.body)
     .then(data => {
-      console.log(data);
-      res.json({data: data});
+      res.json({data: 'saved post'});
     })
     .catch(err => res.status(500).json(err));
   }
 }
 
  
-export default UserRouter;
+export default PostFormRouter;
 
 // get(req, res) {
 //     return this.resultService

@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
-
-
 export const SIGNUP_USERS = 'SIGNUP_USERS';
 export type SIGNUP_USERS = typeof SIGNUP_USERS;
 
@@ -30,7 +28,7 @@ export function remoteSignupUsers(email: string, password: string, name: string)
         name,
         password, 
       }).then(res => {
-        alert(res.data);
+        alert(res.data.data);
         dispatch(signupUsers(res.data))
       }).catch(err => {
         alert(err)

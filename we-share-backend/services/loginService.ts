@@ -12,9 +12,6 @@ class LoginService {
     }).select('email', 'password', 'id')
   }
 
-
-
-
 }
 
 export default LoginService;

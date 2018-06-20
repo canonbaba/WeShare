@@ -11,18 +11,19 @@ export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 export type SET_LOGIN_ERROR = typeof SET_LOGIN_ERROR;
 
 export interface ISetLoginPending {
-    type: SET_LOGIN_PENDING,
-    isLoginPending: boolean
+  type: SET_LOGIN_PENDING,
+  isLoginPending: boolean
 }
 
 export interface ISetLoginSuccess {
-    type: SET_LOGIN_SUCCESS,
-    isLoginSuccess: boolean
+  type: SET_LOGIN_SUCCESS,
+  isLoginSuccess: boolean,
+  userid: number
 }
 
 export interface ISetLoginError {
-    type: SET_LOGIN_ERROR,
-    loginError: boolean
+  type: SET_LOGIN_ERROR,
+  loginError: boolean
 }
 
 export type ILoginAction = ISetLoginPending | ISetLoginSuccess | ISetLoginError;
@@ -35,11 +36,12 @@ export function setLoginPending(isLoginPending: boolean): ILoginAction {
   };
 }
 
-export function setLoginSuccess(isLoginSuccess: boolean): ILoginAction {
+export function setLoginSuccess(isLoginSuccess: boolean, userid: number): ILoginAction {
   return {
     type: SET_LOGIN_SUCCESS,
     // tslint:disable-next-line:object-literal-sort-keys
-    isLoginSuccess
+    isLoginSuccess,
+    userid
   };
 }
 
@@ -52,39 +54,35 @@ export function setLoginError(loginError: boolean): ISetLoginError {
 }
 
 export function remoteFetchUsers(email: string, password: string) {
-    return (dispatch: Dispatch<ILoginAction>) => {
-      // dispatch(setLoginPending(true));
-      // dispatch(setLoginSuccess(true));
-      // dispatch(setLoginError('error la hahaha'));
+  return (dispatch: Dispatch<ILoginAction>) => {
+    axios
+      .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
+        email,
+        password,
+      }).then(res => {
+        // tslint:disable-next-line:no-console
+        console.log(res.data.data[0].id)
 
-      axios
-        .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
-          email, 
-          password, 
-        }).then(res => {
-          // tslint:disable-next-line:no-console
-          console.log(res.data.data)
-          // 
-            dispatch(setLoginPending(true));
-            dispatch(setLoginSuccess(false));
+        dispatch(setLoginPending(true));
+        dispatch(setLoginSuccess(false, res.data.data[0].id));
+        dispatch(setLoginError(false));
+        setTimeout(() => {
+          if (res.data.data.length > 0) {
+            dispatch(setLoginSuccess(true, res.data.data[0].id));
             dispatch(setLoginError(false));
-            setTimeout(() => {
-            if (res.data.data === true) {
-              dispatch(setLoginSuccess(true));
-              dispatch(setLoginError(false));
-              dispatch(setLoginPending(false));
-            } else {
-              dispatch(setLoginError(true));
-              dispatch(setLoginSuccess(false));
-              dispatch(setLoginPending(false));
-            }
-          }, 1000);
-        }).catch(err => {
-          // tslint:disable-next-line:no-console
-          console.log(err)
-        });
-    };
-  }
+            dispatch(setLoginPending(false));
+          } else {
+            dispatch(setLoginError(true));
+            dispatch(setLoginSuccess(false, res.data.data[0].id));
+            dispatch(setLoginPending(false));
+          }
+        }, 1000);
+      }).catch(err => {
+        // tslint:disable-next-line:no-console
+        console.log(err)
+      });
+  };
+}
 
 //   export function fetchUsers() {
 //     return (dispatch: Dispatch<IUserActions>) => {

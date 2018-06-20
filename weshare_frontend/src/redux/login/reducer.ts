@@ -4,12 +4,14 @@ export interface ILoginState {
     isLoginPending: boolean;
     isLoginSuccess: boolean;
     loginError: boolean;
+    userid?: number;
 }
 
 const initialState = {
     isLoginPending: false,
     isLoginSuccess: false,
-    loginError: false
+    loginError: false,
+    userid: 0
 };
 
 export const LoginReducer = (oldState: ILoginState = initialState, action: ILoginAction) => {
@@ -25,7 +27,8 @@ export const LoginReducer = (oldState: ILoginState = initialState, action: ILogi
             {
                 return {
                     ...oldState,
-                    isLoginSuccess: action.isLoginSuccess
+                    isLoginSuccess: action.isLoginSuccess,
+                    userid: action.userid
                 };
             }
         case SET_LOGIN_ERROR:

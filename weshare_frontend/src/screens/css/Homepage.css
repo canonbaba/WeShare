@@ -1,0 +1,31 @@
+
+.homepage input {
+    width: 300px;
+}
+
+.homepage .post {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.homepage .btn-secondary {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.homepage .btn-secondary:hover {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    /* box-shadow: transparent; */
+}
+
+/* .btn-secondary:focus {
+    -webkit-box-shadow: transparent;
+    box-shadow: transparent;
+} */
+
+/* .btn:focus {
+    outline: 0;
+} */

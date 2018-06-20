@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { store } from 'src/redux/store';
 import PostForm from 'src/screens/create_post';
+import Home from 'src/screens/home';
 import LoginPopup from 'src/screens/popup_login';
 import SignupPopup from 'src/screens/popup_signup';
 
@@ -38,15 +39,21 @@ class App extends React.Component<{}, { signupshow: boolean }> {
           <header>
             <h1>Welcome to React</h1>
             <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Sing up</Button>
+
             <Link to="/login">
               <Button bsStyle="primary" bsSize="small"><Glyphicon glyph="user" /></Button>
             </Link>
+
+            <Link to="/home">
+              <Button bsStyle="primary" bsSize="small">Home</Button>
+            </Link>
+
           </header>
           <div>
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
             <Switch>
               <Route path="/login" exact={true} component={LoginPopup} />
-              <Route path="/postform" exact={true} component={PostForm} />
+              <Route path="/postform" exact={true} component={PostForm} />              <Route path="/home" exact={true} component={Home} />
             </Switch>
           </div>
         </div>
