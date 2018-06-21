@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
+import PostForm from 'src/pages/create_post';
+import Home from 'src/pages/home';
+import LoginPopup from 'src/pages/popup_login';
+import SignupPopup from 'src/pages/popup_signup';
 import { store } from 'src/redux/store';
-import PostForm from 'src/screens/create_post';
-import Home from 'src/screens/home';
-import LoginPopup from 'src/screens/popup_login';
-import SignupPopup from 'src/screens/popup_signup';
 
 
 

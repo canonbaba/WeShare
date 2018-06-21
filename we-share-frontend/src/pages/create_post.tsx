@@ -69,7 +69,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
 
         reader.onloadend = () => {
             this.setState({
-                photo: file,
+                photo: file, // useless ,can delete
                 // tslint:disable-next-line:object-literal-sort-keys
                 photoUrl: reader.result
             });

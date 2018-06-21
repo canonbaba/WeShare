@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Container } from 'reactstrap';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import PostPopup from 'src/pages/popup_post';
 import { fetchHomeDate } from 'src/redux/home/action';
 import { IRootState } from 'src/redux/store';
-import PostPopup from 'src/screens/popup_post';
 import './css/Homepage.css';
 
 
