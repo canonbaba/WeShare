@@ -1,15 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardSubtitle, CardText, CardTitle, Container } from 'reactstrap';
-// import ButtonDropdown from 'reactstrap/lib/ButtonDropdown';
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Container } from 'reactstrap';
 import Col from 'reactstrap/lib/Col';
-// import DropdownItem from 'reactstrap/lib/DropdownItem';
-// import DropdownMenu from 'reactstrap/lib/DropdownMenu';
-// import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import Row from 'reactstrap/lib/Row';
 import { fetchHomeDate } from 'src/redux/home/action';
 import { IRootState } from 'src/redux/store';
+import PostPopup from 'src/screens/popup_post';
 import './css/Homepage.css';
 
 
@@ -20,7 +17,7 @@ interface IHomeProps {
 }
 
 interface IHomeState {
-    // dropdownOpen: boolean
+    postshow: boolean;
     productDescription: string;
 }
 
@@ -28,23 +25,27 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
     constructor(props: IHomeProps) {
         super(props);
 
-        // this.toggle = this.toggle.bind(this);
         this.state = {
-            // dropdownOpen: false
+            postshow: false,
             productDescription: '', // should be number in backend
         };
     }
 
+    public postShow = () => {
+        this.setState({
+            postshow: !this.state.postshow
+        })
+      }
+
+    public postPopupClose = () => {
+        this.setState({
+            postshow: false
+        })
+    } 
 
     public componentDidMount() {
         this.props.onloadHomeData(this.props.userid);
     }
-
-    // public toggle() {
-    //     this.setState({
-    //         // dropdownOpen: !this.state.dropdownOpen
-    //     });
-    // }
 
     public handleSelectCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
         this.setState({ productDescription: e.target.value });
@@ -59,13 +60,13 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
             <li>rating: {data.averageRating}</li>
             </ul>
         });
-
-        // const homedataName = this.props.homedata.map((data: any, i: number) => {
-        //     return <li key={i}>{data.photo}</li>
-        // });
         
         return (
             <div className="static-modal">
+
+            <PostPopup postPopup={this.state.postshow} postPopupClose={this.postPopupClose}/>
+            <Button onClick={this.postShow}>PostPopup testing</Button>
+
                 <h1>HOMEAGE</h1>
                 <div>
                     {homedata}
