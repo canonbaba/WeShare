@@ -19,13 +19,8 @@ class LoginRouter {
     return this.loginService
     .login({email: req.body.email, password: req.body.password})
     .then(data => {
-        console.log(data)
+        // console.log(data)
         res.json({data});
-      // if (data.length > 0){ 
-      //   res.json({data: true});
-      // } else {
-      //   res.json({data: false});
-      // }
     })
     .catch(err => res.status(500).json(err));
     }

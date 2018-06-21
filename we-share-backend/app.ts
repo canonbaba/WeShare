@@ -9,9 +9,6 @@ const knex = Knex(knexfile.development)
 import UserRouter from './routers/userRouter';
 import UserService from './services/userService';
 
-import RandomRouter from './routers/randomRouter';
-import RandomService from './services/randomService';
-
 import ProfileRouter from './routers/profileRouter';
 import ProfileService from './services/profileService';
 
@@ -20,6 +17,8 @@ import LoginRouter from './routers/loginRouter';
 import LoginService from './services/loginService';
 import PostFormService from './services/postFormService';
 import PostFormRouter from './routers/postFormRouter';
+import HomeService from './services/homeService';
+import HomeRouter from './routers/homeRouter';
 
 
 
@@ -38,20 +37,19 @@ let loginRouter = new  LoginRouter(loginService);
 let userService = new UserService(knex);
 let userRouter = new UserRouter(userService);
 
-let randomService = new RandomService(knex);
-let randomRouter = new RandomRouter(randomService);
+let homeService = new HomeService(knex);
+let homeRouter = new HomeRouter(homeService);
 
 let profileService = new ProfileService(knex);
 let profileRouter = new ProfileRouter(profileService);
 
 
-
-// need use `${process.env.REACT_APP_API_SERVER}/api/login` ???
 app.use("/api/login", loginRouter.route());
 app.use("/api/signup", userRouter.route());
-app.use("/api/random", randomRouter.route());
 app.use("/api/profile", profileRouter.route());
 app.use("/api/post_form",postFormRouter.route());
+app.use("/api/home",homeRouter.route());
+
 
 
 

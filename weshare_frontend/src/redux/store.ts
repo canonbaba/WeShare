@@ -1,8 +1,9 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { HomeReducer, IHomeDataState } from 'src/redux/home/reducer';
 import { ILoginState, LoginReducer } from 'src/redux/login/reducer';
-import { UserReducer } from 'src/redux/signup/reducer';
+import { IUserState, UserReducer } from 'src/redux/signup/reducer';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
 
@@ -17,9 +18,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export interface IRootState {
   auth: IAuthState;
-  users: IUser; // need to rewrite because it should be 'IUserState' from signup state
+  users: IUserState; // seem never be used by mapStateToProps(signup)
   islogin: ILoginState;
-  postform: IPostForm;
+  postform: IPostForm; // should be IPostFormState, but there is no postform reducer
+  homedata: IHomeDataState;// homedata
 }
 
 export const store = createStore(
@@ -27,6 +29,7 @@ export const store = createStore(
     auth: AuthReducer,
     users: UserReducer,
     // tslint:disable-next-line:object-literal-sort-keys
-    islogin: LoginReducer
+    islogin: LoginReducer,
+    homedata: HomeReducer,
   }), composeEnhancers(applyMiddleware(thunk, logger))
 );

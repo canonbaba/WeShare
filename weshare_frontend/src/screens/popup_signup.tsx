@@ -103,10 +103,11 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
 const mapStateToProps = (rootState: IRootState) => {
     return {
-        name: rootState.users.name,
+        // seem to be never use below data
+        name: rootState.users.users,
         // tslint:disable-next-line:object-literal-sort-keys
-        email: rootState.users.email,
-        password: rootState.users.password
+        email: rootState.users.users,
+        password: rootState.users.users
     }
 }
 

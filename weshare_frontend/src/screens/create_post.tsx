@@ -111,7 +111,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                     <input className="fileInput"
                         type="file"
                         onChange={this.imageChange}/>
-                    <div className="imgPreview">
+                    <div>
                         {$imagePreview}
                     </div>
 
@@ -120,6 +120,11 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                     <select value={this.state.productCategory} onChange={this.productCategoryChange}>
                         <option value="">Please select</option>
                         <option value="1">Fashion</option>
+                        <option value="2">electric product</option>
+                        <option value="3">vehicle</option>
+                        <option value="4">food & drink</option>
+                        <option value="5">toy</option>
+                        <option value="6">others</option>
                     </select>
                     <Button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent, 
                     this.state.numberOfShareUser, 

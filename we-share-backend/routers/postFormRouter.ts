@@ -17,7 +17,7 @@ class PostFormRouter {
 
   post(req,res){
     // what's is photo???
-    console.log(req.body.productName, req.body.productPrice, req.body.productPricePercent, req.body.numberOfShareUser,req.body.productDescription, req.body.productCategory,req.body.userid, req.body.photo)
+    // console.log(req.body.productName, req.body.productPrice, req.body.productPricePercent, req.body.numberOfShareUser,req.body.productDescription, req.body.productCategory,req.body.userid, req.body.photo)
     return this.postFormService
     .savepost(req.body)
     .then(data => {

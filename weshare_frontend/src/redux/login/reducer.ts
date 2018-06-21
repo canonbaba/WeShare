@@ -4,7 +4,7 @@ export interface ILoginState {
     isLoginPending: boolean;
     isLoginSuccess: boolean;
     loginError: boolean;
-    userid?: number;
+    userid?: number | null;
 }
 
 const initialState = {
