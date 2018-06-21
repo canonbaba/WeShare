@@ -53,7 +53,8 @@ class App extends React.Component<{}, { signupshow: boolean }> {
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
             <Switch>
               <Route path="/login" exact={true} component={LoginPopup} />
-              <Route path="/postform" exact={true} component={PostForm} />              <Route path="/home" exact={true} component={Home} />
+              <Route path="/postform" exact={true} component={PostForm} />
+              <Route path="/home" exact={true} component={Home} />
             </Switch>
           </div>
         </div>
