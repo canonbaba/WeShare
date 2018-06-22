@@ -12,6 +12,8 @@ exports.up = function (knex, Promise) {
             contract.increments();
             contract.string("productName");
             contract.text("price");
+            contract.text("percentage");
+            contract.text("dayToUse");
             contract.text("additionalRequest");
             contract.text("photo");
             contract.dateTime("createDate");

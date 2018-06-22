@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Container } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import PostPopup from 'src/pages/popup_post';
@@ -14,11 +14,14 @@ interface IHomeProps {
     userid: number; // can't declare it's undefined?
     homedata: IHomeData[];
     onloadHomeData: (userid: number) => void;
+    isLoginSuccess: boolean;
+    // showProfileLogo: () => void;
 }
 
 interface IHomeState {
     postshow: boolean;
     productDescription: string;
+    postPopupData: IHomeData;
 }
 
 class HomePage extends React.Component<IHomeProps, IHomeState> {
@@ -28,12 +31,29 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
         this.state = {
             postshow: false,
             productDescription: '', // should be number in backend
+            // tslint:disable-next-line:object-literal-sort-keys
+            postPopupData: {
+                id: 0,
+                nameOfProduct: '',
+                price: '',
+                // tslint:disable-next-line:object-literal-sort-keys
+                numberOfShareUser: '',
+                percentageOfPay: '',
+                description: '',
+                category_id: '',
+                photo: '',
+                averageRating: '',
+                userId: 0,
+                created_at: ''
+            }
         };
     }
 
-    public postShow = () => {
+    public postShow = (data: IHomeData) => {
         this.setState({
-            postshow: !this.state.postshow
+            postshow: !this.state.postshow,
+            // tslint:disable-next-line:object-literal-sort-keys
+            postPopupData: data
         })
       }
 
@@ -41,10 +61,13 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
         this.setState({
             postshow: false
         })
-    } 
-
+    }
+    
     public componentDidMount() {
         this.props.onloadHomeData(this.props.userid);
+        // if (this.props.isLoginSuccess === true) {
+        //     this.props.showProfileLogo()
+        // }
     }
 
     public handleSelectCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -53,24 +76,28 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
 
     public render() {
         const homedata = this.props.homedata.map((data: any, i: number) => {
-            return <ul key={i}>
+            return <div onClick={this.postShow.bind(this, data)} key={i}>
+            <ul>
             <li><img src={data.photo} /></li>
             <li>title: {data.nameOfProduct}</li>
             <li>number of people: {data.numberOfShareUser}</li>
             <li>rating: {data.averageRating}</li>
             </ul>
+            </div>
         });
         
         return (
             <div className="static-modal">
 
-            <PostPopup postPopup={this.state.postshow} postPopupClose={this.postPopupClose}/>
-            <Button onClick={this.postShow}>PostPopup testing</Button>
+            <PostPopup postPopup={this.state.postshow} 
+            postData={this.state.postPopupData}
+            postPopupClose={this.postPopupClose}/>
+            {/* <Button onClick={this.postShow}>PostPopup testing</Button> */}
 
                 <h1>HOMEAGE</h1>
-                <div>
+
                     {homedata}
-                </div>
+
                 <Container>
                     <Row>
                         <select value={this.state.productDescription} onChange={this.handleSelectCategory}>
@@ -90,24 +117,14 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                     </div>
                 </Container>
 
-                <div>
-                    <Col xs="4" sm="4">
-                        <Card>
-                            <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                            <CardBody>
-                                <CardTitle>Card title</CardTitle>
-                                <CardSubtitle>Card subtitle</CardSubtitle>
-                                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </div>
-
+                
+                {this.props.isLoginSuccess && 
                 <div>
                     <Link to="/postform">
                         <button type="submit">Post</button>
                     </Link>
-                </div>
+                </div>}
+                
             </div>
         );
     }
@@ -117,7 +134,8 @@ const mapStateToProps = (rootState: IRootState) => {
     return {
         userid: rootState.islogin.userid,
         // tslint:disable-next-line:object-literal-sort-keys
-        homedata: rootState.homedata.homedata
+        homedata: rootState.homedata.homedata,
+        isLoginSuccess: rootState.islogin.isLoginSuccess,
     }
 }
 const mapDispatchToProps = (dispatch: any) => {
