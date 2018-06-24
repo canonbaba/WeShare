@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Glyphicon, Modal } from 'react-bootstrap';
+import { IHomeData } from 'src/models';
 
 interface IPostPopupProps {
     postPopup: boolean;

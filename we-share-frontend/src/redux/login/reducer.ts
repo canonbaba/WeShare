@@ -5,13 +5,18 @@ export interface ILoginState {
     isLoginSuccess: boolean;
     loginError: boolean;
     userid?: number | null;
+    loginName: string | null;
+    loginEmail: string | null; 
 }
 
 const initialState = {
     isLoginPending: false,
     isLoginSuccess: false,
     loginError: false,
-    userid: 0
+    userid: 0,
+    // tslint:disable-next-line:object-literal-sort-keys
+    loginName: '',
+    loginEmail: '',
 };
 
 export const LoginReducer = (oldState: ILoginState = initialState, action: ILoginAction) => {
@@ -28,7 +33,10 @@ export const LoginReducer = (oldState: ILoginState = initialState, action: ILogi
                 return {
                     ...oldState,
                     isLoginSuccess: action.isLoginSuccess,
-                    userid: action.userid
+                    userid: action.userid,
+                    // tslint:disable-next-line:object-literal-sort-keys
+                    loginName: action.loginName,
+                    loginEmail: action.loginEmail
                 };
             }
         case SET_LOGIN_ERROR:

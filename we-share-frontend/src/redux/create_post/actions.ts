@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
+import { IPostForm } from 'src/models';
 
 export const POST_SAVE = 'POST_SAVE';
 export type POST_SAVE = typeof POST_SAVE;

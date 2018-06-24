@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
+import { IHomeData } from 'src/models';
 
 export const LOAD_HOMEDATA = 'LOAD_HOMEDATA';
 export type LOAD_HOMEDATA = typeof LOAD_HOMEDATA;

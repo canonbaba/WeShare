@@ -18,7 +18,9 @@ export interface ISetLoginPending {
 export interface ISetLoginSuccess {
   type: SET_LOGIN_SUCCESS,
   isLoginSuccess: boolean,
-  userid: number
+  userid: number,
+  loginName: string | null;
+  loginEmail: string | null; 
 }
 
 export interface ISetLoginError {
@@ -36,12 +38,14 @@ export function setLoginPending(isLoginPending: boolean): ILoginAction {
   };
 }
 
-export function setLoginSuccess(isLoginSuccess: boolean, userid: number): ILoginAction {
+export function setLoginSuccess(isLoginSuccess: boolean, userid: number, loginName: string, loginEmail: string): ILoginAction {
   return {
     type: SET_LOGIN_SUCCESS,
     // tslint:disable-next-line:object-literal-sort-keys
     isLoginSuccess,
-    userid
+    userid,
+    loginName,
+    loginEmail
   };
 }
 
@@ -64,16 +68,16 @@ export function remoteFetchUsers(email: string, password: string) {
         console.log(res.data.data[0].id)
 
         dispatch(setLoginPending(true));
-        dispatch(setLoginSuccess(false, res.data.data[0].id));
+        dispatch(setLoginSuccess(false, res.data.data[0].id, res.data.data[0].name, res.data.data[0].email));
         dispatch(setLoginError(false));
         setTimeout(() => {
           if (res.data.data.length > 0) {
-            dispatch(setLoginSuccess(true, res.data.data[0].id));
+            dispatch(setLoginSuccess(true, res.data.data[0].id, res.data.data[0].name, res.data.data[0].email));
             dispatch(setLoginError(false));
             dispatch(setLoginPending(false));
           } else {
             dispatch(setLoginError(true));
-            dispatch(setLoginSuccess(false, res.data.data[0].id));
+            dispatch(setLoginSuccess(false, res.data.data[0].id, res.data.data[0].name, res.data.data[0].email));
             dispatch(setLoginPending(false));
           }
         }, 1000);

@@ -1,0 +1,57 @@
+.num {
+    margin: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.rating {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .rating tbody {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+} */
+
+.rating th {
+    width: 50px;
+}
+
+.rating td {
+    width: 50px;
+    /* display: flex; */
+}
+
+#rate {
+    padding: 0px;
+}
+
+#rate p {
+    margin: 0px;
+}
+
+/* .rating p {
+    margin-right: 50px;
+} */
+
+.comment {
+    /* height: 300px; */
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+
+/* .content {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+/* .comment input {
+    width: 50vw;
+} */

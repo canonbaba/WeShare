@@ -3,6 +3,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { HomeReducer, IHomeDataState } from 'src/redux/home/reducer';
 import { ILoginState, LoginReducer } from 'src/redux/login/reducer';
+import { IProfilePostState, ProfileReducer } from 'src/redux/profile/reducer';
 import { IUserState, UserReducer } from 'src/redux/signup/reducer';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
@@ -20,8 +21,10 @@ export interface IRootState {
   auth: IAuthState;
   users: IUserState; // seem never be used by mapStateToProps(signup)
   islogin: ILoginState;
-  postform: IPostForm; // should be IPostFormState, but there is no postform reducer
+  // postform: IPostForm; // should be IPostFormState, but there is no postform reducer
   homedata: IHomeDataState;// homedata
+  profilePost: IProfilePostState;
+  profileRating: IProfilePostState;
 }
 
 export const store = createStore(
@@ -31,5 +34,7 @@ export const store = createStore(
     // tslint:disable-next-line:object-literal-sort-keys
     islogin: LoginReducer,
     homedata: HomeReducer,
+    profilePost: ProfileReducer,
+    profileRating: ProfileReducer
   }), composeEnhancers(applyMiddleware(thunk, logger))
 );

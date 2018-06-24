@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import { IHomeData } from 'src/models';
 import PostPopup from 'src/pages/popup_post';
 import { fetchHomeDate } from 'src/redux/home/action';
 import { IRootState } from 'src/redux/store';
@@ -11,7 +12,7 @@ import './css/Homepage.css';
 
 
 interface IHomeProps {
-    userid: number; // can't declare it's undefined?
+    userid: number; // can't declare it is undefined?
     homedata: IHomeData[];
     onloadHomeData: (userid: number) => void;
     isLoginSuccess: boolean;
@@ -20,7 +21,7 @@ interface IHomeProps {
 
 interface IHomeState {
     postshow: boolean;
-    productDescription: string;
+    productCategory: string;
     postPopupData: IHomeData;
 }
 
@@ -30,7 +31,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
 
         this.state = {
             postshow: false,
-            productDescription: '', // should be number in backend
+            productCategory: '', // should be number in backend
             // tslint:disable-next-line:object-literal-sort-keys
             postPopupData: {
                 id: 0,
@@ -55,14 +56,14 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
             // tslint:disable-next-line:object-literal-sort-keys
             postPopupData: data
         })
-      }
+    }
 
     public postPopupClose = () => {
         this.setState({
             postshow: false
         })
     }
-    
+
     public componentDidMount() {
         this.props.onloadHomeData(this.props.userid);
         // if (this.props.isLoginSuccess === true) {
@@ -71,36 +72,36 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
     }
 
     public handleSelectCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        this.setState({ productDescription: e.target.value });
+        this.setState({ productCategory: e.target.value });
     }
 
     public render() {
         const homedata = this.props.homedata.map((data: any, i: number) => {
             return <div onClick={this.postShow.bind(this, data)} key={i}>
-            <ul>
-            <li><img src={data.photo} /></li>
-            <li>title: {data.nameOfProduct}</li>
-            <li>number of people: {data.numberOfShareUser}</li>
-            <li>rating: {data.averageRating}</li>
-            </ul>
+                <ul>
+                    <li><img src={data.photo} /></li>
+                    <li>title: {data.nameOfProduct}</li>
+                    <li>number of people: {data.numberOfShareUser}</li>
+                    <li>rating: {data.averageRating}</li>
+                </ul>
             </div>
         });
-        
+
         return (
             <div className="static-modal">
 
-            <PostPopup postPopup={this.state.postshow} 
-            postData={this.state.postPopupData}
-            postPopupClose={this.postPopupClose}/>
-            {/* <Button onClick={this.postShow}>PostPopup testing</Button> */}
+                <PostPopup postPopup={this.state.postshow}
+                    postData={this.state.postPopupData}
+                    postPopupClose={this.postPopupClose} />
+                {/* <Button onClick={this.postShow}>PostPopup testing</Button> */}
 
                 <h1>HOMEAGE</h1>
 
-                    {homedata}
+                {homedata}
 
                 <Container>
                     <Row>
-                        <select value={this.state.productDescription} onChange={this.handleSelectCategory}>
+                        <select value={this.state.productCategory} onChange={this.handleSelectCategory}>
                             <option value="">Please select</option>
                             <option value="1">Fashion</option>
                             <option value="2">electric product</option>
@@ -117,14 +118,14 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                     </div>
                 </Container>
 
-                
-                {this.props.isLoginSuccess && 
-                <div>
-                    <Link to="/postform">
-                        <button type="submit">Post</button>
-                    </Link>
-                </div>}
-                
+
+                {this.props.isLoginSuccess &&
+                    <div>
+                        <Link to="/postform">
+                            <button type="submit">Post</button>
+                        </Link>
+                    </div>}
+
             </div>
         );
     }

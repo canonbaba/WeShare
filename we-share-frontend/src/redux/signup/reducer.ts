@@ -1,3 +1,4 @@
+import { IUser } from 'src/models';
 import { IUserActions, SIGNUP_USERS } from './actions';
 
 export interface IUserState {

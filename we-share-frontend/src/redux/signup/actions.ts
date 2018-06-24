@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
+import { IUser } from 'src/models';
 
 export const SIGNUP_USERS = 'SIGNUP_USERS';
 export type SIGNUP_USERS = typeof SIGNUP_USERS;

@@ -15,23 +15,30 @@ class ProfileRouter {
 
   route() {
     let router = express.Router();
-    router.get("/", this.get.bind(this));
-    router.get("/", this.getPost.bind(this));
+    router.post("/", this.post.bind(this));
+    router.post("/ratingdata", this.getProfileRating.bind(this));
     return router;
   }
 
-  get(req,res){
-      return this.profileService
-      .getUser(req.body.token)
-      .then(arr => res.json(arr))
-      .catch(err => res.status(500).json(err));
-  }
+  post(req,res){
+    return this.profileService
+    .profilePostdata(req.body)
+    .then(data => {
+        // console.log(data)
+        res.json(data);
+    })
+    .catch(err => res.status(500).json(err));
+    }
+  
 
-  getPost(req,res){
-        return this.profileService
-        .extractPost(req.body.token)
-        .then(arr => res.json(arr))
-        .catch(err => res.status(500).json(err));
+  getProfileRating(req,res){
+    return this.profileService
+    .profileRatingdata(req.body)
+    .then(data => {
+        console.log(data)
+        res.json(data);
+    })
+    .catch(err => res.status(500).json(err));
     }
 
   }

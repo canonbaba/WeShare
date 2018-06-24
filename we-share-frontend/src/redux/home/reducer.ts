@@ -1,3 +1,4 @@
+import { IHomeData } from "src/models";
 import { IHomeDataAction, LOAD_HOMEDATA } from "src/redux/home/action";
 
 export interface IHomeDataState {

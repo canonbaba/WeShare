@@ -19,6 +19,8 @@ import PostFormService from './services/postFormService';
 import PostFormRouter from './routers/postFormRouter';
 import HomeService from './services/homeService';
 import HomeRouter from './routers/homeRouter';
+import RatingService from './services/ratingService';
+import RatingRouter from './routers/ratingRouter';
 
 
 
@@ -40,6 +42,9 @@ let userRouter = new UserRouter(userService);
 let homeService = new HomeService(knex);
 let homeRouter = new HomeRouter(homeService);
 
+let ratingService = new RatingService(knex);
+let ratingRouter = new RatingRouter(ratingService);
+
 let profileService = new ProfileService(knex);
 let profileRouter = new ProfileRouter(profileService);
 
@@ -47,9 +52,9 @@ let profileRouter = new ProfileRouter(profileService);
 app.use("/api/login", loginRouter.route());
 app.use("/api/signup", userRouter.route());
 app.use("/api/profile", profileRouter.route());
-app.use("/api/post_form",postFormRouter.route());
-app.use("/api/home",homeRouter.route());
-
+app.use("/api/post_form", postFormRouter.route());
+app.use("/api/home", homeRouter.route());
+app.use("/api/rating", ratingRouter.route());
 
 
 
