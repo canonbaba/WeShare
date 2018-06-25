@@ -36,3 +36,21 @@ export function fetchHomeDate(userid: number) {
       });
   };
 }
+
+export function fetchCategoryData(selectCategoryId: string) {
+  // tslint:disable-next-line:no-console
+  console.log(selectCategoryId);
+  return (dispatch: Dispatch<ILoadHomeDataAction>) => {
+    axios
+      .post(`${process.env.REACT_APP_API_SERVER}/api/home/select_category_data`, {
+        selectCategoryId, // i think maybe we need this sometime
+      }).then(res => {
+        // tslint:disable-next-line:no-console
+        console.log(res.data)
+        dispatch(getPostData(res.data))
+      }).catch(err => {
+        // tslint:disable-next-line:no-console
+        console.log(err)
+      });
+  };
+}

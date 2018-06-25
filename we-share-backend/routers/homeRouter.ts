@@ -10,6 +10,7 @@ class HomeRouter {
   route() {
     let router = express.Router();
     router.post("/", this.post.bind(this));
+    router.post("/select_category_data", this.selectCategoryData.bind(this));
     return router;
   }
 
@@ -22,7 +23,21 @@ class HomeRouter {
     })
     .catch(err => res.status(500).json(err));
     }
+
+    selectCategoryData(req,res){
+      console.log(req.body)
+      return this.homeService
+      .categorydata(req.body)
+      .then(data => {
+          console.log(data)
+          res.json(data);
+      })
+      .catch(err => res.status(500).json(err));
+      }
+
   }
+
+  
 
 
  

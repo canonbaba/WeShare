@@ -59,7 +59,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
               <Button bsStyle="primary" bsSize="small">rating</Button>
             </Link>
 
-            <Link to="/profile2">
+            <Link to="/profile">
               <Button bsStyle="primary" bsSize="small">Profile</Button>
             </Link>
 
@@ -73,7 +73,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
               {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
 
               <Route path="/rating" exact={true} component={Rating} />
-              <Route path="/profile2" exact={true} component={Profile} />
+              <Route path="/profile" exact={true} component={Profile} />
 
             </Switch>
           </div>
