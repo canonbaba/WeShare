@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { IUser } from 'src/models';
+import swal from 'sweetalert';
 
 export const SIGNUP_USERS = 'SIGNUP_USERS';
 export type SIGNUP_USERS = typeof SIGNUP_USERS;
@@ -9,15 +10,18 @@ export type SIGNUP_USERS = typeof SIGNUP_USERS;
 export interface ISignupUsersAction {
   type: SIGNUP_USERS;
   users: IUser;
+  afterSignup: boolean;
 }
 
 export type IUserActions = ISignupUsersAction;
 
-export function signupUsers(users: IUser): ISignupUsersAction {
+export function signupUsers(users: IUser, afterSignup: boolean): ISignupUsersAction {
   return {
+    // tslint:disable-next-line:object-literal-shorthand
+    afterSignup: afterSignup,
     type: SIGNUP_USERS,
     // tslint:disable-next-line:object-literal-shorthand
-    users: users
+    users: users,
   };
 }
 
@@ -29,8 +33,9 @@ export function remoteSignupUsers(email: string, password: string, name: string)
         name,
         password, 
       }).then(res => {
-        alert(res.data.data);
-        dispatch(signupUsers(res.data))
+        // tslint:disable-next-line:no-console
+        swal('Welcome \n\n' + res.data[0].name);
+        dispatch(signupUsers(res.data[0], true))
       }).catch(err => {
         alert(err)
       });

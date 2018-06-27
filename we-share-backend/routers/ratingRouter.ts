@@ -23,7 +23,11 @@ class RatingRouter {
       // console.log(data[0]);
       res.json(data);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(err => {
+      console.log("rating error", err);
+      res.status(500).json(err);
+    });
+
   }
 }
 

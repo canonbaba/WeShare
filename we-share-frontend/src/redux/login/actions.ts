@@ -58,6 +58,8 @@ export function setLoginError(loginError: boolean): ISetLoginError {
 }
 
 export function remoteFetchUsers(email: string, password: string) {
+  // // tslint:disable-next-line:no-console
+  // console.log(email,password)
   return (dispatch: Dispatch<ILoginAction>) => {
     axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/login`, {
@@ -65,7 +67,7 @@ export function remoteFetchUsers(email: string, password: string) {
         password,
       }).then(res => {
         // tslint:disable-next-line:no-console
-        console.log(res.data.data[0].id)
+        console.log(res.data.data[0].name)
 
         dispatch(setLoginPending(true));
         dispatch(setLoginSuccess(false, res.data.data[0].id, res.data.data[0].name, res.data.data[0].email));

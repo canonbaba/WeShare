@@ -12,10 +12,7 @@ exports.up = function (knex, Promise) {
             contract.increments();
             contract.string("productName");
             contract.text("price");
-            contract.text("percentage");
-            contract.text("dayToUse");
-            contract.text("additionalRequest");
-            contract.text("photo");
+            contract.text("description");
             contract.dateTime("createDate");
             contract.text("startDate");
             contract.text("expiryDate");
@@ -56,7 +53,7 @@ exports.up = function (knex, Promise) {
             inbox.increments();
             inbox.integer("post_id").unsigned().unique();
             inbox.foreign("post_id").references("post.id");
-            inbox.boolean("is_create")
+            inbox.boolean("is_active")
             inbox.timestamps(false, true);
         });
     }).then(() => {
@@ -74,8 +71,10 @@ exports.up = function (knex, Promise) {
         return knex.schema.createTable("user_message", (user_message) => {
             user_message.increments();
             user_message.text("message");
-            user_message.dateTime("mess_createTime")
-            user_message.integer("user_id").unsigned()
+            user_message.dateTime("mess_createTime");
+            user_message.integer("admin_id").unsigned();
+            user_message.foreign("admin_id").references("users.id");
+            user_message.integer("user_id").unsigned();
             user_message.foreign("user_id").references("users.id");
             user_message.integer("inbox_id").unsigned()
             user_message.foreign("inbox_id").references("inbox.id");

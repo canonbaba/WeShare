@@ -10,6 +10,7 @@ class LoginRouter {
   route() {
     let router = express.Router();
     router.post("/", this.post.bind(this));
+
     return router;
   }
 
@@ -24,8 +25,10 @@ class LoginRouter {
     })
     .catch(err => res.status(500).json(err));
     }
-  }
 
 
- 
+}
+
+
+
 export default LoginRouter;

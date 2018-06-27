@@ -21,6 +21,7 @@ class PostFormRouter {
     return this.postFormService
     .savepost(req.body)
     .then(data => {
+      // console.log(data)
       res.json({data: 'saved post'});
     })
     .catch(err => res.status(500).json(err));

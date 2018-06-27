@@ -72,3 +72,15 @@ export interface IProfileRatingData {
   rating: number;
   updated_at: string;
 }
+
+export interface ICurrentMessage {
+  name: string;
+  message: string;
+  created_at: string;
+  inbox_id: number;
+}
+
+export interface IInboxList {
+  inbox_id: number;
+  nameOfProduct: string;
+}

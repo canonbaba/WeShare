@@ -93,7 +93,6 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                 <PostPopup postPopup={this.state.postshow}
                     postData={this.state.postPopupData}
                     postPopupClose={this.postPopupClose} />
-                {/* <Button onClick={this.postShow}>PostPopup testing</Button> */}
 
 
                 <h1>HOMEAGE</h1>

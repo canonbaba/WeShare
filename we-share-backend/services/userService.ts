@@ -8,7 +8,7 @@ class UserService {
   }
 
   signup(input) {
-      return this.knex('users').insert({name: input.name,email: input.email, password: input.password}).returning('id')
+      return this.knex('users').insert({name: input.name,email: input.email, password: input.password}).returning(['id', 'email', 'name'])
     .then((result) => {
       return result
     }).catch(err => {return err})

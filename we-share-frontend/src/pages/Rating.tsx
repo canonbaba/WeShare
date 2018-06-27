@@ -94,11 +94,11 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
 
     private trueClick = () => {
         // const ratingresult = 
-       const abc = this.state.scores.find(input => {
+       const ratingValue = this.state.scores.find(input => {
             return input.click === true
         });
-        if(abc !=null) {
-            return abc.value
+        if(ratingValue !=null) {
+            return ratingValue.value
         } else {
             // tslint:disable-next-line:no-console
             console.log('fail to submit rating value')

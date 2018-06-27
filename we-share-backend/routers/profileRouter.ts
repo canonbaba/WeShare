@@ -35,7 +35,7 @@ class ProfileRouter {
     return this.profileService
     .profileRatingdata(req.body)
     .then(data => {
-        console.log(data)
+        // console.log(data)
         res.json(data);
     })
     .catch(err => res.status(500).json(err));

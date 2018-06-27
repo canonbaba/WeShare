@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { remoteSavePost } from 'src/redux/create_post/actions';
 import { IRootState } from 'src/redux/store';
 import './css/create_post.css';
@@ -126,9 +127,12 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                         <option value="5">toy</option>
                         <option value="6">others</option>
                     </select>
+                    
+                    <Link to ='/home'>
                     <Button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent, 
                     this.state.numberOfShareUser, 
                     this.state.productDescription, this.state.productCategory,this.state.photo, this.state.photoUrl,userid)}>Submit</Button>
+                    </Link>
                 </form>
             </div>
         );

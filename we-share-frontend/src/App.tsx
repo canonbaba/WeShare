@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { Provider } from 'react-redux';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import AppTopICON from 'src/pages/App_topIcon';
 import PostForm from 'src/pages/create_post';
 import Home from 'src/pages/home';
+import Inbox from 'src/pages/Inbox';
 import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
@@ -35,6 +37,8 @@ class App extends React.Component<{}, { signupshow: boolean }> {
     })
   }
 
+
+  
   // public showProfileicon = () => {
   //   this.setState({
   //     profileicon: true
@@ -46,22 +50,11 @@ class App extends React.Component<{}, { signupshow: boolean }> {
 
       <Provider store={store}>
         <div className="App">
-          {/* {this.state.profileicon && <h1>Profile icon here</h1>} */}
-          <header>
+         <header>
             <h1>Welcome to React</h1>
+            <AppTopICON />
             <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Login</Button>
 
-            <Link to="/home">
-              <Button bsStyle="primary" bsSize="small">Home</Button>
-            </Link>
-
-            <Link to="/rating">
-              <Button bsStyle="primary" bsSize="small">rating</Button>
-            </Link>
-
-            <Link to="/profile">
-              <Button bsStyle="primary" bsSize="small">Profile</Button>
-            </Link>
 
           </header>
           <div>
@@ -74,7 +67,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
 
               <Route path="/rating" exact={true} component={Rating} />
               <Route path="/profile" exact={true} component={Profile} />
-
+              <Route path="/inbox" exact={true} component={Inbox} />
             </Switch>
           </div>
         </div>
