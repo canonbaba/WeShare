@@ -1,0 +1,139 @@
+/* button {
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
+} */
+
+.modal-content {
+    /* background-image: url("../../images/profileBackground.jpg"); */
+    /* background-color: blue; */
+    background-size: 100% 100%; 
+    width: 600px;
+    height: 600px;
+}
+
+#poplogin {
+    display: flex;
+    justify-content: center;
+}
+
+#poplogin h1 {
+    font-size: 50px;
+    margin: 100px 10px 10px 10px;
+}
+
+#popemail {
+    display: flex;
+    justify-content: center;
+}
+
+#popemail input {
+    border: 0px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#poppassword {
+    display: flex;
+    justify-content: center;
+}
+
+#poppassword input {
+    border: 0px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#popclickbox {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#popsignup {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#popsignup button {
+    outline: 0;
+    /* background-color: transparent; */
+    margin: 10px;
+}
+
+#popsignin {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#popsignin button {
+    outline: 0;
+    /* background-color: transparent; */
+    margin: 10px;
+}
+
+/* #popclickbox checkbox {
+
+} */
+
+/* #popsignupfont {
+    display: flex;
+    justify-content: center;
+}
+
+#popsignupfont h1 {
+    font-size: 50px;
+    margin: 10px;
+}
+
+#popsignupemail {
+    display: flex;
+    justify-content: center;
+}
+
+#popsignupemail input {
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#popsignuppassword {
+    display: flex;
+    justify-content: center;
+}
+
+#popsignuppassword input {
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#popclickbox {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#popsignup {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#popsignup button {
+    margin: 10px;
+}
+
+#popsignin {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#popsignin button {
+    margin: 10px;
+} */

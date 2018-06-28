@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Row } from 'react-bootstrap';
+import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Col from 'reactstrap/lib/Col';
@@ -78,50 +80,59 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
     public render() {
         const homedata = this.props.homedata.map((data: any, i: number) => {
             return <div onClick={this.postShow.bind(this, data)} key={i}>
-                <ul>
-                    <li><img src={data.photo} /></li>
-                    <li>title: {data.nameOfProduct}</li>
-                    <li>number of people: {data.numberOfShareUser}</li>
-                    <li>rating: {data.averageRating}</li>
-                </ul>
+                <div className="overflowPost">
+                    <h1>{data.nameOfProduct}</h1>
+                    <img src={data.photo} />
+                    <h5>No. of people:{data.numberOfShareUser}</h5>
+                    <h5>Rating:{data.averageRating}</h5>
+                </div>
             </div>
         })
 
         return (
-            <div className="static-modal">
+            <div className="static-modal homepage">
 
                 <PostPopup postPopup={this.state.postshow}
                     postData={this.state.postPopupData}
                     postPopupClose={this.postPopupClose} />
 
+                <Row>
+                    <Col lg={12} xs={12} className="homeUpper">
 
-                <h1>HOMEAGE</h1>
-
-                <div>
-                    <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
-                        <option value="">Please select</option>
-                        <option value="1">Fashion</option>
-                        <option value="2">electric product</option>
-                        <option value="3">vehicle</option>
-                        <option value="4">food & drink</option>
-                        <option value="5">toy</option>
-                        <option value="6">others</option>
-                    </select>
-                </div>
-                <Col xl="8" md="8"><input type="text" placeholder="Search..." /></Col>
-                <Col xl="2" md="2"><button type="submit">GO</button></Col>
-
-
-                {homedata}
-
+                        <Col lg={5} xs={5} id="homeinput"><input type="text" placeholder="SEARCH POST" /></Col>
+                        <Col lg={1} xs={1} id="sumbitbutton"><button type="submit"><FontAwesome.FaSearch /></button></Col>
+                        <Col lg={1} xs={1} className="custom-select">
+                            <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory}>
+                                <option value="">ALL</option>
+                                <option value="1">FASHION</option>
+                                <option value="2">ELECTRIC PRODUCT</option>
+                                <option value="3">VEHICLE</option>
+                                <option value="4">FOOD & DRINK</option>
+                                <option value="5">TOY</option>
+                                <option value="6">OTHERS</option>
+                            </select>
+                        </Col>
+                    </Col>
+                </Row>
 
 
-                {this.props.isLoginSuccess &&
-                    <div>
-                        <Link to="/postform">
-                            <button type="submit">Post</button>
-                        </Link>
-                    </div>}
+                <Row className="post">
+                    <Col lg={12} xs={12} className="postright">
+
+                        {homedata}
+
+                    </Col>
+                    <Col lg={12} xs={12} id="openpost">
+                        {this.props.isLoginSuccess &&
+                            <div id="homePost">
+                                <Link to="/postform">
+                                    <button type="submit">CLICK TO POST</button>
+                                </Link>
+                            </div>}
+                    </Col>
+
+
+                </Row>
 
             </div>
         );
@@ -139,7 +150,7 @@ const mapStateToProps = (rootState: IRootState) => {
 const mapDispatchToProps = (dispatch: any) => {
     return {
         onloadHomeData: (userid: number) => dispatch(fetchHomeDate(userid)),
-        
+
         selectCategoryData: (selectCategoryId: string) => dispatch(fetchCategoryData(selectCategoryId))
     };
 }

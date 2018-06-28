@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
+import { Button, Checkbox, Col, Form, Glyphicon, Modal, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { remoteFetchUsers } from 'src/redux/login/actions';
 import { remoteSignupUsers } from 'src/redux/signup/actions';
 import { IRootState } from 'src/redux/store';
+import './css/popup_signup.css';
 
 
 
@@ -110,104 +111,126 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                         {/* toggle Login or Signup */}
                         {this.state.toggleLoginSignup ?
-                            <div >
-                                <h1>Login</h1>
-                                <Modal.Header>
-                                    <button onClick={this.handleLoginSignup}>Sign up</button>
-                                </Modal.Header>
-                                <div>
-                                    <Form horizontal={true}>
-                                        <FormGroup controlId="formHorizontalEmail">
-                                            <Col componentClass={ControlLabel} sm={2}>
-                                                Email
+                            <div>
+                                <Row>
+                                    <Col lg={12} id="poplogin">
+                                        <h1>Login</h1>
+                                    </Col>
+                                </Row>
+                                {/* <Modal.Header> */}
+                                {/* <Row>
+                            <Col lg={12}>
+                                <button onClick={this.handleLoginSignup}>Sign up</button>
                             </Col>
-                                            <Col sm={7}>
-                                                <input type="text" onChange={this.handleLoginEmail} value={this.state.loginemail} />
-                                            </Col>
-                                        </FormGroup>
+                        </Row> */}
+                                {/* </Modal.Header> */}
+                                <Form horizontal={true}>
+                                    {/* <FormGroup controlId="formHorizontalEmail"> */}
+                                    {/* <Col componentClass={ControlLabel} sm={2}>
+                                    Email
+                                </Col> */}
+                                    <Row>
+                                        <Col lg={12} id="popemail">
+                                            <input type="text" placeholder="Your Email" onChange={this.handleLoginEmail} value={this.state.loginemail} />
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
 
-                                        <FormGroup controlId="formHorizontalPassword">
-                                            <Col componentClass={ControlLabel} sm={2}>
-                                                Password
-                             </Col>
-                                            <Col sm={7}>
-                                                <input type="password" onChange={this.handleLoginPassword} value={this.state.loginpassword} />
-                                            </Col>
-                                        </FormGroup>
+                                    {/* <FormGroup controlId="formHorizontalPassword"> */}
+                                    {/* <Col componentClass={ControlLabel} sm={2}>
+                                    Password
+                                </Col> */}
+                                    <Row>
+                                        <Col lg={12} id="poppassword">
+                                            <input type="password" placeholder="Your Password" onChange={this.handleLoginPassword} value={this.state.loginpassword} />
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
 
-                                        <FormGroup>
-                                            <Col smOffset={2} sm={10}>
-                                                <Checkbox>Remember me</Checkbox>
-                                            </Col>
-                                        </FormGroup>
-                                        <FormGroup>
-                                            <Col smOffset={2} sm={10}>
-                                                <Button onClick={this.props.login.bind(this, this.state.loginemail, this.state.loginpassword)}>Sign in</Button>
-                                            </Col>
-                                        </FormGroup>
-                                    </Form>
-                                    <Modal.Footer>
-                                        <div>
-                                            {isLoginPending && <div>Please wait...</div>}
-                                            {isLoginSuccess && <div>Success.</div>}
-                                            {loginError && <div>{"loginError"}</div>}
-                                        </div>
-                                    </Modal.Footer>
+                                    {/* <FormGroup> */}
+                                    <Row>
+                                        <Col lg={12} id="popclickbox">
+                                            <Checkbox>Remember me</Checkbox>
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
+                                    {/* <FormGroup> */}
+                                    <Row>
+                                        <Col lg={6} xs={6} id="popsignin">
+                                            <Button onClick={this.props.login.bind(this, this.state.loginemail, this.state.loginpassword)}>Sign in</Button>
+                                        </Col>
+                                        <Col lg={6} xs={6} id="popsignup">
+                                            <Button onClick={this.handleLoginSignup}>Sign up</Button>
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
+                                </Form>
+                                {/* <Modal.Footer> */}
+                                <div>
+                                    {isLoginPending && <div>Please wait...</div>}
+                                    {isLoginSuccess && <div>Success.</div>}
+                                    {loginError && <div>{"loginError"}</div>}
                                 </div>
+                                {/* </Modal.Footer> */}
                             </div>
 
                             :
 
-                            <div >
-                                <h1>Signup</h1>
-                                <Modal.Header>
-                                    <button onClick={this.handleLoginSignup}>Login</button>
-                                </Modal.Header>
-                                <div>
-                                    <Form horizontal={true}>
-                                        <FormGroup controlId="formHorizontalName">
-                                            <Col componentClass={ControlLabel} sm={2}>
-                                                Name
-                            </Col>
-                                            <Col sm={7}>
-                                                <input type="text" onChange={this.handleSignupName} value={this.state.signUpname} />
-                                            </Col>
-                                        </FormGroup>
+                            <div>
+                                <Row>
+                                    <Col lg={12} id="poplogin">
+                                        <h1>Signup</h1>
+                                    </Col>
+                                </Row>
+                                {/* <Modal.Header> */}
+                                {/* <button onClick={this.handleLoginSignup}>Login</button> */}
+                                {/* </Modal.Header> */}
 
-                                        <FormGroup controlId="formHorizontalEmail">
-                                            <Col componentClass={ControlLabel} sm={2}>
-                                                Email
-                            </Col>
-                                            <Col sm={7}>
-                                                <input type="text" onChange={this.handleSignupEmail} value={this.state.signUpemail} />
-                                            </Col>
-                                        </FormGroup>
+                                <Form horizontal={true}>
+                                    {/* <FormGroup controlId="formHorizontalEmail"> */}
+                                    {/* <Col componentClass={ControlLabel} sm={2}>
+                                        Email
+                                    </Col> */}
+                                    <Row>
+                                        <Col lg={12} id="popemail">
+                                            <input type="text" placeholder="Your Email" onChange={this.handleSignupEmail} value={this.state.signUpemail} />
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
 
-                                        <FormGroup controlId="formHorizontalPassword">
-                                            <Col componentClass={ControlLabel} sm={2}>
-                                                Password
-                             </Col>
-                                            <Col sm={7}>
-                                                <input type="password" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
-                                            </Col>
-                                        </FormGroup>
+                                    {/* <FormGroup controlId="formHorizontalPassword"> */}
+                                    {/* <Col componentClass={ControlLabel} sm={2}>
+                                        Password
+                                    </Col> */}
+                                    <Row>
+                                        <Col lg={12} id="poppassword">
+                                            <input type="password" placeholder="Your Email" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
 
-                                        <FormGroup>
-                                            <Col smOffset={2} sm={10}>
-                                                <Checkbox>I agree to the Terms and Conditions</Checkbox>
-                                            </Col>
-                                        </FormGroup>
+                                    {/* <FormGroup> */}
+                                    <Row>
+                                        <Col lg={12} id="popclickbox">
+                                            <Checkbox>I agree to the Terms and Conditions</Checkbox>
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
 
-                                        <FormGroup>
-                                            <Col smOffset={2} sm={10}>
-                                                <Link to='/home'>
-                                                    <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
-                                                        , this.state.signUppassword)} onMouseOut={this.props.signupClose}>Submit</Button>
-                                                </Link>
-                                            </Col>
-                                        </FormGroup>
-                                    </Form>
-                                </div>
+                                    {/* <FormGroup> */}
+                                    <Row>
+                                        <Col lg={6} xs={6} id="popsignin">
+                                            <Link to='/profile'>
+                                                <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
+                                                    , this.state.signUppassword)} >Submit</Button>
+                                            </Link>
+                                        </Col>
+                                        <Col lg={6} xs={6} id="popsignup">
+                                            <Button onClick={this.handleLoginSignup}>Login</Button>
+                                        </Col>
+                                    </Row>
+                                    {/* </FormGroup> */}
+                                </Form>
                             </div>
                         }
                     </Modal>

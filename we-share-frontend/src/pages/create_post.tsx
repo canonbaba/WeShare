@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { remoteSavePost } from 'src/redux/create_post/actions';
@@ -90,34 +90,33 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
         }
 
         return (
-            <div className="static-modal">
-                <form>
-                    <h1>Invitation</h1>
+            <div className="static-modal" id="createPost">
+                <div id="createBackground">
+                    <form>
+                        {/* <h1>Invitation</h1>
                     <h5>Name of Product</h5>
-                    <input type="text" placeholder="name" onChange={this.nameChange} value={this.state.productName} />
+                    <input type="text" placeholder="name" onChange={this.nameChange} value={this.state.productName} /> */}
 
-                    <h5>Price</h5>
-                    <input type="text" placeholder="$" onChange={this.priceChange} value={this.state.productPrice} />
+                        <Row className="cinvitation">
+                            <Col>
+                                <div>Invitation</div>
+                            </Col>
+                        </Row>
 
-                    <h5>Percentage of Price</h5>
-                    <input type="text" placeholder="how much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
-
-                    <h5>Number of People</h5>
-                    <input type="text" placeholder="how many you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
-
-                    <h5>Description</h5>
-                    <textarea placeholder="Description" onChange={this.descriptionChange} value={this.state.productDescription} />
-
-
-                    <input className="fileInput"
+                        <Row className="cname">
+                            <Col lg={6}>
+                                <input type="text" placeholder="Name of Product" onChange={this.nameChange} value={this.state.productName} />
+                            </Col>
+                        </Row>
+                        {/* <input className="fileInput"
                         type="file"
-                        onChange={this.imageChange} />
+                        onChange={this.imageChange}/>
                     <div>
                         {$imagePreview}
-                    </div>
+                    </div> */}
 
 
-                    <h5>Select</h5>
+                        {/* <h5>Select</h5>
                     <select value={this.state.productCategory} onChange={this.productCategoryChange}>
                         <option value="">Please select</option>
                         <option value="1">Fashion</option>
@@ -126,14 +125,90 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                         <option value="4">food & drink</option>
                         <option value="5">toy</option>
                         <option value="6">others</option>
-                    </select>
+                    </select> */}
 
-                    <Link to='/home'>
-                        <Button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
-                            this.state.numberOfShareUser,
-                            this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>Submit</Button>
-                    </Link>
-                </form>
+                        <Row className="cphoto">
+                            <Col>
+                                {$imagePreview}
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col lg={6} xs={6} className="cphotoName1">
+                                <button color="secondary">Upload Picture
+                                <input type="file" onChange={this.imageChange} />
+                                </button>{' '}
+                            </Col>
+                            <Col lg={6} xs={6} className="ccategory">
+                                <select value={this.state.productCategory} onChange={this.productCategoryChange}>
+                                    <option value="">Select Category</option>
+                                    <option value="1">Fashion</option>
+                                    <option value="2">Electric Product</option>
+                                    <option value="3">Vehicle</option>
+                                    <option value="4">Food & Drink</option>
+                                    <option value="5">Toy</option>
+                                    <option value="6">Others</option>
+                                </select>
+                            </Col>
+                        </Row>
+
+                        {/* <h5>Price</h5>
+                    <input type="text" placeholder="$" onChange={this.priceChange} value={this.state.productPrice} /> */}
+
+                        <Row className="cprice">
+                            <Col lg={6} xs={6}>
+                                <h5>Price:</h5>
+                            </Col>
+                            <Col lg={6} xs={6}>
+                                <input type="text" placeholder="Price of Product" onChange={this.priceChange} value={this.state.productPrice} />
+                            </Col>
+                        </Row>
+
+                        {/* <h5>Percentage of Price</h5>
+                    <input type="text" placeholder="how much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} /> */}
+
+                        <Row className="cwilling">
+                            <Col lg={6} xs={6}>
+                                <h5>Price %:</h5>
+                            </Col>
+                            <Col lg={6} xs={6}>
+                                <input type="text" placeholder="How much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
+                            </Col>
+                        </Row>
+
+                        {/* <h5>Number of People</h5>
+                    <input type="text" placeholder="how many you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} /> */}
+
+                        <Row className="cpeople">
+                            <Col lg={6} xs={6}>
+                                <h5>Number of People:</h5>
+                            </Col>
+                            <Col lg={6} xs={6}>
+                                <input type="text" placeholder="How many people you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
+                            </Col>
+                        </Row>
+
+                        {/* <h5>Description</h5>
+                    <textarea placeholder="Description" onChange={this.descriptionChange} value={this.state.productDescription} /> */}
+
+                        <Row className="cdescription">
+                            <Col lg={6} xs={6} id="cd1">
+                                <h5>Description:</h5>
+                            </Col>
+                            <Col lg={6} xs={6} id="cd2">
+                                <textarea placeholder="Description" onChange={this.descriptionChange} value={this.state.productDescription} />
+                            </Col>
+                        </Row>
+
+                        <div id="createPostButton">
+                            <Link to="/home">
+                                <button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
+                                    this.state.numberOfShareUser,
+                                    this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>POST</button>
+                            </Link>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
