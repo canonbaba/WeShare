@@ -1,5 +1,15 @@
 import * as React from 'react';
-import { Button, Checkbox, Col, Form, Glyphicon, Modal, Row } from 'react-bootstrap';
+import {
+    Button,
+    Checkbox,
+    Col,
+    //    ControlLabel,
+    Form,
+    //  FormGroup,
+    Glyphicon,
+    Modal,
+    Row
+} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { remoteFetchUsers } from 'src/redux/login/actions';
@@ -176,61 +186,58 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                             :
 
-                            <div>
+                            <div >
                                 <Row>
                                     <Col lg={12} id="poplogin">
-                                        <h1>Signup</h1>
+                                        <h1>Sign Up</h1>
                                     </Col>
                                 </Row>
-                                {/* <Modal.Header> */}
-                                {/* <button onClick={this.handleLoginSignup}>Login</button> */}
-                                {/* </Modal.Header> */}
-
+                                {/* <h1>Signup</h1> */}
+                                {/* <Modal.Header>
+                                    <button onClick={this.handleLoginSignup}>Login</button>
+                                </Modal.Header> */}
+                                {/* <div> */}
                                 <Form horizontal={true}>
-                                    {/* <FormGroup controlId="formHorizontalEmail"> */}
-                                    {/* <Col componentClass={ControlLabel} sm={2}>
-                                        Email
-                                    </Col> */}
-                                    <Row>
-                                        <Col lg={12} id="popemail">
-                                            <input type="text" placeholder="Your Email" onChange={this.handleSignupEmail} value={this.state.signUpemail} />
-                                        </Col>
-                                    </Row>
-                                    {/* </FormGroup> */}
+                                {/* <FormGroup controlId="formHorizontalName"> */}
+                                <Col lg={12} id="popemail">
+                                    <input type="text" placeholder="Name" onChange={this.handleSignupName} value={this.state.signUpname} />
+                                </Col>
+                                {/* </FormGroup> */}
 
-                                    {/* <FormGroup controlId="formHorizontalPassword"> */}
-                                    {/* <Col componentClass={ControlLabel} sm={2}>
-                                        Password
-                                    </Col> */}
-                                    <Row>
-                                        <Col lg={12} id="poppassword">
-                                            <input type="password" placeholder="Your Email" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
-                                        </Col>
-                                    </Row>
-                                    {/* </FormGroup> */}
+                                <Row>
+                                    <Col lg={12} id="popemail">
+                                        <input type="text" placeholder="Your Email" onChange={this.handleSignupEmail} value={this.state.signUpemail} />
+                                    </Col>
+                                </Row>
 
-                                    {/* <FormGroup> */}
-                                    <Row>
-                                        <Col lg={12} id="popclickbox">
-                                            <Checkbox>I agree to the Terms and Conditions</Checkbox>
-                                        </Col>
-                                    </Row>
-                                    {/* </FormGroup> */}
+                                <Row>
+                                    <Col lg={12} id="poppassword">
+                                        <input type="password" placeholder="Your Email" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
+                                    </Col>
+                                </Row>
 
-                                    {/* <FormGroup> */}
-                                    <Row>
-                                        <Col lg={6} xs={6} id="popsignin">
-                                            <Link to='/profile'>
-                                                <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
-                                                    , this.state.signUppassword)} >Submit</Button>
-                                            </Link>
-                                        </Col>
-                                        <Col lg={6} xs={6} id="popsignup">
-                                            <Button onClick={this.handleLoginSignup}>Login</Button>
-                                        </Col>
-                                    </Row>
-                                    {/* </FormGroup> */}
+                                <Row>
+                                    <Col lg={12} id="popclickbox">
+                                        <Checkbox>I agree to the Terms and Conditions</Checkbox>
+                                    </Col>
+                                </Row>
+
+                                {/* <FormGroup> */}
+                                <Row>
+                                    <Col lg={6} xs={6} id="popsignin">
+                                        <Link to='/home'>
+                                            <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
+                                                , this.state.signUppassword)} onMouseOut={this.props.signupClose}>Submit</Button>
+                                        </Link>
+                                    </Col>
+                                    <Col lg={6} xs={6} id="popsignup">
+                                        <Button onClick={this.handleLoginSignup}>Login</Button>
+                                    </Col>
+                                </Row>
+
+                                {/* </FormGroup> */}
                                 </Form>
+                                {/* </div> */}
                             </div>
                         }
                     </Modal>
