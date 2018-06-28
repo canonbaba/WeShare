@@ -1,0 +1,71 @@
+.flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
+#ppRating {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#ppRating h2 {
+    font-size: 20px;
+    margin: 5px 0px 0px 0px;
+}
+
+.pphead h1 {
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+.ppProductName h2 {
+    font-size: 40px;
+    margin-top: 0px;
+}
+
+.ppimage img {
+    max-width: 300px;
+    max-height: 200px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.ppleft {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ppleft h2 {
+    font-size: 20px;
+}
+
+.ppright h2 {
+    font-size: 20px;
+}
+
+#ppDataPost {
+    margin-top: 15px;
+}
+
+#ppDataPost h2 {
+    font-size: 15px;
+    margin: 15px
+}
+
+#ppDatePost h2 {
+    font-size: 15px;
+    margin: 15px;
+}
+
+#popupPostbutton {
+    display: flex;
+    justify-content: center;
+}
+
+#popupPostbutton button {
+    outline: 0;
+    margin: 10px;
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
+}

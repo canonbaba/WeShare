@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import AppTopICON from 'src/pages/App_topIcon';
 import ContractsDetail from 'src/pages/ContractsDetail';
 import ContractsList from 'src/pages/ContractsList';
@@ -14,6 +14,7 @@ import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
 import { store } from 'src/redux/store';
+import './App.css';
 
 
 
@@ -42,7 +43,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
   }
 
 
-  
+
   // public showProfileicon = () => {
   //   this.setState({
   //     profileicon: true
@@ -54,33 +55,43 @@ class App extends React.Component<{}, { signupshow: boolean }> {
 
       <Provider store={store}>
         <div className="App">
-         <header>
+          {/* <header>
             <h1>Welcome to React</h1>
             <AppTopICON />
             <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Login</Button>
 
 
-          </header>
-          <div>
-            <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
-            <Switch>
-              <Route path="/postform" exact={true} component={PostForm} />
+          </header> */}        
+            <Row className="appbackground">
+              <Col lg={3} xs={3} className="left">
+                <Link to="/home"><h5>WeShare</h5></Link>
+              </Col>
 
-              <Route path="/home" exact={true} component={Home} />
-              {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
+              <Col lg={7} xs={7} className="middle">
+                <Switch>
+                  <Route path="/postform" exact={true} component={PostForm} />
 
-              <Route path="/rating" exact={true} component={Rating} />
-              <Route path="/profile" exact={true} component={Profile} />
+                  <Route path="/home" exact={true} component={Home} />
+                  {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
 
-               <Route path="/contracts" exact={true} component={ContractsList} />
-              <Route path="/contracts/add" component={ContractsDetail} />
-              <Route path="/contracts/:id" component={ContractsDetail} />
-              <Route path="/contractsSign/:id" component={ContractsSign} />
+                  <Route path="/rating" exact={true} component={Rating} />
+                  <Route path="/profile" exact={true} component={Profile} />
 
-              <Route path="/inbox" exact={true} component={Inbox} />
-              <Route path="/detail_contract" exact={true} component={DetailContrat} />
-            </Switch>
-          </div>
+                  <Route path="/contracts" exact={true} component={ContractsList} />
+                  <Route path="/contracts/add" component={ContractsDetail} />
+                  <Route path="/contracts/:id" component={ContractsDetail} />
+                  <Route path="/contractsSign/:id" component={ContractsSign} />
+
+                  <Route path="/inbox" exact={true} component={Inbox} />
+                  <Route path="/detail_contract" exact={true} component={DetailContrat} />
+                </Switch>
+              </Col>
+              <Col lg={2} xs={2} id="routeLink">
+                <button id="appbutton" onClick={this.signupShow}>LOGIN</button>
+                <AppTopICON />
+              </Col>
+              <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
+            </Row>        
         </div>
       </Provider>
     );

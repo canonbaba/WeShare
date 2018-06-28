@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IRootState } from 'src/redux/store';
+import './css/App_topIcon.css';
 
 interface IAppTopICON {
     isLoginSuccess: boolean;
@@ -19,24 +20,22 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
 
     public render() {
         return (
-            <div className="static-modal">
-                <h1>AppTopICON PAGE</h1>
+            <div className="static-modal" id="appRight">                
 
-                {this.props.isLoginSuccess && <div>
-                    <Link to="/home">
-                        <Button bsStyle="primary" bsSize="small">Home</Button>
-                    </Link>
+                {this.props.isLoginSuccess &&
 
-                    <Link to="/profile">
-                        <Button bsStyle="primary" bsSize="small">Profile</Button>
-                    </Link>
-
-                    <Link to="/contracts">  <Button bsStyle="primary" bsSize="small">Contract</Button></Link>
-
-                    <Link to="/inbox">
-                        <Button bsStyle="primary" bsSize="small">Inbox</Button>
-                    </Link>
-                </div>}
+                    <div id="appRoute">
+                        <Link to="/inbox">
+                            <button>Inbox</button>
+                        </Link>
+                        <Link to="/profile">
+                            <button>Profile</button>
+                        </Link>
+                        {/* <Link to="/profile">
+                            <button>Rating</button>
+                        </Link> */}
+                    </div>
+                }
 
             </div>
         );
