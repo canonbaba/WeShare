@@ -162,7 +162,7 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
 
         <div >
           <label>Description:</label>
-          <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />
+          <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
         </div> 
         
              <button onClick={this.handleSubmit}>Submit</button>
@@ -351,7 +351,7 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
   }
 
 
-  private handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     this.setState({
       description: e.target.value
     });

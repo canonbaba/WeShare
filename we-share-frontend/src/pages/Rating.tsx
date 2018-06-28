@@ -90,7 +90,7 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
                             <h1>To: {this.props.showRatingPopupData.name}</h1>
                             <br />
                             <Row>
-                                <Col><input type="text" value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." /></Col>
+                                <Col><textarea value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." /></Col>
                             </Row>
                             <br />
                             <Row>
@@ -137,7 +137,7 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
         }
     }
 
-    private ratingComment = (e: React.ChangeEvent<HTMLInputElement>) => {
+    private ratingComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         this.setState({
             comment: e.target.value
         }

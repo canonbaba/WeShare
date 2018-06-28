@@ -2,11 +2,11 @@
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { ICurrentMessage, IInboxList } from 'src/models';
 import { fetchInboxList, fetchSelectedMessage, userSendMessage } from 'src/redux/inbox/action';
 import { IRootState } from 'src/redux/store';
 import './css/inbox.css';
-// import { Link } from 'react-router-dom';
 
 interface IInboxProps {
     userid: number;
@@ -62,6 +62,9 @@ class PureInbox extends React.Component<IInboxProps, IInboxState> {
         return (
 
             <div className="static-modal">
+                <div>
+                    <Link to="/contracts/add"> Creat a Contract</Link>
+                </div>
                 <Row className="show-grid">
                     <Col xs={6} md={4}>
                         <h2> Inbox List </h2>
