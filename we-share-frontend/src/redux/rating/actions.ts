@@ -20,15 +20,17 @@ export function updateHomeData(ratingUpdateHomeData: IHomeData[]): IRatingAction
   }
 }
 
-export function saveRating(userid: number, comment: string, trueClick: number) {
-    // console.log(userid, comment, trueClick, `${process.env.REACT_APP_API_SERVER}/api/rating`)
+export function saveRating(userid: number, comment: string, trueClick: number, gotCommentUserID: number) {
+    // // tslint:disable-next-line:no-console
+    // console.log(userid, comment, trueClick, gotCommentUserID)
   return (dispatch: Dispatch<IRatingAction>) => {
     axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/rating`, {
         userid,
         // tslint:disable-next-line:object-literal-sort-keys
         comment, 
-        trueClick
+        trueClick,
+        gotCommentUserID
       }).then(res => {
         // tslint:disable-next-line:no-console
         console.log(res.data[0]);

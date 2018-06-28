@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Col, Container, Row } from 'reactstrap';
-import { IScore } from 'src/models';
+import { Col, Row } from 'reactstrap';
+import { IContractDetail, IScore } from 'src/models';
 import { saveRating } from 'src/redux/rating/actions';
 import { IRootState } from 'src/redux/store';
 import './css/Rating.css';
@@ -9,11 +10,15 @@ import './css/Rating.css';
 interface IRatingProps {
     userid: number;
     ratingSubmit: () => void;
+    ratingPopup: boolean;
+    showRatingPopupData: IContractDetail;
+    ratingPopupClose: () => void;
 }
 
 interface IRatingState {
     comment: string;
     scores: IScore[];
+    show: boolean;
 }
 
 class PureRating extends React.Component<IRatingProps, IRatingState> {
@@ -22,6 +27,8 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
 
         this.state = {
             comment: '',
+            show: false,
+            // tslint:disable-next-line:object-literal-sort-keys
             scores: [
                 { id: 1, click: false, value: -3 },
                 { id: 2, click: false, value: -2 },
@@ -35,69 +42,77 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
 
     }
 
-    // export default class Rating extends React.Component {
+    public handleClose = () => {
+        this.setState({ show: false });
+    }
 
     public render() {
         return (
-            <Container>
-                <Row className='num'>
-                    <Col xl='2' id="rate">
-                        <p>Rating:</p>
-                    </Col>
-                    <Col xl='5' className='rating'>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>-3</th>
-                                    <th>-2</th>
-                                    <th>-1</th>
-                                    <th>0</th>
-                                    <th>1</th>
-                                    <th>2</th>
-                                    <th>3</th>
-                                </tr>
-                            </thead>
-                            <thead>
-                                {
-                                    this.state.scores.map(score => (
-                                        <td key={score.id}>
-                                            <td><input type="checkbox" checked={score.click} onChange={this.clickScore.bind(this, score.id)} /></td>
-                                        </td>
-                                    ))
-                                }
-                            </thead>
+            <div className="static-modal">
+                <Modal show={this.props.ratingPopup} onHide={this.handleClose}>
+                    <button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></button>
+                    <Row className='num'>
 
-                        </table>
-                    </Col>
-                </Row>
+                        <Col xl='2' id="rate">
+                            <p>Rating:</p>
+                        </Col>
+                        <Col xl='5' className='rating'>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>-3</th>
+                                        <th>-2</th>
+                                        <th>-1</th>
+                                        <th>0</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    {
+                                        this.state.scores.map(score => (
+                                            <td key={score.id}>
+                                                <td><input type="checkbox" checked={score.click} onChange={this.clickScore.bind(this, score.id)} /></td>
+                                            </td>
+                                        ))
+                                    }
+                                </thead>
+
+                            </table>
+                        </Col>
+                    </Row>
 
 
-                {/* comment part */}
-                <Row className="comment">
-                    <Col>
-                        <br />
-                        <Row>
-                            <Col><input type="text" value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." /></Col>
-                        </Row>
-                        <br />
-                        <Row>
-                            <Col className="submit">
-                                <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick())}>Submit</button>
-                            </Col>
-                        </Row>
-                        <br />
-                    </Col>
-                </Row>
-            </Container >
+                    {/* comment part */}
+                    <Row className="comment">
+                        <Col>
+                            <h1>To: {this.props.showRatingPopupData.name}</h1>
+                            <br />
+                            <Row>
+                                <Col><input type="text" value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." /></Col>
+                            </Row>
+                            <br />
+                            <Row>
+                            {/* this.props.userid is Login user id; this.props.showRatingPopupData.user_id is the one who is commented by login user */}
+                                <Col className="submit">
+                                    <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(),this.props.showRatingPopupData.user_id)}>Submit</button>
+                                </Col>
+                            </Row>
+                            <br />
+                        </Col>
+                    </Row>
+                </Modal>
+            </div>
         )
     }
 
     private trueClick = () => {
         // const ratingresult = 
-       const ratingValue = this.state.scores.find(input => {
+        const ratingValue = this.state.scores.find(input => {
             return input.click === true
         });
-        if(ratingValue !=null) {
+        if (ratingValue != null) {
             return ratingValue.value
         } else {
             // tslint:disable-next-line:no-console
@@ -125,7 +140,7 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
     private ratingComment = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             comment: e.target.value
-            }
+        }
         )
     }
 }
@@ -137,7 +152,7 @@ const mapStateToProps = (rootState: IRootState) => {
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-    ratingSubmit: ( userid: number, comment: string, trueClick: number ) => { dispatch(saveRating(userid, comment, trueClick)) }
+    ratingSubmit: (userid: number, comment: string, trueClick: number, gotCommentUserID: number) => { dispatch(saveRating(userid, comment, trueClick, gotCommentUserID)) }
 });
 
 

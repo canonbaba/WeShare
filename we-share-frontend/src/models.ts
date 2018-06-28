@@ -84,3 +84,63 @@ export interface IInboxList {
   inbox_id: number;
   nameOfProduct: string;
 }
+
+
+export interface IProfileContractData{
+  contractId:number;
+  // id: number; 
+  name:string;
+  product:string;
+  price:number;
+  state:string;
+}
+
+export interface IContractDetail {
+    contract_id: number,
+    user_id: number,
+    percentageToShare: string,
+    daysToUse: string,
+    is_agree: boolean,
+    name: string,
+    productName: string,
+    price: string,
+    description: string,
+    created_at: string;
+}
+
+export interface IContracts {
+  id: number;
+  product:string;
+  price:number;
+  participants:IParticipant[]
+  description:string;
+  userid:number;
+  }
+
+  export interface IParticipant {
+  
+    id:number;
+    participantName:string;
+    percentage:string;
+    dayToUse:string;
+    
+    }
+  
+    export interface ILoadContractsData{
+  
+      id: number;
+      product: string;
+      price: number;
+      participants: IContractsParticipant[];
+      description: string;
+  
+  }
+  
+  export interface IContractsParticipant{
+  
+    userId:number;
+    name:string;
+    percentageToShare:string;
+    daysToUse:string;
+  
+  }

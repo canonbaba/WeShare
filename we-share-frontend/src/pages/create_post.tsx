@@ -8,7 +8,7 @@ import './css/create_post.css';
 
 interface IPostFormProps {
     userid: number;
-    createPost: (productName: string, productPrice:string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => void;
+    createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => void;
 }
 
 interface IPostFormState {
@@ -79,7 +79,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
     }
 
     public render() {
-        const { userid } = this.props; 
+        const { userid } = this.props;
 
         const { photoUrl } = this.state;
         let $imagePreview = null;
@@ -111,7 +111,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
 
                     <input className="fileInput"
                         type="file"
-                        onChange={this.imageChange}/>
+                        onChange={this.imageChange} />
                     <div>
                         {$imagePreview}
                     </div>
@@ -127,11 +127,11 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                         <option value="5">toy</option>
                         <option value="6">others</option>
                     </select>
-                    
-                    <Link to ='/home'>
-                    <Button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent, 
-                    this.state.numberOfShareUser, 
-                    this.state.productDescription, this.state.productCategory,this.state.photo, this.state.photoUrl,userid)}>Submit</Button>
+
+                    <Link to='/home'>
+                        <Button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
+                            this.state.numberOfShareUser,
+                            this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>Submit</Button>
                     </Link>
                 </form>
             </div>
@@ -147,7 +147,7 @@ const mapStateToProps = (rootState: IRootState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        createPost: (productName: string, productPrice:string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid))
+        createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid))
     }
 }
 

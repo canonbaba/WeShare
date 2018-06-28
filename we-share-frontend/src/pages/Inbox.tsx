@@ -1,10 +1,11 @@
 
 import * as React from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { ICurrentMessage, IInboxList } from 'src/models';
 import { fetchInboxList, fetchSelectedMessage, userSendMessage } from 'src/redux/inbox/action';
 import { IRootState } from 'src/redux/store';
+import './css/inbox.css';
 // import { Link } from 'react-router-dom';
 
 interface IInboxProps {
@@ -41,56 +42,47 @@ class PureInbox extends React.Component<IInboxProps, IInboxState> {
     }
 
     public render() {
-        const  currentInboxList= this.props.inboxList.map((data: any, i: number) => {
+        const currentInboxList = this.props.inboxList.map((data: any, i: number) => {
             return <div key={i}>
-                <ul>
-                    <li>
-                        <button onClick={this.props.selectInboxRoom.bind(this, this.props.userid, data.inbox_id)}>
-                            <p>{data.nameOfProduct}</p>
-                        </button>
-                    </li>
-                </ul>
+                <button onClick={this.props.selectInboxRoom.bind(this, this.props.userid, data.inbox_id)}>
+                    <p>{data.nameOfProduct}</p>
+                </button>
             </div>
         })
 
         const currentMessage = this.props.currentMessage.map((data: any, i: number) => {
-            return <div key={i}>
-                <ul>
-                    <li>
-                        <p>{data.name}</p>
-                        <p>{data.message}</p>
-                        <p>{data.created_at}</p>
-                        <p>{data.inbox_id}</p>
-                        <br />
-                    </li>
-                </ul>
+            return <div key={i} >
+                <p>{data.name}</p>
+                <p>{data.message}</p>
+                <p>{data.created_at}</p>
+                <br />
             </div>
         })
 
         return (
 
             <div className="static-modal">
-                <Grid>
-                    <Row className="show-grid">
-                        <Col xs={6} md={4}>
-                            <h2> Inbox List </h2>
-                            {currentInboxList}
-                        </Col>
-                        <Col xs={6} md={4}>
-                            <h2> Current Message</h2>
+                <Row className="show-grid">
+                    <Col xs={6} md={4}>
+                        <h2> Inbox List </h2>
+                        {currentInboxList}
+                    </Col>
+                    <Col xs={6} md={4}>
+                        <h2> Current Message</h2>
 
+                        <div className='message_box'>
                             {currentMessage}
+                        </div>
 
-                            {(this.props.currentMessage.length > 0) ?
-                                <div> <p>Input:</p>
-                                    <input type="text" placeholder='type something...' value={this.state.inputMessages} onChange={this.handleMessagesChange} />
-                                    <button onClick={this.props.sendMessage.bind(this, this.props.userid, this.state.inputMessages, this.props.currentMessage[0].inbox_id)}>Send</button>
-                                    {/* <Link to='/contracts/add/ ' component={ContractsDetial}><button>Sign</button></Link> */}
-                                </div> : <h1>Please choose Room</h1>}
+                        {(this.props.currentMessage.length > 0) ?
+                            <div> <p>Input:</p>
+                                <input type="text" placeholder='type something...' value={this.state.inputMessages} onChange={this.handleMessagesChange} />
+                                <button onClick={this.props.sendMessage.bind(this, this.props.userid, this.state.inputMessages, this.props.currentMessage[0].inbox_id)}>Send</button>
+                                {/* <Link to='/contracts/add/ ' component={ContractsDetial}><button>Sign</button></Link> */}
+                            </div> : <h1>Please choose Room</h1>}
 
-                        </Col>
-                    </Row>
-                </Grid>
+                    </Col>
+                </Row>
             </div>
         );
 

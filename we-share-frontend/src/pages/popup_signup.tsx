@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { remoteFetchUsers } from 'src/redux/login/actions';
 import { remoteSignupUsers } from 'src/redux/signup/actions';
 import { IRootState } from 'src/redux/store';
@@ -200,8 +200,10 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                                         <FormGroup>
                                             <Col smOffset={2} sm={10}>
-                                                <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
-                                                    , this.state.signUppassword)} onMouseOut={this.props.signupClose}>Submit</Button>
+                                                <Link to='/home'>
+                                                    <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
+                                                        , this.state.signUppassword)} onMouseOut={this.props.signupClose}>Submit</Button>
+                                                </Link>
                                             </Col>
                                         </FormGroup>
                                     </Form>

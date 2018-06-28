@@ -3,7 +3,11 @@ import { Button } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import AppTopICON from 'src/pages/App_topIcon';
+import ContractsDetail from 'src/pages/ContractsDetail';
+import ContractsList from 'src/pages/ContractsList';
+import ContractsSign from 'src/pages/ContractsSign';
 import PostForm from 'src/pages/create_post';
+import DetailContrat from 'src/pages/Detail_Contract';
 import Home from 'src/pages/home';
 import Inbox from 'src/pages/Inbox';
 import SignupPopup from 'src/pages/popup_signup';
@@ -67,7 +71,14 @@ class App extends React.Component<{}, { signupshow: boolean }> {
 
               <Route path="/rating" exact={true} component={Rating} />
               <Route path="/profile" exact={true} component={Profile} />
+
+               <Route path="/contracts" exact={true} component={ContractsList} />
+              <Route path="/contracts/add" component={ContractsDetail} />
+              <Route path="/contracts/:id" component={ContractsDetail} />
+              <Route path="/contractsSign/:id" component={ContractsSign} />
+
               <Route path="/inbox" exact={true} component={Inbox} />
+              <Route path="/detail_contract" exact={true} component={DetailContrat} />
             </Switch>
           </div>
         </div>

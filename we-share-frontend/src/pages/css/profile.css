@@ -1,0 +1,6 @@
+.profile_post {
+    width: 500px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+}

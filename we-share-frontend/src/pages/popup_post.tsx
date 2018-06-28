@@ -48,9 +48,13 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                         <img src={this.props.postData.photo} />
                     </div>
 
-                    <Link to="/inbox">
-                        <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>CONTACT Invitor</button>
-                    </Link>
+                    {(this.props.postData.userId === this.props.userid) || this.props.userid === 0?
+                        null
+                        :
+                        <Link to="/inbox">
+                            <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>CONTACT Invitor</button>
+                        </Link>
+                    }
                 </Modal>
 
             </div>

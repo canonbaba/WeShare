@@ -35,6 +35,8 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
                         <Button bsStyle="primary" bsSize="small">Profile</Button>
                     </Link>
 
+                    <Link to="/contracts">  <Button bsStyle="primary" bsSize="small">Contract</Button></Link>
+
                     <Link to="/inbox">
                         <Button bsStyle="primary" bsSize="small">Inbox</Button>
                     </Link>

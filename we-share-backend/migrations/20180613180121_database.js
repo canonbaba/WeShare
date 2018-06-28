@@ -13,6 +13,7 @@ exports.up = function (knex, Promise) {
             contract.string("productName");
             contract.text("price");
             contract.text("description");
+            contract.integer("creatorId");
             contract.dateTime("createDate");
             contract.text("startDate");
             contract.text("expiryDate");

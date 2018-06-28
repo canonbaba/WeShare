@@ -34,7 +34,7 @@ class InboxService {
       message: input.loginName + ' join this room'
     })
       .then(() => {
-        return this.knex('user_message').where({ inbox_id: input.postID }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'asc')
+        return this.knex('user_message').where({ inbox_id: input.postID }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'desc')
       })
   }
 
@@ -43,7 +43,7 @@ class InboxService {
       user_id: input.userid, message: input.inputMessages, inbox_id: input.inboxId
     })
       .then(() => {
-        return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'asc')
+        return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'desc')
       })
   }
 
@@ -68,7 +68,7 @@ class InboxService {
 
 
   selectMessage(input) {
-    return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'asc')
+    return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'desc')
   }
 
 

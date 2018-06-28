@@ -16,7 +16,7 @@ class RatingRouter {
 
 
   post(req,res){
-      // console.log(req.body.userid, req.body.comment,req.body.trueClick)
+      // console.log(req.body)
     return this.ratingService
     .saverating(req.body)
     .then(data => {

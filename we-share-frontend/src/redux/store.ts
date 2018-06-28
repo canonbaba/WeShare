@@ -9,6 +9,9 @@ import { IProfilePostState, ProfileReducer } from 'src/redux/profile/reducer';
 import { IUserState, UserReducer } from 'src/redux/signup/reducer';
 import { authReducer as AuthReducer, IAuthState } from './auth/reducer';
 
+import { IContractsState, reducer as contractsReducer} from 'src/redux/contracts/reducer';
+import { ISignContractsState, reducer as loadContractsReducer } from 'src/redux/contractsSign/reducer';
+
 
 declare global {
   // tslint:disable-next-line:interface-name
@@ -29,6 +32,10 @@ export interface IRootState {
   profileRating: IProfilePostState;
   currentMessage: IInboxDataState;
   inboxList: IPureInboxState;
+  profileContract:IProfilePostState;
+  contracts: IContractsState;
+  loadContracts: ISignContractsState;
+  contractDetail: IProfilePostState;
 }
 
 export const store = createStore(
@@ -40,7 +47,11 @@ export const store = createStore(
     homedata: HomeReducer,
     profilePost: ProfileReducer,
     profileRating: ProfileReducer,
+    profileContract:ProfileReducer,
+    contracts: contractsReducer,
     currentMessage: PopupActionInboxReducer,
-    inboxList: PureInboxReducer
+    inboxList: PureInboxReducer,
+    loadContracts: loadContractsReducer,
+    contractDetail: ProfileReducer
   }), composeEnhancers(applyMiddleware(thunk, logger))
 );

@@ -14,7 +14,7 @@ class PostFormService {
         })
         .then((data)=>{
           // add adminID and related inboxID
-          return this.knex('user_message').insert({inbox_id: data[0], admin_id: input.userid, user_id: input.userid})
+          return this.knex('user_message').insert({inbox_id: data[0], admin_id: input.userid, user_id: input.userid, message: 'Welcome any one come in!!=]'})
         })
 
 
