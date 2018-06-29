@@ -277,7 +277,7 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
   }
 
   private handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.props.history.push('/contracts')
+    this.props.history.push('/profile')
   }
 
   private handleProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {

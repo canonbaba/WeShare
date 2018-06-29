@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Provider } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import AppTopICON from 'src/pages/App_topIcon';
 import ContractsDetail from 'src/pages/ContractsDetail';
@@ -13,10 +12,7 @@ import Inbox from 'src/pages/Inbox';
 import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
-import { store } from 'src/redux/store';
 import './App.css';
-
-
 
 
 class App extends React.Component<{}, { signupshow: boolean }> {
@@ -25,8 +21,6 @@ class App extends React.Component<{}, { signupshow: boolean }> {
 
     this.state = {
       signupshow: false,
-      // tslint:disable-next-line:object-literal-sort-keys
-      // profileicon: false
     }
   }
 
@@ -43,25 +37,12 @@ class App extends React.Component<{}, { signupshow: boolean }> {
   }
 
 
-
-  // public showProfileicon = () => {
-  //   this.setState({
-  //     profileicon: true
-  //   })
-  // }
-
   public render() {
     return (
 
-      <Provider store={store}>
+
         <div className="App">
-          {/* <header>
-            <h1>Welcome to React</h1>
-            <AppTopICON />
-            <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Login</Button>
-
-
-          </header> */}        
+     
             <Row className="appbackground">
               <Col lg={3} xs={3} className="left">
                 <Link to="/home"><h5>WeShare</h5></Link>
@@ -72,7 +53,6 @@ class App extends React.Component<{}, { signupshow: boolean }> {
                   <Route path="/postform" exact={true} component={PostForm} />
 
                   <Route path="/home" exact={true} component={Home} />
-                  {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
 
                   <Route path="/rating" exact={true} component={Rating} />
                   <Route path="/profile" exact={true} component={Profile} />
@@ -93,7 +73,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
               <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
             </Row>        
         </div>
-      </Provider>
+      
     );
   }
 }

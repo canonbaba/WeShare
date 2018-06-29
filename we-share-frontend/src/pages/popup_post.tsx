@@ -36,6 +36,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
             <div className="static-modal">
                 <Modal show={this.props.postPopup} onHide={this.handleClose}>
                     <button onClick={this.props.postPopupClose}><Glyphicon glyph="remove" /></button>
+                    <div onClick={this.props.postPopupClose}>
                     <Row>
                         <Col lg={12} id="ppRating">
                             <h2>Inviter Rating: {this.props.postData.averageRating}</h2>
@@ -97,6 +98,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                             <h2>{this.props.postData.description}</h2>
                         </Col>
                     </Row>
+                    </div>
 
                     <Link id="popupPostbutton" to="/inbox">
                         <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>CONTACT INVITOR</button>

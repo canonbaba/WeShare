@@ -201,7 +201,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                         </Row>
 
                         <div id="createPostButton">
-                            <Link to="/home">
+                            <Link to="/profile">
                                 <button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
                                     this.state.numberOfShareUser,
                                     this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>POST</button>

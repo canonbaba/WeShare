@@ -31,9 +31,6 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
                         <Link to="/profile">
                             <button>Profile</button>
                         </Link>
-                        {/* <Link to="/profile">
-                            <button>Rating</button>
-                        </Link> */}
                     </div>
                 }
 

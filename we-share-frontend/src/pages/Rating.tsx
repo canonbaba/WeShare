@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Glyphicon, Modal } from 'react-bootstrap';
+import { Button, Glyphicon, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { IContractDetail, IScore } from 'src/models';
@@ -50,7 +50,7 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
         return (
             <div className="static-modal">
                 <Modal show={this.props.ratingPopup} onHide={this.handleClose}>
-                    <button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></button>
+                    <Button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></Button>
                     <Row className='num'>
 
                         <Col xl='2' id="rate">

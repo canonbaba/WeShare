@@ -102,7 +102,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                         <Col lg={5} xs={5} id="homeinput"><input type="text" placeholder="SEARCH POST" /></Col>
                         <Col lg={1} xs={1} id="sumbitbutton"><button type="submit"><FontAwesome.FaSearch /></button></Col>
                         <Col lg={1} xs={1} className="custom-select">
-                            <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory}>
+                            <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
                                 <option value="">ALL</option>
                                 <option value="1">FASHION</option>
                                 <option value="2">ELECTRIC PRODUCT</option>
