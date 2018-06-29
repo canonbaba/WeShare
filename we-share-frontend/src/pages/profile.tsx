@@ -39,21 +39,32 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
     public render() {
         const profilePost = this.props.profilePost.map((data: any, i: number) => {
             return <div key={i}>
-                <h4>Title: {data.nameOfProduct}</h4>
-                <p>Price: {data.price}</p>
-                <p>Number of PPL: {data.numberOfShareUser}</p>
-                <p>Willing % to pay: {data.percentageOfPay}</p>
-                <p>Description: {data.description}</p>
-                <p>Photo: <img src={data.photo} /></p>
+                <div id="profilePostContent">
+                    <h5>{data.nameOfProduct}</h5>
+                    <img src={data.photo} />
+                    <p>Price: {data.price}</p>
+                    <p>People Shared: {data.numberOfShareUser}</p>
+                    <p>Willing % to pay: {data.percentageOfPay}</p>
+                    {/* <p>Description:</p>
+                    <p>{data.description}</p> */}
+                </div>
             </div>
         });
 
         const profileRating = this.props.profileRating.map((data: any, i: number) => {
             return <div key={i}>
-                <p>rating: {data.rating}</p>
-                <p>Name: {data.name}</p>
-                <p>comment: {data.comment}</p>
-                <p>updated_at: {data.updated_at.toString().slice(0, 10)}</p>
+                <div id="profileRatingBottomLine">
+                    <Row>
+                        <Col lg={6} xs={6} id="profileRatingName">
+                            <p>Name: {data.name}</p>
+                        </Col>
+                        <Col lg={6} xs={6} id="profileRatingNumber">
+                            <div>Rating: {data.rating}</div>
+                        </Col>
+                    </Row>
+                    <p>Comment: {data.comment}</p>
+                    <p>Day: {data.updated_at.toString().slice(0, 19)}</p>
+                </div>
             </div>
         });
 
@@ -73,37 +84,43 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
         });
 
         return (
-            <div className="static-modal">
-                <Row className="show-grid">
-                    <Col xs={6} md={4}>
-                        <div>
-                            <FontAwesome.FaUser />
-                            <h1>PROFILE</h1>
+            <div className="static-modal profile">
+                <Row className="porfileLeft">
+                    <Col lg={6} xs={6} className="profilePeople">
+                        <div id="profileContent">
+                            <div id="fontIcons"><FontAwesome.FaUser /></div>
+                            {/* <h1>PROFILE</h1> */}
                             <p>Login user Name: {this.props.loginName}</p>
                             <p>Login user Email: {this.props.loginEmail}</p>
                         </div>
                     </Col>
-                    <Col xs={6} md={8}>
-                        <div>
-                            <h1>Post</h1>
-                            <div className='profile_post'>
-                                {profilePost}
-                            </div>
-                        </div>
+                    <Col lg={6} xs={6} className="profile_postH1">
+                        <h1>Created Post</h1>
+                        <Col lg={12} xs={12} className="profile_post">
+                            {/* <div id="profilePost"> */}
+                            {/* <div> */}
+                            {/* <div> */}
+                            {profilePost}
+                            {/* </div> */}
+                            {/* </div> */}
+                        </Col>
                     </Col>
                 </Row>
-                <Row className="show-grid">
-                    <Col xs={6} md={4}>
-                        <div>
-                            <h1>Rating</h1>
+                <Row className="porfileRight">
+                    <Col lg={6} xs={6} id="profileRating">
+                        <h1>Rating</h1>
+                        <Col lg={12} xs={12} className="profileRatingScroll">
                             {profileRating}
-                        </div>
+
+                        </Col>
                     </Col>
-                    <Col xs={6} md={8}>
-                        <div>
-                            <h1>Contract</h1>
+                    <Col lg={6} xs={6} id="profileContractH1">
+                        <h1>Contract</h1>
+                        <Col lg={12} xs={12} id="profileContract">
+
                             {profileContract}
-                        </div>
+
+                        </Col>
                     </Col>
                 </Row>
             </div>

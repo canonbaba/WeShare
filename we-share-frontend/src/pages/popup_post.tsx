@@ -35,12 +35,13 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
         return (
             <div className="static-modal">
                 <Modal show={this.props.postPopup} onHide={this.handleClose}>
-                    <button onClick={this.props.postPopupClose}><Glyphicon glyph="remove" /></button>
-                    <div onClick={this.props.postPopupClose}>
                     <Row>
-                        <Col lg={12} id="ppRating">
-                            <h2>Inviter Rating: {this.props.postData.averageRating}</h2>
+                        <Col lg={6} id="ppRating">
+                            <h2>Inviter Rating:{this.props.postData.averageRating}</h2>
                             {/* <h2>{this.props.postData.averageRating}</h2> */}
+                        </Col>
+                        <Col lg={6} id="popupPostRemovebutton">
+                            <button onClick={this.props.postPopupClose}><Glyphicon glyph="remove" /></button>
                         </Col>
                     </Row>
 
@@ -74,7 +75,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>PercentageOfPay:</h2>
+                            <h2>% Of Inviter Paid:</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.percentageOfPay}</h2>
@@ -83,7 +84,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>NumberOfShareUser:</h2>
+                            <h2>People Shared:</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.numberOfShareUser}</h2>
@@ -98,7 +99,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                             <h2>{this.props.postData.description}</h2>
                         </Col>
                     </Row>
-                    </div>
+                    {/* </div> */}
 
                     <Link id="popupPostbutton" to="/inbox">
                         <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>CONTACT INVITOR</button>

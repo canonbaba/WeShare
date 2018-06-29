@@ -1,3 +1,17 @@
+#popupPostRemovebutton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#popupPostRemovebutton button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    margin: 0px;
+    font-size: 20px;
+}
+
 .flexCenter {
     display: flex;
     justify-content: center;
@@ -5,11 +19,11 @@
 
 #ppRating {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 #ppRating h2 {
-    font-size: 20px;
+    font-size: 15px;
     margin: 5px 0px 0px 0px;
 }
 
@@ -36,15 +50,17 @@
 }
 
 .ppleft h2 {
-    font-size: 20px;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
 .ppright h2 {
-    font-size: 20px;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
 #ppDataPost {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 #ppDataPost h2 {
@@ -67,5 +83,5 @@
     margin: 10px;
     background-color: transparent;
     border: 0px;
-    font-size: 20px;
+    font-size: 25px;
 }

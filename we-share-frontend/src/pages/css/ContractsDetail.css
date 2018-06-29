@@ -1,0 +1,126 @@
+#contractCreate {
+    background-color: white;
+    margin-top: 120px;
+    height: 480px
+}
+
+#contractLeft {
+    border-right: 1px;
+}
+
+#contractCreate #contractProduct {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#contractProduct input {
+    text-align: center;
+}
+
+#contractCreate input {
+    background-color: transparent;
+    border: 0px;
+}
+
+#contractPrice {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+#contractPrice input {
+    width: 50px;
+}
+
+#contractPercentage input {
+    width: 75px;
+}
+
+#contractPercentage label {
+    margin: 0px;
+}
+
+.contractPeople {
+    border-bottom: 1px solid grey;
+    margin: 5px;
+}
+
+.contractDescription textarea {
+    border: 0px;
+    text-align: left;
+    width: 350px;
+    margin-left: 5px;
+}
+
+#contractButton {
+    display: flex;
+    justify-content: center;
+}
+
+#contractButton button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+}
+
+#contractButton button:hover {
+    color: #A2151D;
+}
+
+#confirmTitle {
+    text-align: center;
+}
+
+#confirmProductAndPrice {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#confirmParticipant {
+    border-bottom: 1px solid grey;
+    margin: 5px;
+}
+
+#confirmParticipant label {
+    margin: 1px;
+}
+
+#confirmParticipant div {
+    margin: 0px;
+}
+
+#confirmParticipantGroup {
+    display: flex;
+    flex-direction: row;
+}
+
+#confiremDescription {
+    display: flex;
+    flex-direction: row;
+}
+
+#confirmButton {
+    display: flex;
+    justify-content: center;
+}
+
+#confirmButton button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    color: grey;
+    font-size: 20px;
+    font-weight: bold; 
+    margin-top: 20px;
+}
+
+#confirmButton button:hover {
+    color: #A2151D;
+}

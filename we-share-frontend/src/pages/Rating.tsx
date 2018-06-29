@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Button, Glyphicon, Modal } from 'react-bootstrap';
+import { Col, Glyphicon, Modal, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Col, Row } from 'reactstrap';
+// import { Col, Row } from 'reactstrap';
 import { IContractDetail, IScore } from 'src/models';
 import { saveRating } from 'src/redux/rating/actions';
 import { IRootState } from 'src/redux/store';
@@ -50,13 +50,18 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
         return (
             <div className="static-modal">
                 <Modal show={this.props.ratingPopup} onHide={this.handleClose}>
-                    <Button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></Button>
+                    <div id="ratingClose">
+                        <button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></button>
+                    </div>
+                    <div id="ratingTitle">
+                        <h1>Rating & Comment</h1>
+                    </div>
                     <Row className='num'>
 
-                        <Col xl='2' id="rate">
+                        <Col lg={12} xs={12} id="rate">
                             <p>Rating:</p>
                         </Col>
-                        <Col xl='5' className='rating'>
+                        <Col lg={12} xs={12} className='rating'>
                             <table>
                                 <thead>
                                     <tr>
@@ -85,25 +90,30 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
 
 
                     {/* comment part */}
-                    <Row className="comment">
-                        <Col>
-                            <h1>To: {this.props.showRatingPopupData.name}</h1>
-                            <br />
+                    <Row>
+                        <Col className="comment">
+                            {/* <Col lg={12} xs={12}> */}
                             <Row>
-                                <Col><textarea value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." /></Col>
-                            </Row>
-                            <br />
-                            <Row>
-                            {/* this.props.userid is Login user id; this.props.showRatingPopupData.user_id is the one who is commented by login user */}
-                                <Col className="submit">
-                                    <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(),this.props.showRatingPopupData.user_id)}>Submit</button>
+                                <Col>
+                                    <h1>To: {this.props.showRatingPopupData.name}</h1>
                                 </Col>
                             </Row>
-                            <br />
+                            <Row>
+                                <Col>
+                                    <textarea value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." />
+                                </Col>
+                            </Row>
+                            <Row>
+                                {/* this.props.userid is Login user id; this.props.showRatingPopupData.user_id is the one who is commented by login user */}
+                                <Col className="submit">
+                                    <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(), this.props.showRatingPopupData.user_id)}>Submit</button>
+                                </Col>
+                            </Row>
+                            {/* </Col> */}
                         </Col>
                     </Row>
                 </Modal>
-            </div>
+            </div >
         )
     }
 

@@ -83,8 +83,8 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                 <div className="overflowPost">
                     <h1>{data.nameOfProduct}</h1>
                     <img src={data.photo} />
-                    <h5>No. of people:{data.numberOfShareUser}</h5>
-                    <h5>Rating:{data.averageRating}</h5>
+                    <h5>People Shared: {data.numberOfShareUser}</h5>
+                    <h5>Rating: {data.averageRating}</h5>
                 </div>
             </div>
         })
