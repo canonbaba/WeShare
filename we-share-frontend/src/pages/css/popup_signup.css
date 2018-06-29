@@ -1,3 +1,5 @@
+
+
 /* button {
     background-color: transparent;
     border: 0px;
@@ -7,9 +9,15 @@
 .modal-content {
     /* background-image: url("../../images/profileBackground.jpg"); */
     /* background-color: blue; */
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     width: 600px;
     height: 600px;
+}
+
+.text-right button {
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
 }
 
 #poplogin {
@@ -19,7 +27,7 @@
 
 #poplogin h1 {
     font-size: 50px;
-    margin: 100px 10px 10px 10px;
+    margin: 100px 10px 30px 10px;
 }
 
 #popemail {

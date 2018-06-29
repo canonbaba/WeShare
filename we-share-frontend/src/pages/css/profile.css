@@ -1,6 +1,115 @@
 .profile_post {
-    width: 500px;
-    overflow-x: scroll;
+    width: 300px;
     display: flex;
+    /* justify-content: center;
+    align-items: center; */
     flex-direction: row;
+    overflow-x: scroll;
+}
+
+.profile {
+    background-color: white;
+    margin-top: 80px;
+}
+
+#profileContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#fontIcons {
+    font-size: 100px;
+}
+
+/* #profilePost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+#profilePostContent {
+    width: 150px;
+    height: 180px;
+    background-color: transparent;
+    background-image: url("../../images/paperwhiteshadow.png");
+    background-repeat: no repeat;
+    background-size: 150px 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#profilePostContent img {
+    /* margin-left: 4.5vw; */
+    max-width: 80px;
+    max-height: 60px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#profilePostContent p {
+    font-size: 10px;
+    margin: 0px;
+}
+
+#profileRating {
+    /* padding: 0px;
+    margin-left: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#profileRatingBottomLine {
+    border-bottom: 1px solid grey;
+    width: 300px;
+}
+
+#profileRating .profileRatingScroll {
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    /* flex-direction: column; */
+    overflow-y: scroll;
+}
+
+#profileRating h1 {
+    font-size: 20px;
+}
+
+
+#profileRatingName {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#profileRatingNumber {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#profileRatingNumber div {
+    width: 80px;
+}
+
+#profileContract {
+    width: 300px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+#profileContractH1 h1 {
+    font-size: 20px;
+}
+
+.profile_postH1 h1 {
+    font-size: 20px;
 }

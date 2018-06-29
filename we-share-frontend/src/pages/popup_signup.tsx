@@ -116,7 +116,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                     <Modal show={this.props.signupPopup} onHide={this.handleClose}>
                         <div className="text-right">
                             {/* *** actually it should be redirected to previous component, not "/" */}
-                            <Button bsStyle="primary" onClick={this.props.signupClose}><Glyphicon glyph="remove" /></Button>
+                            <button onClick={this.props.signupClose}><Glyphicon glyph="remove" /></button>
                         </div>
 
                         {/* toggle Login or Signup */}
@@ -212,7 +212,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                                 <Row>
                                     <Col lg={12} id="poppassword">
-                                        <input type="password" placeholder="Your Email" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
+                                        <input type="password" placeholder="Password" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
                                     </Col>
                                 </Row>
 

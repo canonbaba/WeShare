@@ -43,13 +43,13 @@ class PureInbox extends React.Component<IInboxProps, IInboxState> {
 
     public render() {
         const currentInboxList = this.props.inboxList.map((data: any, i: number) => {
-            return <div key={i}>
-                <div>
+            return <Row id="inboxList" key={i}>
+                <Col lg={12} xs={12}>
                     <button onClick={this.props.selectInboxRoom.bind(this, this.props.userid, data.inbox_id)}>
-                        <p>{data.nameOfProduct}</p>
+                        {data.nameOfProduct}
                     </button>
-                </div>
-            </div>
+                </Col>
+            </Row>
         })
 
         const currentMessage = this.props.currentMessage.map((data: any, i: number) => {
@@ -63,16 +63,14 @@ class PureInbox extends React.Component<IInboxProps, IInboxState> {
         return (
 
             <div className="static-modal inbox">
-                <Row className="show-grid">
-                    <Col lg={3} xs={6} id="inboxRoom">
-                        <div>
-                            <h2> ROOM </h2>
-                        </div>
+                <Row>
+                    <Col lg={3} xs={3} id="inboxRoom">
+                        <h2> ROOM </h2>
                         <div id="inboxScrollRoom">
                             {currentInboxList}
                         </div>
                     </Col>
-                    <Col lg={9} xs={6} id="inboxMessage">
+                    <Col lg={9} xs={9} id="inboxMessage">
                         <div>
                             <h2> Message </h2>
                         </div>

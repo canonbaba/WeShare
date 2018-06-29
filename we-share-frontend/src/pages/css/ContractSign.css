@@ -1,0 +1,29 @@
+.contractSign {
+    width: 800px;
+    margin-top: 120px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contractSignTitle  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#peopleContentWidth {
+    width: 800px;
+}
+
+
+
+#contractSignbutton button {
+    background-color: transparent;
+    border: 0px;
+    font-size: 50px;
+}

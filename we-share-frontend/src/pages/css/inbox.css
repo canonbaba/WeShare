@@ -31,14 +31,22 @@
     overflow: scroll;
 }
 
-/* #inboxScrollRoom button {
-    width: 100px;
-    text-align: right;
- }
+#inboxList {
+    width: 200px;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; */
+}
 
-#inboxScrollRoom p {
-   width: 100px;
-   text-align: right;
+#inboxScrollRoom button {
+    width: 200px;
+    text-align: left;
+    font-size: 15px;
+}
+
+/* #inboxScrollRoom p {
+   width: 300px;
+   text-align: left;
 } */
 
 #inboxScroll {

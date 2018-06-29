@@ -1,7 +1,24 @@
+#ratingClose {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#ratingClose button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
+}
+
+#ratingTitle {
+    display: flex;
+    justify-content: center;
+}
+
 .num {
-    margin: 100px;
+    margin: 50px;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .rating {
@@ -31,7 +48,7 @@
 }
 
 #rate p {
-    margin: 0px;
+    margin-left: 20px;
 }
 
 /* .rating p {
@@ -40,9 +57,35 @@
 
 .comment {
     /* height: 300px; */
+    margin-left: 65px;
+    width: 496px;
     border: 1px solid black;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+.comment textarea {
+    width: 300px;
+    height: 100px;
+    background-color: transparent;
+}
+
+.submit button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    font-size: 30px;
+    color: grey;
+    font-weight: bold;
+}
+
+.submit button:hover {
+    color: #A2151D;
+}
+
 
 
 /* .content {

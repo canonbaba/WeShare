@@ -3,11 +3,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { Col, Row } from 'react-bootstrap';
 import { match } from 'react-router';
 import { Link } from 'react-router-dom';
 import { IProfileContractData } from 'src/models';
 import { fetchContracts, fetchSignContract, ILoadContractsData } from 'src/redux/contractsSign/actions';
 import { IRootState } from 'src/redux/store';
+import './css/ContractSign.css';
 
 
 interface IContractsSignProps {
@@ -60,33 +62,46 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
 
     return (
-      <div className="static-modal">
-        <div>The Contract To Be Signed </div>
-        <div>Product: {loadContract.productName}</div>
-        <div>Price: {loadContract.price}</div>
-        <div>Participants: </div>
-        <div>The First Participant:
+      <div className="static-modal contractSign">
+        <Row>
+          <Col lg={12} xs={12} id="contractSignTitle">
+            <h3>The Contract To Be Signed </h3>
+            <h5>Product: {loadContract.productName}</h5>
+            <h5>Price: {loadContract.price}</h5>
+          </Col>
+        </Row>
+        <Row id="peopleContentWidth">
+          <Col lg={3} xs={3} >
+            {/* <div>Participants: </div> */}
+            <div>1st Participant:
                    <div>Name: {loadContract.participants[0].name}</div>
-          <div>Percentage To Share: {loadContract.participants[0].percentageToShare}</div>
-          <div>Day To Use: {loadContract.participants[0].daysToUse}</div>
-        </div>
-        <div>The Second Participant:
+              <div>Price To Share: {loadContract.participants[0].percentageToShare}</div>
+              <div>Day To Use: {loadContract.participants[0].daysToUse}</div>
+            </div>
+            </Col>
+            <Col lg={3} xs={3} className="peopleContent">
+            <div>2nd Participant:
                    <div>Name: {loadContract.participants[1].name}</div>
-          <div>Percentage To Share: {loadContract.participants[1].percentageToShare}</div>
-          <div>Day To Use: {loadContract.participants[1].daysToUse}</div>
-        </div>
-
-        <div>The Third Participant:
+              <div>Price To Share: {loadContract.participants[1].percentageToShare}</div>
+              <div>Day To Use: {loadContract.participants[1].daysToUse}</div>
+            </div>
+            </Col>
+            <Col lg={3} xs={3} className="peopleContent">
+            <div>3rd Participant:
                    <div>Name: {loadContract.participants[2].name}</div>
-          <div>Percentage To Share: {loadContract.participants[2].percentageToShare}</div>
-          <div>Day To Use: {loadContract.participants[2].daysToUse}</div>
-        </div>
-        <div>The Forth Participant:
+              <div>Price To Share: {loadContract.participants[2].percentageToShare}</div>
+              <div>Day To Use: {loadContract.participants[2].daysToUse}</div>
+            </div>
+            </Col>
+            <Col lg={3} xs={3} className="peopleContent">
+            <div>4th Participant:
                    <div>Name: {loadContract.participants[3].name}</div>
-          <div>Percentage To Share: {loadContract.participants[3].percentageToShare}</div>
-          <div>Day To Use: {loadContract.participants[3].daysToUse}</div>
-        </div>
-        <div>Description: {loadContract.description}</div>
+              <div>Price To Share: {loadContract.participants[3].percentageToShare}</div>
+              <div>Day To Use: {loadContract.participants[3].daysToUse}</div>
+            </div>
+            <div>Description: {loadContract.description}</div>
+          </Col>
+        </Row>
 
         {
           (this.props.loadContracts) ? (
@@ -96,7 +111,7 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
             </div>
           ) : ''
         }
-        <Link to={'/profile'}>
+        <Link id="contractSignbutton" to={'/profile'}>
           <button onClick={this.handleSign}>Sign</button>
         </Link>
       </div>

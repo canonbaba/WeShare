@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import {match} from 'react-router-dom';
+import { match } from 'react-router-dom';
 // tslint:disable-next-line:ordered-imports
 import { IContracts, IParticipant } from 'src/models';
-import { /*addContracts,*/ editContracts,remoteAddContracts /*remoteEditContracts*/ } from 'src/redux/contracts/actions';
+import { /*addContracts,*/ editContracts, remoteAddContracts /*remoteEditContracts*/ } from 'src/redux/contracts/actions';
 import { IRootState } from 'src/redux/store';
 // import { ContractsShow } from './ContractsShow';
+import './css/ContractsDetail.css';
 
 import {
   // Collapse,
@@ -17,20 +18,20 @@ import {
   // NavLink,
 
   Col,
-  Container,
-  Jumbotron
+  Row
+  // Jumbotron
   // Row,
   // Button
-} from 'reactstrap';
+} from 'react-bootstrap';
 
 
-interface IContractsDetailProps{
+interface IContractsDetailProps {
   userid: number;
-  match:match<{id?:string}>;
-  contracts:IContracts[];
-  history:any;
-  addContracts:(contracts:IContracts)=> void;
-  saveContractsProps:(contracts:IContracts)=> void;
+  match: match<{ id?: string }>;
+  contracts: IContracts[];
+  history: any;
+  addContracts: (contracts: IContracts) => void;
+  saveContractsProps: (contracts: IContracts) => void;
 
 }
 
@@ -45,7 +46,7 @@ interface IContractsDetailStates {
 
 
 // export interface IParticipant {
-    
+
 //   id:number;
 //   participantName:string;
 //   percentage:string;
@@ -58,10 +59,10 @@ interface IContractsDetailStates {
 //   sat:boolean;
 //   sun:boolean;
 //   }
-  
+
 //   }
 
-class PureContractsDetail extends React.Component <IContractsDetailProps,IContractsDetailStates>{
+class PureContractsDetail extends React.Component<IContractsDetailProps, IContractsDetailStates>{
 
 
   constructor(props: IContractsDetailProps) {
@@ -74,171 +75,180 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
       // tslint:disable-next-line:object-literal-sort-keys
       price: 0,
 
-      participants: [{ id: 1, participantName: '',percentage:'', dayToUse:''},{ id: 2, participantName: '',percentage: '',dayToUse:''},{ id: 3, participantName: '',percentage: '',dayToUse:''},{ id: 4, participantName: '',percentage: '',dayToUse:''}],
-                  
+      participants: [{ id: 1, participantName: '', percentage: '', dayToUse: '' }, { id: 2, participantName: '', percentage: '', dayToUse: '' }, { id: 3, participantName: '', percentage: '', dayToUse: '' }, { id: 4, participantName: '', percentage: '', dayToUse: '' }],
+
       description: ''
 
     }
 
-   if(this.props.match.params.id !=null){
+    if (this.props.match.params.id != null) {
 
-        const contractId = parseInt(this.props.match.params.id,10);
-        const contract = this.props.contracts.find(c => c.id === contractId);
-        if(contract!=null){
+      const contractId = parseInt(this.props.match.params.id, 10);
+      const contract = this.props.contracts.find(c => c.id === contractId);
+      if (contract != null) {
 
-          this.state = {
+        this.state = {
 
-            product: contract.product,
-            // tslint:disable-next-line:object-literal-sort-keys
-            price: contract.price,
+          product: contract.product,
+          // tslint:disable-next-line:object-literal-sort-keys
+          price: contract.price,
 
-            participants: contract.participants.slice(),
-           
-            description:contract.description
-            
-            };
-        }
+          participants: contract.participants.slice(),
 
-   }
+          description: contract.description
+
+        };
+      }
+
+    }
   }
 
 
 
-  public render (){
+  public render() {
     return (
       <div>
-            {/* ContractsDetail
+        {/* ContractsDetail
             <h2> {this.props.match.params.id != null ? 'Editing Contracts':'Creating Contracts'}</h2> */}
 
-      
-<Jumbotron>
-      <Container>
-        <Col xl="6">
 
-        <div>
+        <Row id="contractCreate">
+          <Col lg={6} xs={6} id="contractLeft">
 
-        <div>
-          <label>Product:</label>
-          <input type="text" value={this.state.product} onChange={this.handleProductChange} />
-        </div>
+            <div>
 
-         <div>
-          <label>Price:</label>
-          <input type="text" value={this.state.price} onChange={this.handlePriceChange} />
-        </div>
+              <div id="contractProduct">
+                {/* <label>Product:</label> */}
+                <input type="text" placeholder="Product Name ?" value={this.state.product} onChange={this.handleProductChange} />
+              </div>
 
-          <label>The Participants:</label>
-          {
-            this.state.participants.map(participant => (
+              <div id="contractPrice">
+                <label>Price:</label>
+                <input type="text" value={this.state.price} onChange={this.handlePriceChange} />
+              </div>
 
-              <div key={participant.id}>
+              <label>The Participants:</label>
+              {
+                this.state.participants.map(participant => (
 
-                <div>
+                  <div className="contractPeople" key={participant.id}>
 
-                  <label>Name:</label>
-                  <input type="text" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} />
-                </div>
+                    <div>
 
-                  <div>
+                      {/* <label>Name:</label> */}
+                      <input type="text" placeholder="Participant Name" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} />
+                    </div>
 
-                      <label>Percentage:</label>
-                      <input type="text" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
+                    <div id="contractPercentage">
+
+                      {/* <label>Percentage:</label> */}
+                      <input type="text" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
                       <label>%</label>
                     </div>
 
                     <div>
 
-                      <label>Day To Use:</label>
-                      
-                      <input type="text" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
-                   </div>
+                      {/* <label>Day To Use:</label> */}
+                      <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
+                    </div>
 
-              </div>
-            ))
-
-          }
-
-        
-
-        <div >
-          <label>Description:</label>
-          <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
-        </div> 
-        
-             <button onClick={this.handleSubmit}>Submit</button>
-
-        </div>
-
-
-        </Col>
-
-        <Col xl="6">
-         
-         
-         <div>
-
-          <div> The Created Contract </div>
-
-            {
-
-          (this.props.contracts) ? (
-            this.props.contracts.map(contract => (
-
-             <div key={contract.id}>
-  
-
-              <div>
-                <label>The Product:</label>
-                <div> {contract.product} </div>
-              </div>
-
-              <div>
-                <label>Price:</label>
-                <div> {contract.price} </div>
-              </div>
-
-              <div>
-              {
-                contract.participants.map(participant => (
-
-                <div key={participant.id}>
-
-
-                 <div><label>The participant</label> {participant.participantName}</div>
-                 <div><label>percentage</label>{participant.percentage}</div>
-                 <div><label>day to use</label>{participant.dayToUse}</div>
-              
-                           
-  
-                </div>
-
+                  </div>
                 ))
+
               }
 
-              </div>
-    
-              <div >
-                <label>Description:</label>
-                <div> {contract.description} </div>
-              </div>
-                
-              <button onClick={this.handleButton}>Go Back To Contracts List</button>
-             
-    
-            </div>
-            ))): ''
-        }
 
-        </div>
-             
-        
-        </Col>
-      
-    </Container>
-</Jumbotron>
-      
-      
-      </div>
+
+              <div className="contractDescription">
+                {/* <label>Description:</label> */}
+                <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
+              </div>
+
+              <div id="contractButton">
+                <button onClick={this.handleSubmit}>SUBMIT</button>
+              </div>
+
+            </div>
+
+
+          </Col>
+
+          <Col lg={6} xs={6}>
+
+
+            <div>
+
+              {/* <div id="confirmTitle"> The Created Contract </div> */}
+
+              {
+
+                (this.props.contracts) ? (
+                  this.props.contracts.map(contract => (
+
+                    <div id="confiremContract" key={contract.id}>
+
+
+                      <div id="confirmProductAndPrice">
+                        <label>The Product: </label>
+                        <div> {contract.product} </div>
+                      </div>
+
+                      <div id="confirmProductAndPrice">
+                        <label>The Price: </label>
+                        <div> {contract.price} </div>
+                      </div>
+
+                      <div>
+                        {
+                          contract.participants.map(participant => (
+
+                            <div id="confirmParticipant" key={participant.id}>
+
+                              <div id="confirmParticipantGroup">
+                                <label>The participant: </label>
+                                <div> {participant.participantName}</div>
+                              </div>
+                              <div id="confirmParticipantGroup">
+                                <label>Percentage: </label>
+                                <div>{participant.percentage}</div>
+                              </div>
+                              <div id="confirmParticipantGroup">
+                                <label>Which day will use: </label>
+                                <div>{participant.dayToUse}</div>
+                              </div>
+
+
+
+                            </div>
+
+                          ))
+                        }
+
+                      </div>
+
+                      <div id="confiremDescription">
+                        <label>Description:</label>
+                        <div> {contract.description} </div>
+                      </div>
+
+                      <div id="confirmButton">
+                        <button onClick={this.handleButton}>FINISH</button>
+                      </div>
+
+
+                    </div>
+                  ))) : ''
+              }
+
+            </div>
+
+
+          </Col>
+        </Row>
+
+
+
+      </div >
 
 
     );
@@ -246,19 +256,19 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
 
   private handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 
-    if(this.props.match.params.id !=null){
+    if (this.props.match.params.id != null) {
 
       this.props.saveContractsProps({
-        id: parseInt(this.props.match.params.id,10),
+        id: parseInt(this.props.match.params.id, 10),
         product: this.state.product,
         // tslint:disable-next-line:object-literal-sort-keys
         price: this.state.price,
         participants: this.state.participants,
         description: this.state.description,
-        userid:this.props.userid
-       
+        userid: this.props.userid
+
       })
-        // this.props.history.push('/contracts')
+      // this.props.history.push('/contracts')
     } else {
 
       this.props.addContracts({
@@ -271,13 +281,13 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
         userid: this.props.userid
 
       })
-        // this.props.history.push('/contracts')
-    
+      // this.props.history.push('/contracts')
+
     }
   }
 
   private handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.props.history.push('/contracts')
+    this.props.history.push('/profile')
   }
 
   private handleProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -297,7 +307,7 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
 
 
 
-  private handleParticipantsNameChange = (participantId:number, e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleParticipantsNameChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const participants = this.state.participants.slice();
 
     const participant = participants.find(p => p.id === participantId);
@@ -311,10 +321,10 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
     }
   }
 
- 
 
- 
-  private handlePercentagesChange = (participantId:number, e: React.ChangeEvent<HTMLInputElement>) => {
+
+
+  private handlePercentagesChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const participants = this.state.participants.slice();
 
     const participant = participants.find(p => p.id === participantId);
@@ -328,14 +338,14 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
         participants
       });
     }
-    }
-  
-  
-    
+  }
 
 
 
-  private handleDay = (participantId:number, e: React.ChangeEvent<HTMLInputElement>) => {
+
+
+
+  private handleDay = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const participants = this.state.participants.slice();
 
     const participant = participants.find(p => p.id === participantId);
@@ -359,38 +369,38 @@ class PureContractsDetail extends React.Component <IContractsDetailProps,IContra
 
 }
 
-const ContractsDetail = connect((rootState:IRootState) =>({
+const ContractsDetail = connect((rootState: IRootState) => ({
 
-   userid: rootState.islogin.userid,
+  userid: rootState.islogin.userid,
 
-   contracts:rootState.contracts.contracts
-  
+  contracts: rootState.contracts.contracts
 
-}),(dispatch:any)=> ({
+
+}), (dispatch: any) => ({
 
   addContracts: (contracts: IContracts) => {
     dispatch(remoteAddContracts(
-    contracts.id,
-    contracts.product,
-    contracts.price,
-    contracts.participants,
-    contracts.description,
-    contracts.userid
-  ))
-    },
-    saveContractsProps: (contracts: IContracts) => {
+      contracts.id,
+      contracts.product,
+      contracts.price,
+      contracts.participants,
+      contracts.description,
+      contracts.userid
+    ))
+  },
+  saveContractsProps: (contracts: IContracts) => {
     dispatch(editContracts(
-    contracts.id,
-    contracts.product,
-    contracts.price,
-    contracts.participants,
-    contracts.description,
-    contracts.userid
-   
-  ))
-    },
-    
-    }))(PureContractsDetail);
+      contracts.id,
+      contracts.product,
+      contracts.price,
+      contracts.participants,
+      contracts.description,
+      contracts.userid
+
+    ))
+  },
+
+}))(PureContractsDetail);
 
 // tslint:disable-next-line:no-unused-expression
 export default ContractsDetail;
