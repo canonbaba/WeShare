@@ -1,4 +1,4 @@
-import { Promise as BlueBirdPromise } from 'bluebird';
+// import { Promise as BlueBirdPromise } from 'bluebird';
 
 export default class CreateContractService {
 
