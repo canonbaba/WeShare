@@ -1,4 +1,4 @@
-import { Promise as BlueBirdPromise } from 'bluebird';
+// import { Promise as BlueBirdPromise } from 'bluebird';
 
 export default class CreateContractService {
 
@@ -28,7 +28,7 @@ export default class CreateContractService {
        console.log("stage 2", users);
        const userContracts = users.map((user: any) => {
          const participantInfo = input.participants.find((participant: any) => participant.participantName === user.name);
-
+            console.log("important",participantInfo)
          return {
            contract_id: constractId[0],
            percentageToShare: participantInfo.percentage,

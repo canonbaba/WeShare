@@ -72,6 +72,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
             <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Login</Button>
 
 
+<<<<<<< HEAD
           </header> */}
           {/* <Row className="appbackground"> */}
             <Navbar inverse={true} collapseOnSelect={false}>
@@ -135,6 +136,39 @@ class App extends React.Component<{}, { signupshow: boolean }> {
             </Col>
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
           {/* </Row> */}
+=======
+          </header> */}        
+            <Row className="appbackground">
+              <Col lg={3} xs={3} className="left">
+                <Link to="/home"><h1>WeShare</h1></Link>
+              </Col>
+
+              <Col lg={7} xs={7} className="middle">
+                <Switch>
+                  <Route path="/postform" exact={true} component={PostForm} />
+
+                  <Route path="/home" exact={true} component={Home} />
+                  {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
+
+                  <Route path="/rating" exact={true} component={Rating} />
+                  <Route path="/profile" exact={true} component={Profile} />
+
+                  <Route path="/contracts" exact={true} component={ContractsList} />
+                  <Route path="/contracts/add" component={ContractsDetail} />
+                  <Route path="/contracts/:id" component={ContractsDetail} />
+                  <Route path="/contractsSign/:id" component={ContractsSign} />
+
+                  <Route path="/inbox" exact={true} component={Inbox} />
+                  <Route path="/detail_contract" exact={true} component={DetailContrat} />
+                </Switch>
+              </Col>
+              <Col lg={2} xs={2} id="routeLink">
+                <button id="appbutton" onClick={this.signupShow}>LOGIN</button>
+                <AppTopICON />
+              </Col>
+              <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
+            </Row>        
+>>>>>>> c66a1200a9bf60e6b624fb04c635af05b460f15f
         </div>
       </Provider>
     );

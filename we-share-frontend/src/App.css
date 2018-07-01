@@ -21,7 +21,11 @@
     /* text-align: center; */
     /* background-image: url("./images/backgroundv1.jpg"); */
     /* background-repeat: no-repeat; */
+<<<<<<< HEAD
     /* background-size: 100vw 56vw; */
+=======
+    background-size: 100vw 56vw;
+>>>>>>> c66a1200a9bf60e6b624fb04c635af05b460f15f
     /* width: 60vw;
     height: 40vw; */
 }
@@ -32,7 +36,11 @@
 }
 
 .left {
+<<<<<<< HEAD
     /* background-color: black;
+=======
+    /* background-color: black; */
+>>>>>>> c66a1200a9bf60e6b624fb04c635af05b460f15f
     height: 70px;
     padding: 10px;
     display: flex;
@@ -42,7 +50,11 @@
 
 .left h5 {
     /* font-size: 20px; */
+<<<<<<< HEAD
     /* color: black; */
+=======
+    color: black;
+>>>>>>> c66a1200a9bf60e6b624fb04c635af05b460f15f
     /* display: none; */
 }
 
