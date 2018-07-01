@@ -1,7 +1,7 @@
 .App {
     /* text-align: center; */
-    background-image: url("./images/backgroundv1.jpg");
-    background-repeat: no-repeat;
+    /* background-image: url("./images/backgroundv1.jpg"); */
+    /* background-repeat: no-repeat; */
     background-size: 100vw 56vw;
     /* width: 60vw;
     height: 40vw; */
@@ -13,7 +13,7 @@
 }
 
 .left {
-    background-color: transparent;
+    /* background-color: black; */
     height: 70px;
     /* padding: 10px; */
     display: flex;
@@ -22,9 +22,9 @@
 }
 
 .left h5 {
-    font-size: 20px;
+    /* font-size: 20px; */
     color: black;
-    display: none;
+    /* display: none; */
 }
 
 .left a {

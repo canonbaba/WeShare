@@ -64,7 +64,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
           </header> */}        
             <Row className="appbackground">
               <Col lg={3} xs={3} className="left">
-                <Link to="/home"><h5>WeShare</h5></Link>
+                <Link to="/home"><h1>WeShare</h1></Link>
               </Col>
 
               <Col lg={7} xs={7} className="middle">
