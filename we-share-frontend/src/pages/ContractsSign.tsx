@@ -52,14 +52,7 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
   public render() {
 
-
-
     const loadContract = this.props.loadContracts
-
-
-
-
-
 
     return (
       <div className="static-modal contractSign">
@@ -111,7 +104,7 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
             </div>
           ) : ''
         }
-        <Link id="contractSignbutton" to={'/profile'}>
+        <Link id="contractSignbutton" to={'/home'}>
           <button onClick={this.handleSign}>Sign</button>
         </Link>
       </div>
@@ -136,26 +129,31 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
 
   private handleAgreeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      // tslint:disable-next-line:no-unused-expression
-      this.state.disagree === false
-    }
+    // if (e.target.checked) {
+    //   // tslint:disable-next-line:no-unused-expression
+    //   this.state.disagree === false
+    // }
+    // this.setState({
+    //   agree: e.target.checked
+    // });
 
     this.setState({
-      agree: e.target.checked
+      agree: e.target.checked,
+      disagree: false
     });
   }
 
 
   private handleDisagreeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      // tslint:disable-next-line:no-unused-expression
-      this.state.agree === false
-    }
-
+    // if (e.target.checked) {
+    //   // tslint:disable-next-line:no-unused-expression
+    //   this.state.agree === false
+    // }
 
     this.setState({
-      disagree: e.target.checked
+      disagree: e.target.checked,
+      // tslint:disable-next-line:object-literal-sort-keys
+      agree: false
     });
   }
 
@@ -165,13 +163,9 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
 
 const mapStateToProps = (rootState: IRootState, ownProps: { match: match<{ id?: number }> }) => {
-  const contract = rootState.profileContract.profileContract.find(c => {
-    return c.contractId === Number(ownProps.match.params.id)
-  }
-  )
-
+  const contract = rootState.profileContract.profileContract.find(c => {return c.contractId === Number(ownProps.match.params.id)
+  })
   return {
-
     // profileContract:rootState.profileContract.profileContract,
     // tslint:disable-next-line:object-literal-sort-keys
     contractId: (contract !== undefined) ? contract.contractId : undefined,

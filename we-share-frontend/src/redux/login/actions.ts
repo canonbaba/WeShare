@@ -90,6 +90,20 @@ export function remoteFetchUsers(email: string, password: string) {
   };
 }
 
+
+// export function logoutClearData () {
+//   return (dispatch: Dispatch<ILoginAction>) => {
+//     dispatch(setLoginSuccess(false, 0, '', ''));
+//   }
+// }
+
+
+
+
+
+
+
+
 //   export function fetchUsers() {
 //     return (dispatch: Dispatch<IUserActions>) => {
 //       axios
