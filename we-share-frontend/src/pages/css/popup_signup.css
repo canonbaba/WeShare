@@ -1,40 +1,119 @@
-
-
-/* button {
-    background-color: transparent;
-    border: 0px;
-    font-size: 20px;
+/* .popupSignUp input {
+    outline: 0;
 } */
 
-.modal-content {
-    /* background-image: url("../../images/profileBackground.jpg"); */
-    /* background-color: blue; */
-    background-size: 100% 100%;
-    width: 600px;
-    height: 600px;
+.modal-dialog {
+    /* background-size: 100% 100%; */
+    width: 80vw;
+    /* height: 50vw; */
+
 }
 
+
+
 .text-right button {
+    outline: 0;
     background-color: transparent;
     border: 0px;
-    font-size: 20px;
+    font-size: 3vw;
+}
+
+
+#popupSignUpTitle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw;
+    margin: 0px;
+}
+
+#poploginRow {
+    width: 80vw;
 }
 
 #poplogin {
+    margin: 1vw;
     display: flex;
     justify-content: center;
+    /* text-align: center; */
 }
 
+
 #poplogin h1 {
-    font-size: 50px;
-    margin: 100px 10px 30px 10px;
+    margin: 1vw;
+    font-size: 3vw;
 }
 
 #popemail {
+    margin: 1vw;
+    width: 80vw;
     display: flex;
     justify-content: center;
 }
 
+#popemail input {
+    outline: 0;
+}
+
+#poppassword {
+    margin: 1vw;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+#poppassword input {
+    outline: 0;     
+}
+
+#popclickbox {
+    /* font-size: 1vw; */
+    margin: 1vw;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #popclickbox label {
+    padding: 0px;
+
+}
+
+#popclickbox input {
+    width: 3vw;
+} */
+
+#popsignin {
+    margin: 1vw;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+#popsignin button {
+    outline: 0;
+    /* background-color: transparent; */
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    width: 15vw;
+}
+
+#popsignup {
+    margin: 1vw;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+#popsignup button {
+    /* background-color: transparent; */
+    outline: 0;
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    width: 15vw;
+}
+/*
 #popemail input {
     border: 0px;
     background-color: transparent;
@@ -69,7 +148,6 @@
 
 #popsignup button {
     outline: 0;
-    /* background-color: transparent; */
     margin: 10px;
 }
 
@@ -80,9 +158,8 @@
 
 #popsignin button {
     outline: 0;
-    /* background-color: transparent; */
     margin: 10px;
-}
+} */
 
 /* #popclickbox checkbox {
 
