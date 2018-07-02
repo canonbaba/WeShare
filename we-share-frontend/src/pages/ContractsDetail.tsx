@@ -10,38 +10,38 @@ import { IRootState } from 'src/redux/store';
 import './css/ContractsDetail.css';
 
 import {
-  // Collapse,
-  // Navbar,
-  // NavbarToggler,
-  // NavbarBrand,
-  // Nav,
-  // NavItem,
-  // NavLink,
+ // Collapse,
+ // Navbar,
+ // NavbarToggler,
+ // NavbarBrand,
+ // Nav,
+ // NavItem,
+ // NavLink,
 
-  Col,
-  Row
-  // Jumbotron
-  // Row,
-  // Button
+ Col,
+ Row
+ // Jumbotron
+ // Row,
+ // Button
 } from 'react-bootstrap';
 
 
 interface IContractsDetailProps {
-  userid: number;
-  match: match<{ id?: string }>;
-  contracts: IContracts[];
-  history: any;
-  addContracts: (contracts: IContracts) => void;
-  saveContractsProps: (contracts: IContracts) => void;
-  joinContractList: IJoinContractList[];
+ userid: number;
+ match: match<{ id?: string }>;
+ contracts: IContracts[];
+ history: any;
+ addContracts: (contracts: IContracts) => void;
+ saveContractsProps: (contracts: IContracts) => void;
+ joinContractList: IJoinContractList[];
 }
 
 interface IContractsDetailStates {
 
-  product: string;
-  price: number;
-  participants: IParticipant[];
-  description: string;
+ product: string;
+ price: number;
+ participants: IParticipant[];
+ description: string;
 
 }
 
@@ -66,15 +66,15 @@ interface IContractsDetailStates {
 class PureContractsDetail extends React.Component<IContractsDetailProps, IContractsDetailStates>{
 
 
-  constructor(props: IContractsDetailProps) {
+ constructor(props: IContractsDetailProps) {
 
-    super(props);
+   super(props);
 
-    this.state = {
+   this.state = {
 
-      product: '',
-      // tslint:disable-next-line:object-literal-sort-keys
-      price: 0,
+     product: '',
+     // tslint:disable-next-line:object-literal-sort-keys
+     price: 0,
 
       participants: [
         { id: 1, participantName: '', percentage: '', dayToUse: '' },
@@ -84,30 +84,30 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
       description: ''
     }
 
-    if (this.props.match.params.id != null) {
-      const contractId = parseInt(this.props.match.params.id, 10);
-      const contract = this.props.contracts.find(c => c.id === contractId);
-      if (contract != null) {
-        this.state = {
-          product: contract.product,
-          // tslint:disable-next-line:object-literal-sort-keys
-          price: contract.price,
-          participants: contract.participants.slice(),
-          description: contract.description
-        };
-      }
-    }
+   if (this.props.match.params.id != null) {
+     const contractId = parseInt(this.props.match.params.id, 10);
+     const contract = this.props.contracts.find(c => c.id === contractId);
+     if (contract != null) {
+       this.state = {
+         product: contract.product,
+         // tslint:disable-next-line:object-literal-sort-keys
+         price: contract.price,
+         participants: contract.participants.slice(),
+         description: contract.description
+       };
+     }
+   }
 
-  }
+ }
 
-  public render() {
+ public render() {
 
-    const joinContractList = this.props.joinContractList.map((data: any, i: number) =>
-      <option key={i} value={data.name}>{data.name}</option>
-    )
+   const joinContractList = this.props.joinContractList.map((data: any, i: number) =>
+     <option key={i} value={data.name}>{data.name}</option>
+   )
 
-    return (
-      <div>
+   return (
+     <div>
 
         <Row id="contractCreate">
           <Col lg={6} xs={12} id="contractLeft">
@@ -122,15 +122,15 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                 <input type="text" placeholder="Price" value={this.state.price} onChange={this.handlePriceChange} />
               </div>
 
-              <div id="contractParticipantTitle">The Participants</div>
-              {
-                this.state.participants.map(participant => (
+             <div id="contractParticipantTitle">The Participants</div>
+             {
+               this.state.participants.map(participant => (
 
-                  <Row className="contractPeople" key={participant.id}>
+                 <Row className="contractPeople" key={participant.id}>
 
-                    <Col lg={3} xs={3} id="contractFontCol">
-                      <div id="contractFont"><FontAwesome.FaUser /></div>
-                    </Col>
+                   <Col lg={3} xs={3} id="contractFontCol">
+                     <div id="contractFont"><FontAwesome.FaUser /></div>
+                   </Col>
 
                     <Col lg={9} xs={9} id="contractParticipantContent">
                       <div id="contractParticipantGroup">
@@ -151,11 +151,11 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                         <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
                       </div>
 
-                    </Col>
-                  </Row>
-                ))
+                   </Col>
+                 </Row>
+               ))
 
-              }
+             }
 
 
               <div id="contractDescription">
@@ -163,27 +163,27 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                 <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
               </div>
 
-              <div id="contractButton">
-                <button onClick={this.handleSubmit}>SUBMIT</button>
-              </div>
+             <div id="contractButton">
+               <button onClick={this.handleSubmit}>SUBMIT</button>
+             </div>
 
 
 
-          </Col>
+         </Col>
 
           <Col lg={6} xs={12} id="contractLeft">
 
 
-            <div>
+           <div>
 
-              {/* <div id="confirmTitle"> The Created Contract </div> */}
+             {/* <div id="confirmTitle"> The Created Contract </div> */}
 
-              {
+             {
 
-                (this.props.contracts) ? (
-                  this.props.contracts.map(contract => (
+               (this.props.contracts) ? (
+                 this.props.contracts.map(contract => (
 
-                    <div id="confiremContract" key={contract.id}>
+                   <div id="confiremContract" key={contract.id}>
 
 
                       <div id="confirmProductAndPrice">
@@ -191,10 +191,10 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                         <div> {contract.product} </div>
                       </div>
 
-                      <div id="confirmProductAndPrice">
-                        <label>The Price: </label>
-                        <div> {contract.price} </div>
-                      </div>
+                     <div id="confirmProductAndPrice">
+                       <label>The Price: </label>
+                       <div> {contract.price} </div>
+                     </div>
 
                       <div id="confirmParticipantTitle">The Participants</div>
                       {
@@ -235,177 +235,176 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                         <div> {contract.description} </div>
                       </div>
 
-                      <div id="confirmButton">
-                        <button onClick={this.handleButton}>FINISH</button>
-                      </div>
+                     <div id="confirmButton">
+                       <button onClick={this.handleButton}>FINISH</button>
+                     </div>
 
 
-                    </div>
-                  ))) : ''
-              }
+                   </div>
+                 ))) : ''
+             }
 
-            </div>
-
-
-          </Col>
-        </Row>
+           </div>
 
 
-
-      </div >
-
-
-    );
-  }
-
-  private handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-
-    if (this.props.match.params.id != null) {
-
-      this.props.saveContractsProps({
-        id: parseInt(this.props.match.params.id, 10),
-        product: this.state.product,
-        // tslint:disable-next-line:object-literal-sort-keys
-        price: this.state.price,
-        participants: this.state.participants,
-        description: this.state.description,
-        userid: this.props.userid
-
-      })
-      // this.props.history.push('/contracts')
-    } else {
-
-      this.props.addContracts({
-        id: 0,
-        product: this.state.product,
-        // tslint:disable-next-line:object-literal-sort-keys
-        price: this.state.price,
-        participants: this.state.participants,
-        description: this.state.description,
-        userid: this.props.userid
-
-      })
-      // this.props.history.push('/contracts')
-
-    }
-  }
-
-  private handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.props.history.push('/profile')
-  }
-
-  private handleProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      product: e.target.value
-    });
-  }
-
-  private handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (this.state.price != null && !isNaN(parseInt(e.target.value, 10))) {
-      this.setState({
-        // tslint:disable-next-line:radix
-        price: parseInt(e.target.value, 10)
-      });
-    }
-  }
+         </Col>
+       </Row>
 
 
 
-  private handleParticipantsNameChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
-    const participants = this.state.participants.slice();
-
-    const participant = participants.find(p => p.id === participantId);
-
-    if (participant != null) {
-      participant.participantName = e.target.value;
-      this.setState({
-        participants
-      });
-
-    }
-  }
+     </div >
 
 
+   );
+ }
+
+ private handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+   if (this.props.match.params.id != null) {
+
+     this.props.saveContractsProps({
+       id: parseInt(this.props.match.params.id, 10),
+       product: this.state.product,
+       // tslint:disable-next-line:object-literal-sort-keys
+       price: this.state.price,
+       participants: this.state.participants,
+       description: this.state.description,
+       userid: this.props.userid
+
+     })
+     // this.props.history.push('/contracts')
+   } else {
+
+     this.props.addContracts({
+       id: 0,
+       product: this.state.product,
+       // tslint:disable-next-line:object-literal-sort-keys
+       price: this.state.price,
+       participants: this.state.participants,
+       description: this.state.description,
+       userid: this.props.userid
+
+     })
+     // this.props.history.push('/contracts')
+
+   }
+ }
+
+ private handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+   this.props.history.push('/profile')
+ }
+
+ private handleProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+   this.setState({
+     product: e.target.value
+   });
+ }
+
+ private handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+   if (this.state.price != null && !isNaN(parseInt(e.target.value, 10))) {
+     this.setState({
+       // tslint:disable-next-line:radix
+       price: parseInt(e.target.value, 10)
+     });
+   }
+ }
 
 
-  private handlePercentagesChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
-    const participants = this.state.participants.slice();
 
-    const participant = participants.find(p => p.id === participantId);
+ private handleParticipantsNameChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
+   const participants = this.state.participants.slice();
 
-    // tslint:disable-next-line:use-isnan
-    if (participant != null) {
+   const participant = participants.find(p => p.id === participantId);
 
-      participant.percentage = e.target.value
+   if (participant != null) {
+     participant.participantName = e.target.value;
+     this.setState({
+       participants
+     });
 
-      this.setState({
-        participants
-      });
-    }
-  }
+   }
+ }
 
 
 
 
+ private handlePercentagesChange = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
+   const participants = this.state.participants.slice();
+
+   const participant = participants.find(p => p.id === participantId);
+
+   // tslint:disable-next-line:use-isnan
+   if (participant != null) {
+
+     participant.percentage = e.target.value
+
+     this.setState({
+       participants
+     });
+   }
+ }
 
 
-  private handleDay = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
-    const participants = this.state.participants.slice();
-
-    const participant = participants.find(p => p.id === participantId);
-
-    if (participant != null) {
-
-      participant.dayToUse = e.target.value;
-      this.setState({
-        participants
-      });
-
-    }
-  }
 
 
-  private handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setState({
-      description: e.target.value
-    });
-  }
+
+
+ private handleDay = (participantId: number, e: React.ChangeEvent<HTMLInputElement>) => {
+   const participants = this.state.participants.slice();
+
+   const participant = participants.find(p => p.id === participantId);
+
+   if (participant != null) {
+
+     participant.dayToUse = e.target.value;
+     this.setState({
+       participants
+     });
+
+   }
+ }
+
+
+ private handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+   this.setState({
+     description: e.target.value
+   });
+ }
 
 }
 
 const ContractsDetail = connect((rootState: IRootState) => ({
-  userid: rootState.islogin.userid,
-  // tslint:disable-next-line:object-literal-sort-keys
-  contracts: rootState.contracts.contracts,
-  joinContractList: rootState.joinContractList.joinContractList
+ userid: rootState.islogin.userid,
+ // tslint:disable-next-line:object-literal-sort-keys
+ contracts: rootState.contracts.contracts,
+ joinContractList: rootState.joinContractList.joinContractList
 
 }), (dispatch: any) => ({
 
-  addContracts: (contracts: IContracts) => {
-    dispatch(remoteAddContracts(
-      contracts.id,
-      contracts.product,
-      contracts.price,
-      contracts.participants,
-      contracts.description,
-      contracts.userid
-    ))
-  },
-  saveContractsProps: (contracts: IContracts) => {
-    dispatch(editContracts(
-      contracts.id,
-      contracts.product,
-      contracts.price,
-      contracts.participants,
-      contracts.description,
-      contracts.userid
+ addContracts: (contracts: IContracts) => {
+   dispatch(remoteAddContracts(
+     contracts.id,
+     contracts.product,
+     contracts.price,
+     contracts.participants,
+     contracts.description,
+     contracts.userid
+   ))
+ },
+ saveContractsProps: (contracts: IContracts) => {
+   dispatch(editContracts(
+     contracts.id,
+     contracts.product,
+     contracts.price,
+     contracts.participants,
+     contracts.description,
+     contracts.userid
 
-    ))
-  },
+   ))
+ },
 
 }))(PureContractsDetail);
 
 // tslint:disable-next-line:no-unused-expression
 export default ContractsDetail;
-
 

@@ -17,7 +17,7 @@ interface IContractsSignProps {
   contractId: number;
   profileContract: IProfileContractData[];
   onloadContracts: (contractId: number) => void;
-  loadContracts: ILoadContractsData;
+  loadContracts: ILoadContractsData[];
   signContract: (sign: ISignResult) => void;
 }
 
@@ -52,64 +52,65 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
   public render() {
 
-    const loadContract = this.props.loadContracts
+    const loadContract = this.props.loadContracts.map((data:any, i:number) => {
+        return <div key={i} className="static-modal contractSign">
+        
+          
+            <h3>The Contract To Be Signed </h3>
+            <h5>Product: {data.productName}</h5>
+            <h5>Price: {data.price}</h5>
+            <div id="signParticipant">{data.participants.map((data2:any, i2:number) => {
+
+
+                // tslint:disable-next-line:no-unused-expression
+               return <div  key={i}>Participant
+                  <h6>Name: {data2.name}</h6>
+                  <h6>Price To Share: {data2.percentageToShare}</h6>
+                  <h6>Day To Use: {data2.daysToUse}</h6>
+                </div>
+            
+          
+            })
+          }
+          </div>
+          
+            <h6>Description: {data.description}</h6>
+
+          
+        
+        </div>
+    })
+
 
     return (
-      <div className="static-modal contractSign">
+      <div>
         <Row>
-          <Col lg={12} xs={12} id="contractSignTitle">
-            <h3>The Contract To Be Signed </h3>
-            <h5>Product: {loadContract.productName}</h5>
-            <h5>Price: {loadContract.price}</h5>
-          </Col>
+        <Col lg={3} xs={3} id="contractSignTitle">
+        {loadContract}
+        </Col>
         </Row>
-        <Row id="peopleContentWidth">
-          <Col lg={3} xs={3} >
-            {/* <div>Participants: </div> */}
-            <div>1st Participant:
-                   <div>Name: {loadContract.participants[0].name}</div>
-              <div>Price To Share: {loadContract.participants[0].percentageToShare}</div>
-              <div>Day To Use: {loadContract.participants[0].daysToUse}</div>
-            </div>
-            </Col>
-            <Col lg={3} xs={3} className="peopleContent">
-            <div>2nd Participant:
-                   <div>Name: {loadContract.participants[1].name}</div>
-              <div>Price To Share: {loadContract.participants[1].percentageToShare}</div>
-              <div>Day To Use: {loadContract.participants[1].daysToUse}</div>
-            </div>
-            </Col>
-            <Col lg={3} xs={3} className="peopleContent">
-            <div>3rd Participant:
-                   <div>Name: {loadContract.participants[2].name}</div>
-              <div>Price To Share: {loadContract.participants[2].percentageToShare}</div>
-              <div>Day To Use: {loadContract.participants[2].daysToUse}</div>
-            </div>
-            </Col>
-            <Col lg={3} xs={3} className="peopleContent">
-            <div>4th Participant:
-                   <div>Name: {loadContract.participants[3].name}</div>
-              <div>Price To Share: {loadContract.participants[3].percentageToShare}</div>
-              <div>Day To Use: {loadContract.participants[3].daysToUse}</div>
-            </div>
-            <div>Description: {loadContract.description}</div>
-          </Col>
-        </Row>
+      
 
         {
           (this.props.loadContracts) ? (
-            <div>
+            <div className="static-modal contractSign">
               <label>Agree</label><input type="checkbox" checked={this.state.agree} onChange={this.handleAgreeChange} />
               <label>Disagree</label><input type="checkbox" checked={this.state.disagree} onChange={this.handleDisagreeChange} />
             </div>
           ) : ''
         }
+
         <Link id="contractSignbutton" to={'/profile'}>
-          <button onClick={this.handleSign}>Sign</button>
-        </Link>
+          <button onClick={this.handleSign} className="static-modal contractSign">Sign</button>
+        </Link> 
+
       </div>
+
     )
   }
+
+
+
 
   private handleSign = (e: React.MouseEvent<HTMLButtonElement>) => {
 

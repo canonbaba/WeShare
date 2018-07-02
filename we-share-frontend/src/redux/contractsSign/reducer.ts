@@ -1,67 +1,36 @@
-import { IFetchContractsAction, ILoadContractsData, LOAD_CONTRACTS, USER_CONTRACTS_CONFIRMATION } from "./actions";
+import { IFetchContractsAction, ILoadContractsData, LOAD_CONTRACTS } from "./actions";
 
 export interface ISignContractsState {
-    loadContracts:ILoadContractsData;
-    is_agree: boolean;
-  }
-  
-  const initialState = {
+ 
+   loadContracts:ILoadContractsData[];
 
-    loadContracts: {
-        contractId: 0,
-        productName: '',
-        // tslint:disable-next-line:object-literal-sort-keys
-        price: 0,
-        participants: [{
-            userId:0,
-            // tslint:disable-next-line:object-literal-sort-keys
-            name:'',
-            percentageToShare:'',
-            daysToUse:'',
-          },{
-            userId:0,
-            // tslint:disable-next-line:object-literal-sort-keys
-            name:'',
-            percentageToShare:'',
-            daysToUse:'',
-          },{
-            userId:0,
-            // tslint:disable-next-line:object-literal-sort-keys
-            name:'',
-            percentageToShare:'',
-            daysToUse:'',
-          },
-          {
-            userId:0,
-            // tslint:disable-next-line:object-literal-sort-keys
-            name:'',
-            percentageToShare:'',
-            daysToUse:'',
-          }
-        ],
-        description: '',
-    },
-    // tslint:disable-next-line:object-literal-sort-keys
-    is_agree: false,
-  };
-  
+ }
+
+const initialState = {
+   loadContracts: []
+};
   export const reducer = (oldState: ISignContractsState = initialState, action: IFetchContractsAction) => {
-    switch (action.type) {
-      case LOAD_CONTRACTS:
-      {
-        return {
-          ...oldState,
-          loadContracts: action.loadContracts
-        };
+   switch (action.type) {
+     case LOAD_CONTRACTS:
+     {
+     const loadContracts = oldState.loadContracts.concat({
+       contractId:action.loadContracts.contractId,
+       productName: action.loadContracts.productName,
+       // tslint:disable-next-line:object-literal-sort-keys
+       price: action.loadContracts.price,
+       participants: action.loadContracts.participants,
+       description: action.loadContracts.description
+   });
+       return { ...oldState, loadContracts };
+
       }
-      case USER_CONTRACTS_CONFIRMATION:
-      {
-        return {
-          ...oldState,
-          is_agree: action.is_agree
-        };
-      }
-      default:
-        return oldState;
-    }
-  };
+
+
+     default:
+       return oldState;
+   }
+ };
+
+
+
+
