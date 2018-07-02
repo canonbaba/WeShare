@@ -76,16 +76,6 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
      // tslint:disable-next-line:object-literal-sort-keys
      price: 0,
 
-<<<<<<< HEAD
-     participants: [
-       { id: 1, participantName: '', percentage: '', dayToUse: '' },
-       { id: 2, participantName: '', percentage: '', dayToUse: '' },
-       { id: 3, participantName: '', percentage: '', dayToUse: '' },
-       { id: 4, participantName: '', percentage: '', dayToUse: '' }],
-     description: ''
-
-   }
-=======
       participants: [
         { id: 1, participantName: '', percentage: '', dayToUse: '' },
         { id: 2, participantName: '', percentage: '', dayToUse: '' },
@@ -93,7 +83,6 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
         { id: 4, participantName: '', percentage: '', dayToUse: '' }],
       description: ''
     }
->>>>>>> d49d581cae2a40288b3c1bacf7bf36101a3996f4
 
    if (this.props.match.params.id != null) {
      const contractId = parseInt(this.props.match.params.id, 10);
