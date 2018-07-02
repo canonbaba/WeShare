@@ -71,7 +71,7 @@ export function fetchSignContract(
     contractId:number,
     userid:number,
 ) {
-    // tslint:disable-next-line:no-console
+    swal("Save Successful");
     return (dispatch: Dispatch<IFetchContractsAction>) => {
         axios
             .post(`${process.env.REACT_APP_API_SERVER}/api/signContracts/sign`, {
@@ -81,10 +81,10 @@ export function fetchSignContract(
                 contractId,
                 userid
             }).then(res => {
-                swal('Success save');
                 // tslint:disable-next-line:no-console
                 console.log(res.data);
                 dispatch(userConfirmation(res.data))
+                
             }).catch(err => {
                 // tslint:disable-next-line:no-console
                 console.log(err)

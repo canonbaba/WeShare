@@ -104,7 +104,7 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
             </div>
           ) : ''
         }
-        <Link id="contractSignbutton" to={'/home'}>
+        <Link id="contractSignbutton" to={'/profile'}>
           <button onClick={this.handleSign}>Sign</button>
         </Link>
       </div>

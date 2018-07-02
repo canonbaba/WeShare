@@ -1,14 +1,123 @@
-.inbox {
+#inboxRoom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#inboxRoomRow {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+#inboxScrollRoom {
+    display: flex;
+    flex-direction: row;
+}
+
+#inboxList {
+    margin: 1vw;
+}
+
+#inboxList button {
+    background-color: transparent;
+    font-size: 2vw;
+    border-radius: 1vw;
+}
+
+#inboxMessageRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inboxMessage {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#inboxContractRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#inboxTextSend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#inboxTextSend input {
+    outline: 0;
+    width: 50vw;
+    border-width: 2px 0vw 2px 2px;
+    border-color: #343434;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#inboxTextSend button {
+    padding: 1px;
+    outline: 0;
+    /* width: 50vw; */
+    border-width: 2px 2px 2px 2px;
+    border-color: #343434;
+    border-radius: 0px 10px 10px 0px;
+    background-color: transparent;
+}
+
+#inboxContract {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#inboxLinkContract button {
+    margin: 2vw;
+    background-color: transparent;
+    font-size: 2vw;
+    border-radius: 1vw;
+}
+
+#realMessage {
+    border-width: 5px;
+    background-color: #F8F8FA;
+}
+
+#realMessage p {
+    color: #AFAFAF;
+}
+
+#realMessage {
+    color: #343434;
+}
+
+#inboxDate {
+    text-align: right;
+    color: #E0E0E1;
+}
+
+/* #inboxScrollRoom {
+    display: flex;
+    flex-direction: row;
+} */
+
+/* .inbox {
     background-color: white;
     margin-top: 125px;
-    /* border: 1px solid black; */
     border-radius: 10px;
     width: 780px;
-    /* height: 345px; */
 }
 
 #inboxRoom {
-    /* border-right: 1px solid black; */
 }
 
 #inboxRoom h2 {
@@ -25,7 +134,6 @@
 }
 
 #inboxScrollRoom {
-    /* height: 345px; */
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -33,9 +141,6 @@
 
 #inboxList {
     width: 200px;
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; */
 }
 
 #inboxScrollRoom button {
@@ -44,10 +149,6 @@
     font-size: 15px;
 }
 
-/* #inboxScrollRoom p {
-   width: 300px;
-   text-align: left;
-} */
 
 #inboxScroll {
     height: 345px;
@@ -69,7 +170,6 @@
 
 #inboxMessage {
     border-left: 1px solid #5F5861;
-    /* padding: 0px; */
 }
 
 #inboxMessage h2 {
@@ -101,4 +201,4 @@
 
 #inboxLinkContract button:hover {
     color: #A2151D;
-}
+} */

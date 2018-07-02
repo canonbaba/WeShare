@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Col from 'reactstrap/lib/Col';
+// import Col from 'reactstrap/lib/Col';
 import { IHomeData } from 'src/models';
 import PostPopup from 'src/pages/popup_post';
 import { fetchCategoryData, fetchHomeDate } from 'src/redux/home/action';
@@ -79,13 +79,17 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
 
     public render() {
         const homedata = this.props.homedata.map((data: any, i: number) => {
-            return <div onClick={this.postShow.bind(this, data)} key={i}>
-                <div className="overflowPost">
-                    <h1>{data.nameOfProduct}</h1>
-                    <img src={data.photo} />
-                    <h5>People Shared: {data.numberOfShareUser}</h5>
-                    <h5>Rating: {data.averageRating}</h5>
-                </div>
+            return <div id="homeDataPost" key={i}>
+                <Row id="overflowPost" onClick={this.postShow.bind(this, data)}>
+                    <Col lg={4} xs={4} id="overflowPostImg">
+                        <img src={data.photo} />
+                    </Col>
+                    <Col lg={8} xs={8}>
+                        <h1>{data.nameOfProduct}</h1>
+                        <h5>People Shared: {data.numberOfShareUser}</h5>
+                        <h5>Rating: {data.averageRating}</h5>
+                    </Col>
+                </Row>
             </div>
         })
 
@@ -96,45 +100,107 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                     postData={this.state.postPopupData}
                     postPopupClose={this.postPopupClose} />
 
-                <Row>
-                    <Col lg={12} xs={12} className="homeUpper">
+                <div className="homeFirstPage">
+                    {/* <div id="titleMargin"> */}
+                    <Row>
+                        <Col lg={12} xs={12} className="titleMargin" id="homeWordWhite">The More</Col>
+                    </Row>
 
-                        <Col lg={5} xs={5} id="homeinput"><input type="text" placeholder="SEARCH POST" /></Col>
-                        <Col lg={1} xs={1} id="sumbitbutton"><button type="submit"><FontAwesome.FaSearch /></button></Col>
-                        <Col lg={1} xs={1} className="custom-select">
-                            <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
-                                <option value="">ALL</option>
-                                <option value="1">FASHION</option>
-                                <option value="2">ELECTRIC PRODUCT</option>
-                                <option value="3">VEHICLE</option>
-                                <option value="4">FOOD & DRINK</option>
-                                <option value="5">TOY</option>
-                                <option value="6">OTHERS</option>
-                            </select>
+                    <Row className="homeWeYellow">
+                        {/* <Col lg={2} xs={2} className="titleMarginLeft" id="homeWe">We</Col>
+                        <Col lg={8} xs={8} id="homeWordWhite">Share</Col> */}
+                        <Col lg={12} xs={12} className="titleMarginLeft" id="homeWe">We Share</Col>
+                    </Row>
+
+                    <Row>
+                        <Col lg={12} xs={12} className="titleMarginLeft" id="homeWordWhite">The More</Col>
+                    </Row>
+
+                    <Row>
+                        {/* <Col lg={2} xs={2} className="titleMarginLeft" id="homeWe">We</Col>
+                        <Col lg={10} xs={10} id="homeWordWhite">Have</Col> */}
+                        <Col lg={12} xs={12} className="titleMarginLeft" id="homeWe1">We Have</Col>
+                    </Row>
+                    {/* </div> */}
+                    <Row id="clickScroll">
+                        <button type="submit" >Let's Share With Others !</button>
+                    </Row>
+                </div>
+
+                <div id="homeAbout">
+                    <Row>
+                        <Col lg={12} xs={12} id="homeBottomLine">
+                            <p>About The WeBuy．WeShare</p>
+                            <div id="homeBottomLine2" />
                         </Col>
+                    </Row>
+
+                    <Row>
+                        <Col lg={8} xs={8} id="homeAboutContent">
+                            <div id="homeAboutContent1">
+                                provide a platform
+                                for users sharing something with each other
+                            </div>
+                            <div id="homeAboutContent2">
+                                Contract and Inbox can be created
+                                to help them to reach their agreement
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
+
+
+                <Row id="homePostRow">
+                    <Col lg={12} xs={12} id="homePost">
+                        <div>Post</div>
+                        <div id="homePostBottomLine" />
                     </Col>
                 </Row>
 
+                <div className="homeSearch">
+                    <Row>
+                        <Col lg={12} xs={12} id="homeSearchComponents">
 
-                <Row className="post">
-                    <Col lg={12} xs={12} className="postright">
+                            <Col lg={12} xs={12} id="homeSearchInput">
+                                <input type="text" placeholder="SEARCH POST" />
+                                <button type="submit"><FontAwesome.FaSearch /></button>
+                                {/* <div className="custom-select"> */}
+                                <select className="custom-select" value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
+                                    <option value="">All</option>
+                                    <option value="1">Fashion</option>
+                                    <option value="2">Electric Product</option>
+                                    <option value="3">Vehicle</option>
+                                    <option value="4">Food & Drink</option>
+                                    <option value="5">Toy</option>
+                                    <option value="6">Others</option>
+                                </select>
+                                {/* </div> */}
+                            </Col>
+                        </Col>
+                    </Row>
 
-                        {homedata}
 
-                    </Col>
-                    <Col lg={12} xs={12} id="openpost">
-                        {this.props.isLoginSuccess &&
-                            <div id="homePost">
+                    <Row className="post">
+                        <Col lg={12} xs={12} id="postColumn">
+
+                            {homedata}
+
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col lg={12} xs={12} id="openpost">
+                            {this.props.isLoginSuccess &&
+
                                 <Link to="/postform">
                                     <button type="submit">CLICK TO POST</button>
                                 </Link>
-                            </div>}
-                    </Col>
+                            }
+                        </Col>
+                    </Row>
 
-
-                </Row>
-
-            </div>
+                </div>
+            </div >
         );
     }
 }

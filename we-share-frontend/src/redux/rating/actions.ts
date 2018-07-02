@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { IHomeData } from 'src/models';
+import swal from 'sweetalert';
+
 
 export const RATING_UPDATEHOMEDATA = 'RATING_UPDATEHOMEDATA';
 export type RATING_UPDATEHOMEDATA = typeof RATING_UPDATEHOMEDATA;
@@ -35,6 +37,7 @@ export function saveRating(userid: number, comment: string, trueClick: number, g
         // tslint:disable-next-line:no-console
         console.log(res.data[0]);
         dispatch(updateHomeData(res.data))
+        swal("Save Successful");
       }).catch(err => {
         // tslint:disable-next-line:no-console
         console.log(err)

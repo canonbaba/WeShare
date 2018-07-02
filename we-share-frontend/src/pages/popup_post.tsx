@@ -35,21 +35,21 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
         return (
             <div className="static-modal">
                 <Modal show={this.props.postPopup} onHide={this.handleClose}>
-                    <Row>
-                        <Col lg={6} id="ppRating">
+                    <Row id="popPostRateRemove">
+                        <Col lg={6} xs={6} id="ppRating">
                             <h2>Inviter Rating:{this.props.postData.averageRating}</h2>
                             {/* <h2>{this.props.postData.averageRating}</h2> */}
                         </Col>
-                        <Col lg={6} id="popupPostRemovebutton">
+                        <Col lg={6} xs={6} id="popupPostRemovebutton">
                             <button onClick={this.props.postPopupClose}><Glyphicon glyph="remove" /></button>
                         </Col>
                     </Row>
 
-                    <Row>
+                    {/* <Row>
                         <Col lg={12} className="flexCenter pphead">
                             <h1>Invitation</h1>
                         </Col>
-                    </Row>
+                    </Row> */}
 
                     <Row>
                         <Col lg={12} className="flexCenter ppProductName">
@@ -102,15 +102,15 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                     {/* </div> */}
 
                     <Link id="popupPostbutton" to="/inbox">
-                        <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>CONTACT INVITOR</button>
+                        <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>Contract Inviter</button>
                     </Link>
 
-                    <Row id="ppDataPost">
-                        <Col lg={9} xs={9}>
+                    <Row id="ppDataPostRow">
+                        <Col lg={6} xs={6} id="ppDataPost">
                             {/* <h2>Created_at: {this.props.postData.created_at}</h2> */}
-                            <h2>Created_at: {this.props.postData.created_at.toString().slice(0, 16)}</h2>
+                            <h3>Created_at: {this.props.postData.created_at.toString().slice(0, 16)}</h3>
                         </Col>
-                        <Col lg={3} xs={3} className="ppleft">
+                        <Col lg={6} xs={6} id="ppDataPostNum">
                             <h2>{this.props.postData.id}</h2>
                         </Col>
                     </Row>

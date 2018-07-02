@@ -1,23 +1,28 @@
 #appRight {
-    width: 10vw;
+    /* width: 10vw;
     height: 13.5vw;
     padding: 0px;
     background-image: url("../../images/paperorange.png");
     background-repeat: no-repeat;
-    background-size: 10vw 13.5vw;
+    background-size: 10vw 13.5vw; */
 }
 
 #appRoute {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; */
 }
 
 #appRoute button {
-    outline: 0;
+    /* outline: 0;
     background-color: transparent;
     border: 0px;
     font-size: 2vw;
-    color: #5F5861;
+    color: #5F5861; */
+}
+
+#topIconMargin {
+    margin: 1vw 1vw 1vw 0vw;
+    color: white;
 }

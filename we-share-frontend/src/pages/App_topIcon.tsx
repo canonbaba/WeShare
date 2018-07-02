@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import { NavItem } from 'react-bootstrap';
 // import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -20,17 +21,27 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
 
     public render() {
         return (
-            <div className="static-modal" id="appRight">                
+            <div className="static-modal" id="appRight">
 
                 {this.props.isLoginSuccess &&
 
                     <div id="appRoute">
-                        <Link to="/inbox">
-                            <button>Inbox</button>
-                        </Link>
-                        <Link to="/profile">
-                            <button>Profile</button>
-                        </Link>
+
+
+                            {/* Link Right */}
+                            <Link id="topIconMargin" to="/inbox">
+                                Inbox
+                            </Link>
+                            {/* <AppTopICON /> */}
+
+                            <Link id="topIconMargin" to="/profile">
+                                Profile
+                            </Link>
+
+
+                        {/* <Link to="/profile">
+                            <button>Rating</button>
+                        </Link> */}
                     </div>
                 }
 

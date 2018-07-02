@@ -75,8 +75,11 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
       // tslint:disable-next-line:object-literal-sort-keys
       price: 0,
 
-      participants: [{ id: 1, participantName: '', percentage: '', dayToUse: '' }, { id: 2, participantName: '', percentage: '', dayToUse: '' }, { id: 3, participantName: '', percentage: '', dayToUse: '' }, { id: 4, participantName: '', percentage: '', dayToUse: '' }],
-
+      participants: [
+        { id: 1, participantName: '', percentage: '', dayToUse: '' },
+        { id: 2, participantName: '', percentage: '', dayToUse: '' },
+        { id: 3, participantName: '', percentage: '', dayToUse: '' },
+        { id: 4, participantName: '', percentage: '', dayToUse: '' }],
       description: ''
 
     }
@@ -100,7 +103,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
   public render() {
 
     const joinContractList = this.props.joinContractList.map((data: any, i: number) =>
-      <option  key={i} value={data.name}>{data.name}</option>
+      <option key={i} value={data.name}>{data.name}</option>
     )
 
     return (
@@ -126,26 +129,23 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                   <div className="contractPeople" key={participant.id}>
 
                     <div>
-
                       {/* <label>Name:</label> */}
-                      <input type="text" placeholder="Participant Name" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} />
+                      {/* <input type="text" placeholder="Participant Name" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} /> */}
                       <div>
-                        <select>
-                          <option value="">Please Select</option>
+                        <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
+                          <option value="" >Please Select</option>
                           {joinContractList}
                         </select>
                       </div>
                     </div>
 
                     <div id="contractPercentage">
-
                       {/* <label>Percentage:</label> */}
-                      <input type="text" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
+                      <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
                       <label>%</label>
                     </div>
 
                     <div>
-
                       {/* <label>Day To Use:</label> */}
                       <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
                     </div>
