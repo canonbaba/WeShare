@@ -68,14 +68,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
     return (
 
         <div className="App">
-          {/* <header>
-            <h1>Welcome to React</h1>
-            <AppTopICON />
-            <Button bsStyle="primary" bsSize="large" onClick={this.signupShow}>Login</Button>
 
-
-          </header> */}
-          {/* <Row className="appbackground"> */}
             <Navbar inverse={true} collapseOnSelect={false}>
               <Navbar.Header>
                 <Navbar.Brand>
@@ -84,21 +77,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
                 <Navbar.Toggle />
               </Navbar.Header>
               <Navbar.Collapse>
-                <Nav>
-                  {/* <NavItem eventKey={1} href="#">
-                    Link
-                  </NavItem>
-                  <NavItem eventKey={2} href="#">
-                    Link
-                  </NavItem> */}
-                  {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1}>Action</MenuItem>
-                    <MenuItem eventKey={3.2}>Another action</MenuItem>
-                    <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                    <MenuItem divider={true} />
-                    <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                  </NavDropdown> */}
-                </Nav>
+
                 <Nav pullRight={true}>
                   <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
                     Login
