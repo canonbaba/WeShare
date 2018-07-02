@@ -111,16 +111,15 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
       <div>
 
         <Row id="contractCreate">
-          <Col lg={6} xs={6} id="contractLeft">
+          <Col lg={6} xs={12} id="contractLeft">
 
-            <div>
               <div id="contractProduct">
                 {/* <label>Product:</label> */}
                 <input type="text" placeholder="Title" value={this.state.product} onChange={this.handleProductChange} />
               </div>
 
               <div id="contractPrice">
-                {/* <label>Price:</label> */}
+                <label>Price:</label>
                 <input type="text" placeholder="Price" value={this.state.price} onChange={this.handlePriceChange} />
               </div>
 
@@ -135,21 +134,20 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                     </Col>
 
                     <Col lg={9} xs={9} id="contractParticipantContent">
-                      <div>
+                      <div id="contractParticipantGroup">
                         <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
-                          <option value="" >Please Select</option>
+                          <option value="" >Select Participant</option>
                           {joinContractList}
                         </select>
                       </div>
 
-
-                      <div id="contractPercentage">
+                      <div id="contractParticipantGroup">
                         {/* <label>Percentage:</label> */}
                         <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
                         <label>%</label>
                       </div>
 
-                      <div>
+                      <div id="contractParticipantGroup">
                         {/* <label>Day To Use:</label> */}
                         <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
                       </div>
@@ -170,12 +168,11 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                 <button onClick={this.handleSubmit}>SUBMIT</button>
               </div>
 
-            </div>
 
 
           </Col>
 
-          <Col lg={6} xs={6}>
+          <Col lg={6} xs={12} id="contractLeft">
 
 
             <div>
@@ -200,12 +197,17 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                         <div> {contract.price} </div>
                       </div>
 
-                      <div>
-                        {
-                          contract.participants.map(participant => (
+                      <div id="confirmParticipantTitle">The Participants</div>
+                      {
+                        contract.participants.map(participant => (
 
-                            <div id="confirmParticipant" key={participant.id}>
+                          <Row id="confirmPeople" key={participant.id}>
 
+                            <Col lg={3} xs={3} id="contractFontColRight">
+                              <div id="contractFont"><FontAwesome.FaUser /></div>
+                            </Col>
+
+                            <Col lg={9} xs={9} id="confirmParticipantContent">
                               <div id="confirmParticipantGroup">
                                 <label>The participant: </label>
                                 <div> {participant.participantName}</div>
@@ -218,17 +220,18 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                                 <label>Which day will use: </label>
                                 <div>{participant.dayToUse}</div>
                               </div>
+                            </Col>
 
 
 
-                            </div>
+                          </Row>
 
-                          ))
-                        }
+                        ))
+                      }
 
-                      </div>
 
-                      <div id="confiremDescription">
+
+                      <div id="confirmDescription">
                         <label>Description:</label>
                         <div> {contract.description} </div>
                       </div>

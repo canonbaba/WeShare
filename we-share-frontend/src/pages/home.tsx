@@ -94,7 +94,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
         })
 
         return (
-            <div className="static-modal homepage">
+            <div className="static-modal contractPeople">
 
                 <PostPopup postPopup={this.state.postshow}
                     postData={this.state.postPopupData}

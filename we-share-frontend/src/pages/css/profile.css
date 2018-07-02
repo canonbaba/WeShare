@@ -34,7 +34,7 @@
     width: 150px;
     height: 180px;
     background-color: transparent;
-    background-image: url("../../images/paperwhiteshadow.png");
+    /* background-image: url("../../images/paperwhiteshadow.png"); */
     background-repeat: no repeat;
     background-size: 150px 180px;
     display: flex;

@@ -1,11 +1,13 @@
-.row {
+/* .homeFirstPage .row {
     width: 100vw;
-}
+} */
 
 .homeFirstPage {
     background-color: #333333;
     width: 100vw;
+    /* margin-top: 10vw; */
     /* height: 100vw; */
+    /* margin: 0px; */
 }
 
 .titleMargin {
@@ -44,14 +46,14 @@
 
 #clickScroll button {
     outline: 0;
-    width: 15vw;
-    height: 3vw;
-    font-size: 1vw;
+    width: 20vw;
+    height: 5vw;
+    font-size: 1.5vw;
     margin-top: 2vw;
     margin-bottom: 5vw;
     background-color: transparent;
     color: #F5E43C;
-    border-radius: 1.5vw;
+    border-radius: 2.5vw;
     border-color: #F5E43C;
 }
 
