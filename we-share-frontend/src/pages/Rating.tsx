@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Col, Glyphicon, Modal, Row } from 'react-bootstrap';
+import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { Col, Row } from 'reactstrap';
@@ -31,13 +32,13 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
             show: false,
             // tslint:disable-next-line:object-literal-sort-keys
             scores: [
-                { id: 1, click: false, value: -3 },
-                { id: 2, click: false, value: -2 },
-                { id: 3, click: false, value: -1 },
+                { id: 1, click: false, value: 3 },
+                { id: 2, click: false, value: 2 },
+                { id: 3, click: false, value: 1 },
                 { id: 4, click: true, value: 0 },
-                { id: 5, click: false, value: 1 },
-                { id: 6, click: false, value: 2 },
-                { id: 7, click: false, value: 3 },
+                { id: 5, click: false, value: -1 },
+                { id: 6, click: false, value: -2 },
+                { id: 7, click: false, value: -3 },
             ],
         }
 
@@ -49,70 +50,55 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
 
     public render() {
         return (
-            <div className="static-modal">
+            <div id="static-modal">
                 <Modal show={this.props.ratingPopup} onHide={this.handleClose}>
                     <div id="ratingClose">
-                        <button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" /></button>
+                        <button onClick={this.props.ratingPopupClose}><Glyphicon glyph="remove" />
+                        </button>
                     </div>
                     <div id="ratingTitle">
                         <h1>Rating & Comment</h1>
                     </div>
-                    <Row className='num'>
-
-                        <Col lg={12} xs={12} id="rate">
-                            <p>Rating:</p>
-                        </Col>
-                        <Col lg={12} xs={12} className='rating'>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>-3</th>
-                                        <th>-2</th>
-                                        <th>-1</th>
-                                        <th>0</th>
-                                        <th>1</th>
-                                        <th>2</th>
-                                        <th>3</th>
-                                    </tr>
-                                </thead>
-                                <thead>
+                    <Row >
+                        <Col lg={3} xs={3} >
+                            <div id="rate_value">
+                                <h4>Rating:</h4>
+                                <Col lg={2} xs={1} >
                                     {
                                         this.state.scores.map(score => (
-                                            <td key={score.id}>
-                                                <td><input type="checkbox" checked={score.click} onChange={this.clickScore.bind(this, score.id)} /></td>
-                                            </td>
+                                            <p key={score.id} id="clickbox">
+                                                <input type="checkbox" checked={score.click} onChange={this.clickScore.bind(this, score.id)} />
+                                            </p>
                                         ))
                                     }
-                                </thead>
+                                </Col>
+                                <Col lg={2} xs={1} >
+                                    <div id="rate_value_icon">
+                                        <p><FontAwesome.FaSmileO /><FontAwesome.FaSmileO /><FontAwesome.FaSmileO /></p>
+                                        <p><FontAwesome.FaSmileO /><FontAwesome.FaSmileO /></p>
+                                        <p><FontAwesome.FaSmileO /></p>
+                                        <p><FontAwesome.FaMehO /></p>
+                                        <p><FontAwesome.FaFrownO /></p>
+                                        <p><FontAwesome.FaFrownO /><FontAwesome.FaFrownO /></p>
+                                        <p><FontAwesome.FaFrownO /><FontAwesome.FaFrownO /><FontAwesome.FaFrownO /></p>
+                                    </div>
+                                </Col>
 
-                            </table>
+                            </div>
                         </Col>
-                    </Row>
 
+                        {/* comment part */}
 
-                    {/* comment part */}
-                    <Row>
-                        <Col className="comment">
-                            {/* <Col lg={12} xs={12}> */}
-                            <Row>
-                                <Col>
-                                    <h1>To: {this.props.showRatingPopupData.name}</h1>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <textarea value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." />
-                                </Col>
-                            </Row>
-                            <Row>
-                                {/* this.props.userid is Login user id; this.props.showRatingPopupData.user_id is the one who is commented by login user */}
-                                <Link to="/profile">
-                                <Col className="submit">
-                                    <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(), this.props.showRatingPopupData.user_id)}>Submit</button>
-                                </Col>
-                                </Link>
-                            </Row>
-                            {/* </Col> */}
+                        <Col lg={8} xs={8} >
+                            <div id="rating_comment">
+                                <h4>To: {this.props.showRatingPopupData.name}</h4>
+                                <textarea value={this.state.comment} onChange={this.ratingComment} className="text" placeholder="Comment..." />
+                                <div>
+                                    <Link to="/profile">
+                                        <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(), this.props.showRatingPopupData.user_id)}>Submit</button>
+                                    </Link>
+                                </div>
+                            </div>
                         </Col>
                     </Row>
                 </Modal>

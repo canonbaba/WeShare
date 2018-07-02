@@ -24,7 +24,7 @@ class ProfileService {
   }
 
   profileContractData(input){
-    console.log('hihihihihi',input);
+    console.log(input);
     return this.knex('contract').select(
             'contract.id as contractId',
             'contract.productName',

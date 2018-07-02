@@ -1,99 +1,76 @@
-/* #ratingClose {
-    display: flex;
-    justify-content: flex-end;
+#ratingTitle h1{
+    text-align: center;
+    font-size: 3vh;
 }
 
-#ratingClose button {
-    outline: 0;
-    background-color: transparent;
-    border: 0px;
-    font-size: 20px;
+h4{
+    font-size: 2.5vh;
 }
 
-#ratingTitle {
-    display: flex;
-    justify-content: center;
+#rate_value {
+    padding-left: 10%;
+    padding-bottom: 2vh;
 }
 
-.num {
-    margin: 50px;
-    border: 1px solid black;
-    border-radius: 10px;
+#ratingClose button{
+    float: right;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 0.6vw 0.7vw;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100%;
 }
 
-.rating {
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#ratingClose button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+#clickbox {
+    line-height: 20px;
+}
+
+/* .modal-dialog {
+    margin: 43px;
 } */
 
-/* .rating tbody {
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-} */
-
-/* .rating th {
+#rate_value_icon {
     width: 50px;
 }
 
-.rating td {
-    width: 50px;
+#rating_comment {
+    padding-bottom: 2vh;
+}
+#rating_comment textarea{
+    height:auto;
+    max-width:50vw;
+    min-height:30vh;
+    color:#999;
+    font-weight:400;
+    font-size:2.5vw;
+    font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+    width:100%;
+    background:#fff;
+    border-radius:3px;
+    line-height:2em;
+    border:none;
+    box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+    padding:1.5vw 2vw;
 }
 
-#rate {
-    padding: 0px;
+#rating_comment button {
+    margin-top: 1.5vh;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.5s, color 1s ease;
 }
 
-#rate p {
-    margin-left: 20px;
-} */
-
-/* .rating p {
-    margin-right: 50px;
-} */
-
-/* .comment {
-
-    margin-left: 65px;
-    width: 496px;
-    border: 1px solid black;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+#rating_comment button:hover {
+    background-color: white;
+    color: black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
 }
-
-.comment textarea {
-    width: 300px;
-    height: 100px;
-    background-color: transparent;
-}
-
-.submit button {
-    outline: 0;
-    background-color: transparent;
-    border: 0px;
-    font-size: 30px;
-    color: grey;
-    font-weight: bold;
-}
-
-.submit button:hover {
-    color: #A2151D;
-} */
-
-
-
-/* .content {
-    margin-left: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-} */
-
-/* .comment input {
-    width: 50vw;
-} */
