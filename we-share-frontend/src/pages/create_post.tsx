@@ -86,7 +86,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
         if (photoUrl) {
             $imagePreview = (<img src={photoUrl} />);
         } else {
-            $imagePreview = (<div className='imageframestyle'>Please select an Image for Preview</div>);
+            $imagePreview = (<div id='imageframestyle'> Please select an Image for Preview</div>);
         }
 
         return (
