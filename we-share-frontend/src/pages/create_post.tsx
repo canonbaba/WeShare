@@ -11,6 +11,7 @@ interface IPostFormProps {
     createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => void;
 }
 
+
 interface IPostFormState {
     productName: string;
     productPrice: string; // should be number in backend
@@ -21,6 +22,7 @@ interface IPostFormState {
     photo: string;
     photoUrl: string;
 }
+
 
 class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
     constructor(props: IPostFormProps) {
@@ -86,7 +88,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
         if (photoUrl) {
             $imagePreview = (<img src={photoUrl} />);
         } else {
-            $imagePreview = (<div className='imageframestyle'>Please select an Image for Preview</div>);
+            $imagePreview = (<div id='imageframestyle'> Please select an Image for Preview</div>);
         }
 
         return (
@@ -152,44 +154,36 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                             </Col>
                         </Row>
 
-                        {/* <h5>Price</h5>
-                    <input type="text" placeholder="$" onChange={this.priceChange} value={this.state.productPrice} /> */}
 
                         <Row className="cprice">
                             <Col lg={6} xs={6}>
                                 <h5>Price:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="Price of Product" onChange={this.priceChange} value={this.state.productPrice} />
+                                <input type="number" placeholder="Price of Product" onChange={this.priceChange} value={this.state.productPrice} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Percentage of Price</h5>
-                    <input type="text" placeholder="how much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} /> */}
 
                         <Row className="cwilling">
                             <Col lg={6} xs={6}>
                                 <h5>Price %:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="How much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
+                                <input type="number" placeholder="How much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Number of People</h5>
-                    <input type="text" placeholder="how many you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} /> */}
 
                         <Row className="cpeople">
                             <Col lg={6} xs={6}>
                                 <h5>Number of People:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="How many people you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
+                                <input type="number" placeholder="How many people you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Description</h5>
-                    <textarea placeholder="Description" onChange={this.descriptionChange} value={this.state.productDescription} /> */}
 
                         <Row className="cdescription">
                             <Col lg={6} xs={6} id="cd1">
@@ -207,6 +201,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                                     this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>POST</button>
                             </Link>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -224,7 +219,8 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid))
     }
-}
+ }
+ 
 
 const PostForm = connect(mapStateToProps, mapDispatchToProps)(PostFormBuilder)
 

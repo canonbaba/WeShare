@@ -78,6 +78,7 @@ export interface ICurrentMessage {
   message: string;
   created_at: string;
   inbox_id: number;
+  user_id: number;
 }
 
 export interface IInboxList {
@@ -86,61 +87,61 @@ export interface IInboxList {
 }
 
 
-export interface IProfileContractData{
-  contractId:number;
+export interface IProfileContractData {
+  contractId: number;
   // id: number; 
-  name:string;
-  product:string;
-  price:number;
-  state:string;
+  name: string;
+  product: string;
+  price: number;
+  state: string;
+  is_agree: boolean;
 }
 
 export interface IContractDetail {
-    contract_id: number,
-    user_id: number,
-    percentageToShare: string,
-    daysToUse: string,
-    is_agree: boolean,
-    name: string,
-    productName: string,
-    price: string,
-    description: string,
-    created_at: string;
+  contract_id: number,
+  user_id: number,
+  percentageToShare: string,
+  daysToUse: string,
+  is_agree: boolean,
+  name: string,
+  productName: string,
+  price: string,
+  description: string,
+  created_at: string;
 }
 
 export interface IContracts {
   id: number;
-  product:string;
-  price:number;
-  participants:IParticipant[]
-  description:string;
-  userid:number;
-  }
+  product: string;
+  price: number;
+  participants: IParticipant[]
+  description: string;
+  userid: number;
+}
 
-  export interface IParticipant {
-  
-    id:number;
-    participantName:string;
-    percentage:string;
-    dayToUse:string;
-    
-    }
-  
-    export interface ILoadContractsData{
-  
-      id: number;
-      product: string;
-      price: number;
-      participants: IContractsParticipant[];
-      description: string;
-  
-  }
-  
-  export interface IContractsParticipant{
-  
-    userId:number;
-    name:string;
-    percentageToShare:string;
-    daysToUse:string;
-  
-  }
+export interface IParticipant {
+  id: number;
+  participantName: string;
+  percentage: string;
+  dayToUse: string;
+}
+
+export interface ILoadContractsData {
+  id: number;
+  product: string;
+  price: number;
+  participants: IContractsParticipant[];
+  description: string;
+}
+
+export interface IContractsParticipant {
+  userId: number;
+  name: string;
+  percentageToShare: string;
+  daysToUse: string;
+}
+
+export interface IJoinContractList {
+  user_id: number;
+  name: string;
+}

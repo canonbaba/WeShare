@@ -73,13 +73,18 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
                 <Link to={'/detail_contract'}>
                     <div onClick={this.props.contractDetail.bind(this, data.contractId)}>Created Contract
                     <p>Creator Name : {data.name}</p>
-                        <p>Product: {data.productName}</p>
+                        <p>Title: {data.productName}</p>
                         <p>price: {data.price}</p>
-                        <p>state: {data.is_confirm}</p>
+                        <p>state: {data.is_confirm ? 'Confirm' : 'click to see Detail'}</p>
                         <p>Contract ID: {data.contractId}</p>
                     </div>
                 </Link>
-                <Link to={`/contractsSign/${data.contractId}`}>Go To Agree The Contract</Link>
+                {data.is_agree ?
+                    'Agree'
+                    :
+                    <Link to={`/contractsSign/${data.contractId}`}>Go To Agree The Contract</Link>
+                }
+
             </div>
         });
 
@@ -137,7 +142,7 @@ const mapStateToProps = (rootState: IRootState) => {
         loginEmail: rootState.islogin.loginEmail,
         profilePost: rootState.profilePost.profilePost,
         profileRating: rootState.profileRating.profileRating,
-        profileContract: rootState.profileContract.profileContract
+        profileContract: rootState.profileContract.profileContract,
     }
 }
 const mapDispatchToProps = (dispatch: any) => {

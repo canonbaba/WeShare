@@ -31,17 +31,16 @@ class ProfileService {
             'contract.price',
             'contract.is_confirm',
             'users.id as user_id',
-            'users.name')
+            'users.name','user_contract.is_agree')
     .join('user_contract', 'contract.id', 'user_contract.contract_id')
     .join('users','user_contract.user_id','users.id')
-    .andWhere('is_confirm', false)
-    .andWhere('users.id', input.userid);
+    // .andWhere('is_confirm', false)
+    .andWhere('users.id', input.userid)
   }
 
   getDetailContractData(input) {
     return this.knex('user_contract').innerJoin('users','user_contract.user_id', '=', 'users.id').innerJoin('contract','user_contract.contract_id', '=', 'contract.id').where({'user_contract.contract_id': input.contractId }).select('user_contract.contract_id','user_contract.user_id','user_contract.percentageToShare','user_contract.daysToUse','user_contract.is_agree','users.name','contract.productName','contract.price','contract.description','contract.created_at',)
   }
-
 
 }
 

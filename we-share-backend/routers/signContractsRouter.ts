@@ -41,8 +41,8 @@ class SignContractsRouter {
         return this.signContractsService
         .postSignData(req.body)
         .then(data => {
-            // console.log(data)
-            res.json(data);
+            console.log(data[0])
+            // res.json(data[0]);
         })
         .catch(err => {
             console.log("err", err);

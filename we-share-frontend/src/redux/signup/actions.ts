@@ -26,6 +26,8 @@ export function signupUsers(users: IUser, afterSignup: boolean): ISignupUsersAct
 }
 
 export function remoteSignupUsers(email: string, password: string, name: string) {
+  // tslint:disable-next-line:no-console
+  console.log(email, password, name)
   return (dispatch: Dispatch<IUserActions>) => {
     axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/signup`, {

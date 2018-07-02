@@ -1,20 +1,8 @@
-#popupPostRemovebutton {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#popupPostRemovebutton button {
-    outline: 0;
-    background-color: transparent;
-    border: 0px;
-    margin: 0px;
-    font-size: 20px;
-}
-
-.flexCenter {
+#popPostRateRemove {
+    width: 80vw;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #ppRating {
@@ -23,54 +11,88 @@
 }
 
 #ppRating h2 {
-    font-size: 15px;
-    margin: 5px 0px 0px 0px;
+    text-align: left;
+    font-size: 2vw;
+    margin: 1vw;
+}
+
+#popupPostRemovebutton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin: 0px; */
+}
+
+#popupPostRemovebutton button {
+    outline: 0;
+    background-color: transparent;
+    border: 0px;
+    margin: 0.5vw;
+    font-size: 3vw;
+    text-align: right;
+}
+
+.flexCenter {
+    width: 85vw;
+    display: flex;
+    justify-content: center;
 }
 
 .pphead h1 {
-    font-size: 50px;
+    font-size: 3vw;
     margin-top: 0px;
 }
 
 .ppProductName h2 {
-    font-size: 40px;
+    font-size: 5vw;
     margin-top: 0px;
 }
 
 .ppimage img {
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 15vw;
+    max-height: 13vw;
     border-width: 1px;
     border-style: solid;
 }
 
 .ppleft {
+    width: 43vw;
     display: flex;
     justify-content: flex-end;
 }
 
 .ppleft h2 {
-    font-size: 15px;
+    font-size: 1.5vw;
     margin-bottom: 0px;
 }
 
 .ppright h2 {
-    font-size: 15px;
+    font-size: 1.5vw;
     margin-bottom: 0px;
 }
 
+#ppDataPostRow {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 80vw;
+    margin-top: 1vw;
+}
+
 #ppDataPost {
-    margin-top: 10px;
+    margin: 1vw;
 }
 
-#ppDataPost h2 {
-    font-size: 15px;
-    margin: 15px
+#ppDataPost h3 {
+    color: #AFAFAF;
+    font-size: 1vw;
+    /* text-align: right; */
 }
 
-#ppDatePost h2 {
-    font-size: 15px;
-    margin: 15px;
+#ppDataPostNum h2 {
+    text-align: right;
+    font-size: 2vw;
+    margin: 1vw;
 }
 
 #popupPostbutton {
@@ -80,8 +102,9 @@
 
 #popupPostbutton button {
     outline: 0;
-    margin: 10px;
+    margin: 1vw;
     background-color: transparent;
-    border: 0px;
-    font-size: 25px;
+    border-width: 1px;
+    border-radius: 1vw;
+    font-size: 2vw;
 }

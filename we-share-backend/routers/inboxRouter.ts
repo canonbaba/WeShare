@@ -16,6 +16,7 @@ class InboxRouter {
     router.post("/save_message", this.saveMessage.bind(this));
     router.post("/onload_inboxlist", this.fatchInboxlist.bind(this));
     router.post("/select_inbox_room", this.selectInboxMessage.bind(this));
+    router.post("/pre_create_contract_data", this.getPreCreateContractData.bind(this));
     return router;
   }
 
@@ -67,6 +68,17 @@ class InboxRouter {
     // console.log(req.body)
     return this.inboxService
       .selectMessage(req.body)
+      .then(data => {
+        // console.log(data)
+        res.json(data);
+      })
+      .catch(err => res.status(500).json(err));
+  }
+
+  getPreCreateContractData(req, res) {
+    // console.log(req.body)
+    return this.inboxService
+      .getCreateContractData(req.body)
       .then(data => {
         // console.log(data)
         res.json(data);
