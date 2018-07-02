@@ -14,13 +14,11 @@
     text-align: center;
 }
 
-
 #contractProduct input {
     outline: 0;
     font-size: 2vw;
     text-align: center;
 }
-
 
 #contractCreate input {
     background-color: transparent;
@@ -32,7 +30,6 @@
 #contractCreate input::placeholder {
     color: #AFAFAF;
 }
-
 
 #contractPrice {
     display: flex;
@@ -55,39 +52,33 @@
     font-weight: normal;
 }
 
-
-/* 
-#contractPercentage label {
-    margin: 0px;
-}
-
 #contractParticipantTitle {
     text-align: center;
     font-size: 2vw;
 }
 
-.contractPeople {
-    width: 50vw;
-}
+/* .contractPeople {
+    padding: 1vw;
+} */
 
 .contractPeople input {
-    margin: 0.5vw;
+    margin: 0.5vw 0.5vw 0.5vw 0vw;
 }
 
 #contractFontCol {
     background-color: #F8F8FA;
-    width: 10vw;
+    /* width: 10vw; */
     height: 13vw;
     padding: 0px;
-    margin: 1vw 0vw 1vw 3vw;
+    /* margin: 1vw 0vw 1vw 3vw; */
+    margin-bottom: 1vw;
+    /* margin-left: 1vw; */
 }
 
 #contractFont {
     font-size: 8vw;
     color: #AFAFAF;
-    border: 1px;
-    border-color: black;
-    margin-left: 1vw;
+    margin-left: 3vw;
 }
 
 #contractParticipantContent {
@@ -95,10 +86,11 @@
     justify-content: center;
     flex-direction: column;
     background-color: #F8F8FA;
-    width: 40vw;
+    /* width: 40vw; */
     height: 13vw;
     padding: 0px;
-    margin: 1vw 0vw 1vw 0vw;
+    /* margin: 1vw 0vw 1vw 0vw; */
+    margin-bottom: 1vw;
 }
 
 #contractParticipantContent div {
@@ -107,7 +99,7 @@
 }
 
 #contractParticipantGroup {
-    display: flex;
+    /* display: flex; */
 }
 
 #contractParticipantGroup label {
@@ -120,49 +112,61 @@
     height: 2.5vw;
 }
 
+
 #contractParticipantGroup select {
     font-size: 1.5vw;
     height: 3vw;
-}
-
-#contractParticipantContent select {
     background-color: #E2E3E4;
     text-align: center;
-    margin-left: 0.5vw;
+    /* margin-left: 0.5vw; */
     font-size: 2vw;
     width: 18vw;
 }
 
-#contractParticipantContent div input {
+/* 
+#contractParticipantContent select {
+} */
+
+
+#contractParticipantGroup input {
     font-size: 1.5vw;
 }
 
-#contractParticipantContent div label {
+#contractParticipantGroup  label {
     font-size: 1.5vw;
 }
 
-#contractDayToUse {
+
+/* #contractDayToUse {
     width: 20vw;
     height: 2vw;
+} */
+
+#contractDescription {
+    display: flex;
+    justify-content: center;
 }
 
-.contractDescription textarea {
+#contractDescription textarea {
     font-size: 2vw;
     text-align: left;
-    width: 47vw;
+    width: 50vw;
     height: 10vw;
-    margin-left: 2vw;
+    margin-left: 1vw;
     border-color: #AFAFAF;
 }
+
 
 .contractDescription textarea::placeholder {
     color: #AFAFAF;
 }
 
+
 #contractButton {
     display: flex;
     justify-content: center;
 }
+
 
 #contractButton button {
     outline: 0;
@@ -172,29 +176,28 @@
     font-weight: bold;
     color: #AFAFAF;
     margin: 1vw;
-} */
+}
 
 /* __________________________________________________________________left part */
-
-/* 
 
 
 #confirmProductAndPrice {
     display: flex;
     justify-content: center;
-    flex-direction: row;
     margin-top: 0.5vw;
 }
+
 
 #confirmProductAndPrice label {
     font-size: 2vw;
 }
 
+
 #confirmProductAndPrice div {
     font-size: 2vw;
     margin-left: 1vw;
 }
-
+/* 
 #confirmParticipantTitle {
     text-align: center;
     font-size: 2vw;

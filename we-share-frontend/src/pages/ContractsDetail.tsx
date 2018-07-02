@@ -158,7 +158,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
               }
 
 
-              <div className="contractDescription">
+              <div id="contractDescription">
                 {/* <label>Description:</label> */}
                 <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
               </div>
@@ -187,7 +187,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
 
 
                       <div id="confirmProductAndPrice">
-                        <label>The Product: </label>
+                        <label>Title: </label>
                         <div> {contract.product} </div>
                       </div>
 
