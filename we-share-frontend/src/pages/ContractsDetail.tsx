@@ -82,7 +82,6 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
         { id: 3, participantName: '', percentage: '', dayToUse: '' },
         { id: 4, participantName: '', percentage: '', dayToUse: '' }],
       description: ''
-
     }
 
     if (this.props.match.params.id != null) {
