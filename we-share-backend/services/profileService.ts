@@ -24,7 +24,7 @@ class ProfileService {
   }
 
   profileContractData(input){
-    console.log(input);
+    console.log('hihihihihi',input);
     return this.knex('contract').select(
             'contract.id as contractId',
             'contract.productName',
@@ -33,9 +33,9 @@ class ProfileService {
             'users.id as user_id',
             'users.name','user_contract.is_agree')
     .join('user_contract', 'contract.id', 'user_contract.contract_id')
-    .join('users','user_contract.user_id','users.id')
+    .join('users','contract.creatorId','users.id')
     // .andWhere('is_confirm', false)
-    .andWhere('users.id', input.userid)
+    .andWhere('user_contract.user_id', input.userid)
   }
 
   getDetailContractData(input) {
