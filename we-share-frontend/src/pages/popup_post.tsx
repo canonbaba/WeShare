@@ -101,9 +101,14 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                     </Row>
                     {/* </div> */}
 
-                    <Link id="popupPostbutton" to="/inbox">
-                        <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>Contract Inviter</button>
-                    </Link>
+                    {this.props.postData.userId === this.props.userid ?
+                        null
+                        :
+                        <Link id="popupPostbutton" to="/inbox">
+                            <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>Contract Inviter</button>
+                        </Link>}
+
+
 
                     <Row id="ppDataPostRow">
                         <Col lg={6} xs={6} id="ppDataPost">

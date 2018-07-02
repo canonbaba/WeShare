@@ -116,7 +116,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
             <div>
               <div id="contractProduct">
                 {/* <label>Product:</label> */}
-                <input type="text" placeholder="Product Name" value={this.state.product} onChange={this.handleProductChange} />
+                <input type="text" placeholder="Title" value={this.state.product} onChange={this.handleProductChange} />
               </div>
 
               <div id="contractPrice">
@@ -154,10 +154,6 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                         <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
                       </div>
 
-                      <div>
-                        {/* <label>Day To Use:</label> */}
-                        <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
-                      </div>
                     </Col>
                   </Row>
                 ))
