@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Col, Glyphicon, Modal, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import { Col, Row } from 'reactstrap';
 import { IContractDetail, IScore } from 'src/models';
 import { saveRating } from 'src/redux/rating/actions';
@@ -105,9 +106,11 @@ class PureRating extends React.Component<IRatingProps, IRatingState> {
                             </Row>
                             <Row>
                                 {/* this.props.userid is Login user id; this.props.showRatingPopupData.user_id is the one who is commented by login user */}
+                                <Link to="/profile">
                                 <Col className="submit">
                                     <button onClick={this.props.ratingSubmit.bind(this, this.props.userid, this.state.comment, this.trueClick(), this.props.showRatingPopupData.user_id)}>Submit</button>
                                 </Col>
+                                </Link>
                             </Row>
                             {/* </Col> */}
                         </Col>

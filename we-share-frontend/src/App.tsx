@@ -23,9 +23,14 @@ import Inbox from 'src/pages/Inbox';
 import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
+// import { logoutClearData } from 'src/redux/login/actions';
+// import { IRootState } from 'src/redux/store';
 import './App.css';
 
-
+// interface IPureAppProps {
+//   isLoginSuccess: boolean;
+//   logout: () => void;
+// }
 
 
 class App extends React.Component<{}, { signupshow: boolean }> {
@@ -115,5 +120,16 @@ class App extends React.Component<{}, { signupshow: boolean }> {
     );
   }
 }
+
+//     isLoginSuccess: rootState.islogin.isLoginSuccess,
+//   }
+// }
+// const mapDispatchToProps = (dispatch: any) => {
+//   return {
+//     logout: () => dispatch(logoutClearData()),
+//   };
+// }
+
+// const App = connect(mapStateToProps, mapDispatchToProps)(PureApp);
 
 export default App;

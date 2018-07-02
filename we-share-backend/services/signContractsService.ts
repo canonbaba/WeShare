@@ -70,9 +70,22 @@ class SignContractsService {
 //   }
 
 postSignData (input) {
-    return this.knex('user_contract').where({ user_id: input.userid, contract_id: input.contractId}).update({is_agree: input.agree})
+    return this.knex('user_contract').where({ user_id: input.userid, contract_id: input.contractId }).update({is_agree: input.agree})
+    .then(data => {
+        return this.knex('user_contract').where({ contract_id: input.contractId }).distinct('is_agree')
+    })
+    .then(data => {
+        if(data[0].is_agree === true) {
+            return this.knex('contract').where({ id: input.contractId }).update({ is_confirm: true })
+        }
+    })
+    .then(() => {
+        // forgot why I select 'is_agree', it seems useless, it can be deleted, is_agree(in **Action) also can be deleted
+        return this.knex('user_contract').where({ user_id: input.userid, contract_id: input.contractId }).select('is_agree')
+    })
 }
-                  
+
+
                 
 
 }

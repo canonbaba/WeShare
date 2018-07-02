@@ -152,44 +152,36 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                             </Col>
                         </Row>
 
-                        {/* <h5>Price</h5>
-                    <input type="text" placeholder="$" onChange={this.priceChange} value={this.state.productPrice} /> */}
 
                         <Row className="cprice">
                             <Col lg={6} xs={6}>
                                 <h5>Price:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="Price of Product" onChange={this.priceChange} value={this.state.productPrice} />
+                                <input type="number" placeholder="Price of Product" onChange={this.priceChange} value={this.state.productPrice} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Percentage of Price</h5>
-                    <input type="text" placeholder="how much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} /> */}
 
                         <Row className="cwilling">
                             <Col lg={6} xs={6}>
                                 <h5>Price %:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="How much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
+                                <input type="number" placeholder="How much you willing to pay" onChange={this.pricePercentChange} value={this.state.productPricePercent} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Number of People</h5>
-                    <input type="text" placeholder="how many you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} /> */}
 
                         <Row className="cpeople">
                             <Col lg={6} xs={6}>
                                 <h5>Number of People:</h5>
                             </Col>
                             <Col lg={6} xs={6}>
-                                <input type="text" placeholder="How many people you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
+                                <input type="number" placeholder="How many people you tend to invite" onChange={this.numberPeopleChange} value={this.state.numberOfShareUser} />
                             </Col>
                         </Row>
 
-                        {/* <h5>Description</h5>
-                    <textarea placeholder="Description" onChange={this.descriptionChange} value={this.state.productDescription} /> */}
 
                         <Row className="cdescription">
                             <Col lg={6} xs={6} id="cd1">

@@ -35,7 +35,9 @@ export interface IRootState {
   profileContract:IProfilePostState;
   contracts: IContractsState;
   loadContracts: ISignContractsState;
+  is_agree: ISignContractsState;
   contractDetail: IProfilePostState;
+  joinContractList: IPureInboxState;
 }
 
 export const store = createStore(
@@ -52,6 +54,8 @@ export const store = createStore(
     currentMessage: PopupActionInboxReducer,
     inboxList: PureInboxReducer,
     loadContracts: loadContractsReducer,
-    contractDetail: ProfileReducer
+    is_agree: loadContractsReducer,
+    contractDetail: ProfileReducer,
+    joinContractList: PureInboxReducer
   }), composeEnhancers(applyMiddleware(thunk, logger))
 );

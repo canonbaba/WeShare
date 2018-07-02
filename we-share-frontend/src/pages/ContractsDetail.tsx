@@ -3,7 +3,7 @@ import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { match } from 'react-router-dom';
 // tslint:disable-next-line:ordered-imports
-import { IContracts, IParticipant } from 'src/models';
+import { IContracts, IParticipant, IJoinContractList } from 'src/models';
 import { /*addContracts,*/ editContracts, remoteAddContracts /*remoteEditContracts*/ } from 'src/redux/contracts/actions';
 import { IRootState } from 'src/redux/store';
 // import { ContractsShow } from './ContractsShow';
@@ -33,7 +33,7 @@ interface IContractsDetailProps {
   history: any;
   addContracts: (contracts: IContracts) => void;
   saveContractsProps: (contracts: IContracts) => void;
-
+  joinContractList: IJoinContractList[];
 }
 
 interface IContractsDetailStates {
@@ -76,48 +76,44 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
       // tslint:disable-next-line:object-literal-sort-keys
       price: 0,
 
-      participants: [{ id: 1, participantName: '', percentage: '', dayToUse: '' }, { id: 2, participantName: '', percentage: '', dayToUse: '' }, { id: 3, participantName: '', percentage: '', dayToUse: '' }, { id: 4, participantName: '', percentage: '', dayToUse: '' }],
-
+      participants: [
+        { id: 1, participantName: '', percentage: '', dayToUse: '' },
+        { id: 2, participantName: '', percentage: '', dayToUse: '' },
+        { id: 3, participantName: '', percentage: '', dayToUse: '' },
+        { id: 4, participantName: '', percentage: '', dayToUse: '' }],
       description: ''
 
     }
 
     if (this.props.match.params.id != null) {
-
       const contractId = parseInt(this.props.match.params.id, 10);
       const contract = this.props.contracts.find(c => c.id === contractId);
       if (contract != null) {
-
         this.state = {
-
           product: contract.product,
           // tslint:disable-next-line:object-literal-sort-keys
           price: contract.price,
-
           participants: contract.participants.slice(),
-
           description: contract.description
-
         };
       }
-
     }
+
   }
 
-
-
   public render() {
+
+    const joinContractList = this.props.joinContractList.map((data: any, i: number) =>
+      <option key={i} value={data.name}>{data.name}</option>
+    )
+
     return (
       <div>
-        {/* ContractsDetail
-            <h2> {this.props.match.params.id != null ? 'Editing Contracts':'Creating Contracts'}</h2> */}
-
 
         <Row id="contractCreate">
           <Col lg={6} xs={6} id="contractLeft">
 
             <div>
-
               <div id="contractProduct">
                 {/* <label>Product:</label> */}
                 <input type="text" placeholder="Product Name" value={this.state.product} onChange={this.handleProductChange} />
@@ -139,16 +135,23 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                     </Col>
 
                     <Col lg={9} xs={9} id="contractParticipantContent">
-
                       <div>
-                        {/* <label>Name:</label> */}
-                        <input type="text" placeholder="Participant Name" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} />
+                        <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
+                          <option value="" >Please Select</option>
+                          {joinContractList}
+                        </select>
                       </div>
+
 
                       <div id="contractPercentage">
                         {/* <label>Percentage:</label> */}
-                        <input type="text" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
+                        <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
                         <label>%</label>
+                      </div>
+
+                      <div>
+                        {/* <label>Day To Use:</label> */}
+                        <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
                       </div>
 
                       <div>
@@ -160,7 +163,6 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                 ))
 
               }
-
 
 
               <div className="contractDescription">
@@ -374,11 +376,10 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
 }
 
 const ContractsDetail = connect((rootState: IRootState) => ({
-
   userid: rootState.islogin.userid,
-
-  contracts: rootState.contracts.contracts
-
+  // tslint:disable-next-line:object-literal-sort-keys
+  contracts: rootState.contracts.contracts,
+  joinContractList: rootState.joinContractList.joinContractList
 
 }), (dispatch: any) => ({
 

@@ -34,7 +34,7 @@ class InboxService {
       message: input.loginName + ' join this room'
     })
       .then(() => {
-        return this.knex('user_message').where({ inbox_id: input.postID }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'desc')
+        return this.knex('user_message').where({ inbox_id: input.postID }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id', 'user_message.user_id').orderBy('user_message.created_at', 'desc')
       })
   }
 
@@ -50,7 +50,7 @@ class InboxService {
   getInboxList(input) {
     // 1******i don't know why the result can show user_message.inbox_id, anyway it is part of what i need
     // 2******still do not handle result order
-    return this.knex('user_message').innerJoin('inbox','user_message.inbox_id', '=' , 'inbox.id').innerJoin('post','inbox.post_id', '=', 'post.id').where({ 'user_message.user_id': input.userid }).distinct('user_message.inbox_id').select('post.nameOfProduct','post.price',)
+    return this.knex('user_message').innerJoin('inbox','user_message.inbox_id', '=' , 'inbox.id').innerJoin('post','inbox.post_id', '=', 'post.id').where({ 'user_message.user_id': input.userid }).distinct('user_message.inbox_id').select('post.nameOfProduct','post.price')
 
 
     // return this.knex('user_message').where({ user_id: input.userid }).distinct('inbox_id').select()
@@ -68,7 +68,11 @@ class InboxService {
 
 
   selectMessage(input) {
-    return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id').orderBy('user_message.created_at', 'desc')
+    return this.knex('user_message').where({ inbox_id: input.inboxId }).join('users', 'user_id', '=', 'users.id').select('users.name', 'user_message.message', 'user_message.created_at', 'user_message.admin_id', 'user_message.inbox_id', 'user_message.user_id').orderBy('user_message.created_at', 'desc')
+  }
+
+  getCreateContractData(input) {
+    return this.knex('user_message').where({ inbox_id: input.inboxId}).join('users', 'user_id', '=', 'users.id').distinct('user_id').select('user_message.user_id', 'users.name')
   }
 
 

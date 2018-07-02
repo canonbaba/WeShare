@@ -6,35 +6,46 @@ import swal from 'sweetalert';
 export const LOAD_CONTRACTS = 'LOAD_CONTRACTS';
 type LOAD_CONTRACTS = typeof LOAD_CONTRACTS;
 
+export const USER_CONTRACTS_CONFIRMATION = 'USER_CONTRACTS_CONFIRMATION';
+type USER_CONTRACTS_CONFIRMATION = typeof USER_CONTRACTS_CONFIRMATION;
+
 export interface ILoadContractsAction {
     type: LOAD_CONTRACTS;
     loadContracts:ILoadContractsData
-   
+}
+
+export interface IUserConfirmationAction {
+    type: USER_CONTRACTS_CONFIRMATION;
+    is_agree: boolean;
 }
 
 export interface ILoadContractsData{
-
     contractId: number;
     productName: string;
     price: number;
     participants: IContractsParticipant[];
     description: string;
-
 }
 
-
+// suppose defined this in model
 export interface IContractsParticipant{
-
     userId:number;
     name:string;
     percentageToShare:string;
     daysToUse:string;
-  
   }
 
+export type IFetchContractsAction = ILoadContractsAction | IUserConfirmationAction;
 
-export type IFetchContractsAction = ILoadContractsAction ;
 
+// tslint:disable-next-line:variable-name
+export function userConfirmation(is_agree: boolean): IUserConfirmationAction {
+    // tslint:disable-next-line:no-console
+    return {
+        is_agree,
+        type: USER_CONTRACTS_CONFIRMATION
+    };
+}
 
 export function fetchContracts(contractId:number) {
     // tslint:disable-next-line:no-console
@@ -60,8 +71,8 @@ export function fetchSignContract(
     contractId:number,
     userid:number,
 ) {
-    // tslint:disable-next-line:no-console
-    return (dispatch: Dispatch<any>) => {
+    swal("Save Successful");
+    return (dispatch: Dispatch<IFetchContractsAction>) => {
         axios
             .post(`${process.env.REACT_APP_API_SERVER}/api/signContracts/sign`, {
                 agree,
@@ -70,15 +81,18 @@ export function fetchSignContract(
                 contractId,
                 userid
             }).then(res => {
-                swal('Success save');
-                // dispatch(addSignData(res.data))
+                // tslint:disable-next-line:no-console
+                console.log(res.data);
+                dispatch(userConfirmation(res.data))
+                
             }).catch(err => {
                 // tslint:disable-next-line:no-console
                 console.log(err)
             });
-
     };
 }
+
+
 
 // tslint:disable-next-line:no-shadowed-variable
 export function loadContracts(loadContracts:ILoadContractsData): ILoadContractsAction {

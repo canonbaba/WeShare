@@ -16,6 +16,7 @@ class UserRouter {
 
 
   post(req,res){
+    // console.log(req.body)
     return this.userService
     .signup(req.body)
     .then(data => {

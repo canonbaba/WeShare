@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { IPostForm } from 'src/models';
+import swal from 'sweetalert';
 
 export const POST_SAVE = 'POST_SAVE';
 export type POST_SAVE = typeof POST_SAVE;
@@ -30,7 +31,7 @@ export function remoteSavePost(productName: string, productPrice: string, produc
                 userid
             }).then(res => {
 
-                alert(res.data.data);
+                swal('Save Successful');
                 // dispatch(nothinghere(res.data))
             }).catch(err => {
                 // tslint:disable-next-line:no-console
