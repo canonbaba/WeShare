@@ -27,3 +27,8 @@
     border: 0px;
     font-size: 50px;
 }
+
+#signParticipant {
+    display: flex;
+    flex-direction: row;
+}
