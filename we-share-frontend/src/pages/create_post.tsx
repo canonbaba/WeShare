@@ -11,6 +11,7 @@ interface IPostFormProps {
     createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => void;
 }
 
+
 interface IPostFormState {
     productName: string;
     productPrice: string; // should be number in backend
@@ -21,6 +22,7 @@ interface IPostFormState {
     photo: string;
     photoUrl: string;
 }
+
 
 class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
     constructor(props: IPostFormProps) {
@@ -86,7 +88,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
         if (photoUrl) {
             $imagePreview = (<img src={photoUrl} />);
         } else {
-            $imagePreview = (<div className='imageframestyle'>Please select an Image for Preview</div>);
+            $imagePreview = (<div id='imageframestyle'> Please select an Image for Preview</div>);
         }
 
         return (
@@ -199,6 +201,7 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                                     this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>POST</button>
                             </Link>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -216,7 +219,8 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid))
     }
-}
+ }
+ 
 
 const PostForm = connect(mapStateToProps, mapDispatchToProps)(PostFormBuilder)
 

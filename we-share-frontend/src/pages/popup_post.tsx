@@ -75,7 +75,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>% Of Inviter Paid:</h2>
+                            <h2>Precentage Of Inviter Paid:</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.percentageOfPay}</h2>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { ICurrentMessage, IInboxList } from 'src/models';
 import { fetchInboxList, fetchSelectedMessage, userSendMessage } from 'src/redux/inbox/action';
 import { IRootState } from 'src/redux/store';
-import './css/inbox.css';
+import './css/Inbox.css';
 
 interface IInboxProps {
     userid: number;

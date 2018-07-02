@@ -1,247 +1,306 @@
-/* .static-modal {
-    background-image: url("./picture/pinkpaper.png");
-    width: 60vw;
-} */
+.static-modal {
+    border: 20px;
+    border-color: black;
+}
 
 #createPost {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5vw;
 }
 
 #createBackground {
-   width: 40vw;
+    /* width: 40vw;
    height: 50vw;
    background-image: url("../../images/paperwhite.png");
    background-repeat: no-repeat;
-   background-size: 40vw 50vw;
+   background-size: 40vw 50vw; */
 }
 
 .cinvitation div {
-   text-align: center;
-   font-size: 50px;
+    text-align: center;
+    font-size: 3vw;
 }
 
 .cname {
-   display: flex;
-   justify-content: center;
-   text-align: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .cname input {
-   margin: 5px;
-   text-align: center;
-   border: 0px;
-   background-color: transparent;
+    outline: 0;
+    margin: 1vw;
+    font-size: 2.5vw;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #AFAFAF;
+    /* color:#AFAFAF; */
+    /* border: 0px; */
+    border-radius: 1vw;
+    background-color: transparent;
 }
 
-
-.imageframestyle {
-   /* text-align: center; */
-   /* margin: 5px 15px; */
-   width: 300px;
-   height: 200px;
-   border-width: 1px;
-   border-style: solid;
-   border-color: grey;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+#imageframestyle {
+    /* text-align: center; */
+    /* margin: 5px 15px; */
+    width: 18vw;
+    height: 18vw;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #AFAFAF;
+    color: #AFAFAF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    margin: 1vw;
 }
 
 .cphoto div {
-   /* text-align: center; */
-   display: flex;
-   justify-content: center;
-   margin: 5px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    margin: 5px;
 }
 
-
 .cphoto img {
-   max-width: 300px;
-   max-height: 200px;
-   border-width: 1px;
-   border-style: solid;
+    max-width: 18vw;
+    max-height: 18vw;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #AFAFAF;
 }
 
 .cphotoName1 {
-   display: flex;
-   justify-content: flex-end;
-   overflow: hidden;
-   position: relative;
-   /* font-size: 1px; */
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: relative;
+    /* font-size: 1px; */
 }
 
-
-
 .cphotoName1 input {
-   /* font-size: 1px; */
-   /* text-align: right; */
-   margin: 0px;
-   width: 100px;
-   background-color: transparent;
+    /* font-size: 1px; */
+    /* text-align: right; */
+    margin: 0px;
+    width: 100px;
+    background-color: transparent;
 }
 
 .cphotoName1 button {
-   background-color: transparent;
-   border: 0px;
-   font-size: 15px;
-   height: 25px;
-   width: 8vw;
-   margin: 0px;
-   padding: 0px;
+    background-color: transparent;
+    /* border: 0px; */
+    border-radius: 0.5vw;
+    font-size: 1vw;
+    height: 1.5vw;
+    width: 8vw;
+    margin: 0px;
+    padding: 0px;
 }
 
 .cphotoName1 [type=file] {
-   cursor: inherit;
-   display: block;
-   filter: alpha(opacity=0);
-   min-height: 0%;
-   min-width: 0%;
-   opacity: 0;
-   position: absolute;
-   right: 0;
-   text-align: right;
-   top: 0;
+    cursor: inherit;
+    display: block;
+    filter: alpha(opacity=0);
+    min-height: 0%;
+    min-width: 0%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
 }
 
 .ccategory select {
-   text-align: left;
-   display: flex;
-   justify-content: flex-start;
-   font-size: 15px;
-   background-color: transparent;
+    border: 1px;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5vw;
+    background-color: transparent;
 }
 
 .cprice {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   margin-top: 10px;
-   font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5vw;
+    font-size: 1vw;
 }
 
 .cprice h5 {
-   font-size: 15px;
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   margin: 0px;
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px;
+    color: #AFAFAF;
 }
 
 .cprice input {
-   display: flex;
-   justify-content: flex-start;
-   text-align: left;
-   border: 0px;
-   width: 10vw;
-   background-color: transparent;
+    outline: 0;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    border-style: solid;
+    font-size: 2vw;
+    border-color: #AFAFAF;
+    color: #AFAFAF;
+    border-width: 1px;
+    border-radius: 1vw;
+    width: 20vw;
+    background-color: transparent;
+}
+
+.cprice input::placeholder {
+    color: #AFAFAF;    
 }
 
 .cwilling {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   margin-top: 10px;
-   font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .cwilling h5 {
-   font-size: 15px;
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   margin: 0px;
+    font-size: 15px;
+    color: #AFAFAF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 2.5vw;
+    margin: 0px;
 }
 
 .cwilling input {
-   /* text-align: center;
+    /* text-align: center;
    border: 0px; */
-   /* width: 80%; */
-   display: flex;
-   justify-content: flex-start;
-   text-align: left;
-   border: 0px;
-   width: 15vw;
-   background-color: transparent;
+    /* width: 80%; */
+    outline: 0;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    width: 30vw;
+    font-size: 2vw;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 1vw;
+    background-color: transparent;
+    border-color: #AFAFAF;
+    color: #AFAFAF;
+    border-style: solid;
+}
+
+.cwilling input::placeholder {
+    color: #AFAFAF;    
 }
 
 .cpeople {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   margin-top: 10px;
-   font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .cpeople h5 {
-   font-size: 15px;
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   margin: 0px;
+    font-size: 2.5vw;
+    color: #AFAFAF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px;
 }
 
 .cpeople input {
-   /* text-align: center;
+    /* text-align: center;
    border: 0px; */
-   /* width: 80%; */
-   display: flex;
-   justify-content: flex-start;
-   text-align: left;
-   border: 0px;
-   width: 16vw;
-   background-color: transparent;
+    /* width: 80%; */
+    outline: 0;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    width: 35vw;
+    background-color: transparent;
+    font-size: 2vw;
+    border-width: 1px;
+    border-radius: 1vw;
+    background-color: transparent;
+    border-color: #AFAFAF;
+    color: #AFAFAF;
+    border-style: solid;
+}
+
+.cpeople input::placeholder {
+    color: #AFAFAF;
 }
 
 .cdescription {
-   /* text-align: left;
+    /* text-align: left;
    margin-top: 10px; */
-   /* display: flex;
+    /* display: flex;
    flex-direction: row; */
-   /* align-items: center; */
-   /* justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center;
    margin-top: 10px;
    font-size: 15px; */
-   display: flex;
-   flex-direction: row;
-   /* align-items: center; */
-   justify-content: center;
-   margin-top: 10px;
-   font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .cdescription h5 {
-   font-size: 15px;
-   display: flex;
-   justify-content: flex-end;
-   /* align-items: center; */
-   margin-top: 3px;
+    font-size: 2.5vw;
+    color: #AFAFAF;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    margin-top: 3px;
 }
 
-
 .cdescription textarea {
-   /* width: 100%; */
-   /* text-align: center; */
-   /* border: 0px; */
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   /* text-align: center; */
-   border: 0px;
-   width: 18vw;
-   background-color: transparent;
+    /* width: 100%; */
+    /* text-align: center; */
+    /* border: 0px; */
+    outline: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2vw;
+    width: 35vw;
+    background-color: transparent;
+    border-radius: 0.5vw;
+    background-color: transparent;
+    border-color: #AFAFAF;
+    color: #AFAFAF;
+    text-align: left;
+    border-style: solid;
+}
+
+.cdescription textarea::placeholder {
+    color: #AFAFAF;
 }
 
 #createPostButton {
-   text-align: center;
+    text-align: center;
+    margin: 1vw;
 }
 
 #createPostButton button {
-   background-color: transparent;
-   border: 0px;
-   font-size: 4.5vw;
+    width: 20vw;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 2.5vw;
+    font-size: 3vw;
 }

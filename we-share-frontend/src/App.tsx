@@ -67,9 +67,10 @@ class App extends React.Component<{}, { signupshow: boolean }> {
   public render() {
     return (
 
+      
         <div className="App">
 
-            <Navbar inverse={true} collapseOnSelect={false}>
+            <Navbar fixedTop={true} inverse={true} collapseOnSelect={false}>
               <Navbar.Header>
                 <Navbar.Brand>
                 <Link id="appLoginWhite" to="/home">WeBuyWeShare</Link>
@@ -77,14 +78,13 @@ class App extends React.Component<{}, { signupshow: boolean }> {
                 <Navbar.Toggle />
               </Navbar.Header>
               <Navbar.Collapse>
-
                 <Nav pullRight={true}>
                   <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
                     Login
                   </NavItem>
                   <NavItem eventKey={2} href="#">
                     {/* Link Right */}
-              <AppTopICON />
+                  <AppTopICON />
                   </NavItem>
                   {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
                 </Nav>
@@ -110,14 +110,13 @@ class App extends React.Component<{}, { signupshow: boolean }> {
                 <Route path="/detail_contract" exact={true} component={DetailContrat} />
               </Switch>
             </Col>
-            <Col lg={2} xs={2} id="routeLink">
+            {/* <Col lg={2} xs={2} id="routeLink"> */}
               {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
               {/* <AppTopICON /> */}
-            </Col>
+            {/* </Col> */}
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
           {/* </Row> */}
         </div>
-
     );
   }
 }

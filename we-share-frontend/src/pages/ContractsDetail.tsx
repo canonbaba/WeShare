@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { match } from 'react-router-dom';
 // tslint:disable-next-line:ordered-imports
@@ -113,43 +114,47 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
 
             <div>
               <div id="contractProduct">
-                <input type="text" placeholder="Product Name ?" value={this.state.product} onChange={this.handleProductChange} />
+                {/* <label>Product:</label> */}
+                <input type="text" placeholder="Title" value={this.state.product} onChange={this.handleProductChange} />
               </div>
 
               <div id="contractPrice">
-                <label>Price:</label>
-                <input type="text" value={this.state.price} onChange={this.handlePriceChange} />
+                {/* <label>Price:</label> */}
+                <input type="text" placeholder="Price" value={this.state.price} onChange={this.handlePriceChange} />
               </div>
 
-              <label>The Participants:</label>
+              <div id="contractParticipantTitle">The Participants</div>
               {
                 this.state.participants.map(participant => (
 
-                  <div className="contractPeople" key={participant.id}>
+                  <Row className="contractPeople" key={participant.id}>
 
-                    <div>
-                      {/* <label>Name:</label> */}
-                      {/* <input type="text" placeholder="Participant Name" value={participant.participantName} onChange={this.handleParticipantsNameChange.bind(this, participant.id)} /> */}
+                    <Col lg={3} xs={3} id="contractFontCol">
+                      <div id="contractFont"><FontAwesome.FaUser /></div>
+                    </Col>
+
+                    <Col lg={9} xs={9} id="contractParticipantContent">
                       <div>
                         <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
                           <option value="" >Please Select</option>
                           {joinContractList}
                         </select>
                       </div>
-                    </div>
 
-                    <div id="contractPercentage">
-                      {/* <label>Percentage:</label> */}
-                      <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
-                      <label>%</label>
-                    </div>
 
-                    <div>
-                      {/* <label>Day To Use:</label> */}
-                      <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
-                    </div>
+                      <div id="contractPercentage">
+                        {/* <label>Percentage:</label> */}
+                        <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
+                        <label>%</label>
+                      </div>
 
-                  </div>
+                      <div>
+                        {/* <label>Day To Use:</label> */}
+                        <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
+                      </div>
+
+                    </Col>
+                  </Row>
                 ))
 
               }
