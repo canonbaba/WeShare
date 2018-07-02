@@ -229,7 +229,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                         <Col lg={6} xs={6} id="popsignin">
                                             <Link to='/home'>
                                                 <Button onClick={this.props.saveUser.bind(this, this.state.signUpemail, this.state.signUpname
-                                                    , this.state.signUppassword)} onMouseOut={this.props.signupClose}>Submit</Button>
+                                                    , this.state.signUppassword)} onMouseUp={this.props.signupClose}>Submit</Button>
                                             </Link>
                                         </Col>
                                         <Col lg={6} xs={6} id="popsignup">

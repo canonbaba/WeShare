@@ -8,6 +8,7 @@ import './css/Detail_Contract.css';
 
 interface IDetailContratProps {
     contractDetail: IContractDetail[];
+    userid: number;
 }
 
 interface IDetailContractState {
@@ -57,11 +58,15 @@ class PureDetailContrat extends React.Component<IDetailContratProps, IDetailCont
 
     public render() {
         const showContractDetail = this.props.contractDetail.map((data: any, i: number) => {
-            return <div id="detailPeople" onClick={this.ratingPopupShow.bind(this, data)} key={i}>
+            return <div id="detailPeople" key={i}>
                 <p>Participant: {data.name}</p>
                 <p>Price To Share: {data.percentageToShare}</p>
                 <p>Which day will use: {data.daysToUse}</p>
                 <p>Status: {data.is_agree === true ? 'Agree' : 'Waiting for Confirmation'}</p>
+                {this.props.userid === data.user_id ?
+                    null :
+                    <button onClick={this.ratingPopupShow.bind(this, data)}>Rating</button>}
+
             </div>
         })
 
@@ -95,7 +100,8 @@ class PureDetailContrat extends React.Component<IDetailContratProps, IDetailCont
 
 const mapStateToProps = (rootState: IRootState) => {
     return {
-        contractDetail: rootState.contractDetail.contractDetail
+        contractDetail: rootState.contractDetail.contractDetail,
+        userid: rootState.islogin.userid
     }
 }
 

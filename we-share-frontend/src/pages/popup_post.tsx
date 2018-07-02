@@ -109,7 +109,6 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                         </Link>}
 
 
-
                     <Row id="ppDataPostRow">
                         <Col lg={6} xs={6} id="ppDataPost">
                             {/* <h2>Created_at: {this.props.postData.created_at}</h2> */}
