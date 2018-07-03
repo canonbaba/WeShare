@@ -224,6 +224,13 @@
 #profileContractContentPAgree {
     margin: 1vw;
     font-size: 2vw;
+    color: rgb(196, 10, 10);
+}
+
+#profileContractContentPAgreeAfter {
+    margin: 1vw;
+    font-size: 2vw;
+    color: green;
 }
 /* .profile_post {
     width: 300px;
