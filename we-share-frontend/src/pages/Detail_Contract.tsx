@@ -59,20 +59,22 @@ class PureDetailContrat extends React.Component<IDetailContratProps, IDetailCont
     public render() {
         const showContractDetail = this.props.contractDetail.map((data: any, i: number) => {
             return <div id="detailPeople" key={i}>
-                <p>Participant: {data.name}</p>
-                <p>Price To Share: {data.percentageToShare}</p>
-                <p>Which day will use: {data.daysToUse}</p>
-                <p>Status: {data.is_agree === true ? 'Agree' : 'Waiting for Confirmation'}</p>
-                {this.props.userid === data.user_id ?
-                    null :
-                    <button onClick={this.ratingPopupShow.bind(this, data)}>Rating</button>}
+                <p id="detailPeopleParticipant">Participant: {data.name}</p>
+                <p id="detailPeopleGrey">Price To Share: {data.percentageToShare}</p>
+                <p id="detailPeopleGrey">Which day will use: {data.daysToUse}</p>
+                <p id="detailPeopleGrey">Status: {data.is_agree === true ? 'Agree' : 'Waiting for Confirmation'}</p>
+                <div id="detailPeopleButton">
+                    {this.props.userid === data.user_id ?
+                        null :
+                        <button onClick={this.ratingPopupShow.bind(this, data)}>Rating</button>}
+                </div>
 
             </div>
         })
 
         const shareDetail = this.props.contractDetail.map((data: any, i: number) => {
-            return <div key={i}>
-                <h1>Product: {data.productName}</h1>
+            return <div id="shareDetailContent" key={i}>
+                <h1>Title: {data.productName}</h1>
                 <p>Price: {data.price}</p>
                 <p>Description: {data.description}</p>
             </div>
@@ -80,9 +82,11 @@ class PureDetailContrat extends React.Component<IDetailContratProps, IDetailCont
 
         return (
             <div className="static-modal" id="detail_contract">
-                <Row>
+                <Row id="detail_contractContent">
                     <Col lg={12} xs={12} id="shareDetail">
-                        <h1>{shareDetail[0]}</h1>
+
+                        {shareDetail[0]}
+
                     </Col>
                     <Col lg={12} xs={12} id="showContractDetail">
                         {/* <p>{this.props.contractDetail[0].created_at}</p> */}

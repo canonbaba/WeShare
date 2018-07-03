@@ -70,15 +70,17 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
             return <div id="profileContractContentP" onClick={this.props.contractDetail.bind(this, data.contractId)} key={i}>
                 <Link to={'/detail_contract'}>
 
-                <p id="profileContractContentPCreator">Contract Creator Name : {data.name}</p>
-                <p id="profileContractContentPName">Title: {data.productName}</p>
-                <p id="profileContractContentPPrice">price: {data.price}</p>
-                <p id="profileContractContentPState">state: {data.is_confirm ? 'Confirm' : 'click to see Detail'}</p>
-                {/* <p>Contract ID: {data.contractId}</p> */}
+                    <p id="profileContractContentPCreator">Contract Creator Name : {data.name}</p>
+                    <p id="profileContractContentPName">Title: {data.productName}</p>
+                    <p id="profileContractContentPPrice">price: {data.price}</p>
+                    <p id="profileContractContentPState">state: {data.is_confirm ? 'Confirm' : 'click to see Detail'}</p>
+                    {/* <p>Contract ID: {data.contractId}</p> */}
 
-                </Link>
+                </Link >
                 {data.is_agree ?
-                    'Agree'
+                    <div id="profileContractContentPAgreeAfter">
+                        Agreed
+                    </div>
                     :
                     <Link id="profileContractContentPAgree" to={`/contractsSign/${data.contractId}`}>Go To Agree The Contract</Link>
                 }

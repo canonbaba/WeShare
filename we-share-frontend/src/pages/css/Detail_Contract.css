@@ -1,26 +1,79 @@
 #detail_contract {
-    background-color: white;
-    display: flex;
+    background-color: #F3F3F3;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 120px;
+    align-items: center; */
 }
 
 #shareDetail {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+    /* background-color: white; */
+}
+
+#shareDetailContent {
+    background-color: white;
+    width: 50vw;
+    height: 15vw;
+    margin: 3vw;
+}
+
+#shareDetailContent h1 {
+    font-size: 3vw;
+    margin: 1vw;
+}
+
+#shareDetailContent p {
+    font-size: 2vw;
+    margin: 1vw;
+    color: #AFAFAF;
 }
 
 #showContractDetail {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 #detailPeople {
-    margin: 10px;
+    background-color: white;
+    margin: 1vw;
+    width: 50vw;
+}
+
+#detailPeopleParticipant {
+    margin: 1vw;
+    font-size: 3vw;
+}
+
+#detailPeopleGrey {
+    margin: 1vw;
+    font-size: 1.5vw;
+    color: #AFAFAF;
+}
+
+#detailPeopleButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#detailPeople button {
+    width: 5vw;
+    height: 3vw;
+    margin: 1vw;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.5s, color 1s ease;
+}
+
+#detailPeople button:hover {
+    background-color: white;
+    color: black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
 }
