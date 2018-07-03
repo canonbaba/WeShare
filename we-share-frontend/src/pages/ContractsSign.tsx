@@ -89,7 +89,7 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
           ) : ''
         }
         <div id="contractSignbutton">
-        <Link id="contractSignbutton" to={'/profile'}>
+        <Link to={'/profile'}>
           <button onClick={this.handleSign} className="static-modal contractSign">Sign</button>
         </Link>
         </div>
