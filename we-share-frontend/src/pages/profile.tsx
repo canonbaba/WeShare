@@ -38,51 +38,49 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
 
     public render() {
         const profilePost = this.props.profilePost.map((data: any, i: number) => {
-            return <div key={i}>
-                <div id="profilePostContent">
-                    <h5>{data.nameOfProduct}</h5>
+            return <Row id="profilePostContent" key={i}>
+                <Col lg={6} xs={6} id="profilePostContentImg">
                     <img src={data.photo} />
+                </Col>
+                <Col lg={6} xs={6} id="profilePostContentData">
+                    <h5>{data.nameOfProduct}</h5>
                     <p>Price: {data.price}</p>
-                    <p>People Shared: {data.numberOfShareUser}</p>
                     <p>Willing % to pay: {data.percentageOfPay}</p>
+                    <p>People Shared: {data.numberOfShareUser}</p>
                     {/* <p>Description:</p>
                     <p>{data.description}</p> */}
-                </div>
-            </div>
+                </Col>
+            </Row>
         });
 
         const profileRating = this.props.profileRating.map((data: any, i: number) => {
-            return <div key={i}>
-                <div id="profileRatingBottomLine">
-                    <Row>
-                        <Col lg={6} xs={6} id="profileRatingName">
-                            <p>Name: {data.name}</p>
-                        </Col>
-                        <Col lg={6} xs={6} id="profileRatingNumber">
-                            <div>Rating: {data.rating}</div>
-                        </Col>
-                    </Row>
-                    <p>Comment: {data.comment}</p>
-                    <p>Day: {data.updated_at.toString().slice(0, 19)}</p>
+            return <div id="profileRatingNN" key={i}>
+                <div id="profileRatingName">
+                    <div>Rating: {data.rating}</div>
                 </div>
+                <div id="profileRatingNumber">
+                    <p>Name: {data.name}</p>
+                </div>
+                <p id="profileRatingComment">Comment: {data.comment}</p>
+                <p id="profileRatingDay">Time: {data.updated_at.toString().slice(0, 19)}</p>
             </div>
         });
 
         const profileContract = this.props.profileContract.map((data: any, i: number) => {
-            return <div key={i}>
+            return <div id="profileContractContentP" onClick={this.props.contractDetail.bind(this, data.contractId)} key={i}>
                 <Link to={'/detail_contract'}>
-                    <div onClick={this.props.contractDetail.bind(this, data.contractId)}>Created Contract
-                    <p>Creator Name : {data.name}</p>
-                        <p>Title: {data.productName}</p>
-                        <p>price: {data.price}</p>
-                        <p>state: {data.is_confirm ? 'Confirm' : 'click to see Detail'}</p>
-                        <p>Contract ID: {data.contractId}</p>
-                    </div>
+
+                <p id="profileContractContentPCreator">Contract Creator Name : {data.name}</p>
+                <p id="profileContractContentPName">Title: {data.productName}</p>
+                <p id="profileContractContentPPrice">price: {data.price}</p>
+                <p id="profileContractContentPState">state: {data.is_confirm ? 'Confirm' : 'click to see Detail'}</p>
+                {/* <p>Contract ID: {data.contractId}</p> */}
+
                 </Link>
                 {data.is_agree ?
                     'Agree'
                     :
-                    <Link to={`/contractsSign/${data.contractId}`}>Go To Agree The Contract</Link>
+                    <Link id="profileContractContentPAgree" to={`/contractsSign/${data.contractId}`}>Go To Agree The Contract</Link>
                 }
 
             </div>
@@ -90,44 +88,48 @@ class PureProfile extends React.Component<IPorfileProps, {}> {
 
         return (
             <div className="static-modal profile">
-                <Row className="porfileLeft">
-                    <Col lg={6} xs={6} className="profilePeople">
-                        <div id="profileContent">
-                            <div id="fontIcons"><FontAwesome.FaUser /></div>
-                            {/* <h1>PROFILE</h1> */}
-                            <p>Login user Name: {this.props.loginName}</p>
-                            <p>Login user Email: {this.props.loginEmail}</p>
-                        </div>
-                    </Col>
-                    <Col lg={6} xs={6} className="profile_postH1">
-                        <h1>Created Post</h1>
-                        <Col lg={12} xs={12} className="profile_post">
+
+                <div id="profileContentRow">
+                    <div id="profileContent">
+                        <div id="fontIcons"><FontAwesome.FaUser /></div>
+                        {/* <h1>PROFILE</h1> */}
+                        <p>Name: {this.props.loginName}</p>
+                        <p>Email: {this.props.loginEmail}</p>
+                    </div>
+                </div>
+
+                <div id="profile_postH1Row">
+                    <div id="profile_postH1">
+                        <h1>Your Post</h1>
+                        <div id="profile_post">
                             {/* <div id="profilePost"> */}
                             {/* <div> */}
                             {/* <div> */}
                             {profilePost}
                             {/* </div> */}
                             {/* </div> */}
-                        </Col>
-                    </Col>
-                </Row>
-                <Row className="porfileRight">
-                    <Col lg={6} xs={6} id="profileRating">
-                        <h1>Rating</h1>
-                        <Col lg={12} xs={12} className="profileRatingScroll">
-                            {profileRating}
+                        </div>
+                    </div>
+                </div>
 
-                        </Col>
-                    </Col>
-                    <Col lg={6} xs={6} id="profileContractH1">
+                <div id="profileRatingRow">
+                    <div id="profileRating">
+                        <h1>Rating & Comment</h1>
+                        {profileRating}
+
+                    </div>
+                </div>
+
+                <div id="profileContractDiv">
+                    <div id="profileContract">
                         <h1>Contract</h1>
-                        <Col lg={12} xs={12} id="profileContract">
+                        <div id="profileContractContent">
 
                             {profileContract}
 
-                        </Col>
-                    </Col>
-                </Row>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

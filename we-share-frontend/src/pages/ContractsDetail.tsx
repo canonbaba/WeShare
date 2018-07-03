@@ -126,7 +126,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
              {
                this.state.participants.map(participant => (
 
-                 <Row className="contractPeople" key={participant.id}>
+                 <Row id="contractPeople" key={participant.id}>
 
                    <Col lg={3} xs={3} id="contractFontCol">
                      <div id="contractFont"><FontAwesome.FaUser /></div>
