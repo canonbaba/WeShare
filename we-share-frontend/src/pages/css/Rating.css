@@ -32,9 +32,9 @@ h4{
     line-height: 20px;
 }
 
-/* .modal-dialog {
-    margin: 43px;
-} */
+.modal-dialog {
+    min-width: 390px;
+}
 
 #rate_value_icon {
     width: 50px;
@@ -66,6 +66,8 @@ h4{
     color: white;
     border: none;
     transition: background-color 0.5s, color 1s ease;
+    padding: 1vh 3vh;
+    border-radius: 10px;
 }
 
 #rating_comment button:hover {

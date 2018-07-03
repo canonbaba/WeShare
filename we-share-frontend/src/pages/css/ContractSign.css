@@ -1,6 +1,6 @@
 .contractSign {
-    width: 800px;
-    margin-top: 120px;
+    width: 100%;
+    margin-top: 8vw;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -8,24 +8,43 @@
     flex-direction: column;
 }
 
-#contractSignTitle  {
+#sign_participant {
+    padding: 1vh;
+}
+
+#sign_agree_clickbox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vh;
+}
+
+#contractSignbutton {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-
-#peopleContentWidth {
-    width: 800px;
+#contractSignbutton button {
+    width: 4vh;
+    margin-top: 1.5vh;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.5s, color 1s ease;
+    padding: 1vh 4vh;
+    border-radius: 10px;
 }
 
-
-
-#contractSignbutton button {
-    background-color: transparent;
-    border: 0px;
-    font-size: 50px;
+#contractSignbutton button:hover {
+    background-color: white;
+    color: black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 #signParticipant {
