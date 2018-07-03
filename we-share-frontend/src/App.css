@@ -4,10 +4,8 @@
     border-radius: 0px;
     /* position: fixed;
     top: 500px; */
-    /* height: 3.5vw;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
+    /* height: 1vw; */
+    /* width: 100vw; */
 }
 
 .middle {
@@ -16,5 +14,7 @@
 
 #appLoginWhite {
     color: white;
-    outline: 0
+    outline: 0;
+    /* font-size: 2vw; */
+    /* padding: 1vw; */
 }

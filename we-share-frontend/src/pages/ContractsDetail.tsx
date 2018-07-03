@@ -109,49 +109,47 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
    return (
      <div>
 
-       <Row id="contractCreate">
-         <Col lg={6} xs={6} id="contractLeft">
+        <Row id="contractCreate">
+          <Col lg={6} xs={12} id="contractLeft">
 
-           <div>
-             <div id="contractProduct">
-               {/* <label>Product:</label> */}
-               <input type="text" placeholder="Title" value={this.state.product} onChange={this.handleProductChange} />
-             </div>
+              <div id="contractProduct">
+                {/* <label>Product:</label> */}
+                <input type="text" placeholder="Title" value={this.state.product} onChange={this.handleProductChange} />
+              </div>
 
-             <div id="contractPrice">
-               <label>Price:</label>
-               <input type="text" placeholder="Price" value={this.state.price} onChange={this.handlePriceChange} />
-             </div>
+              <div id="contractPrice">
+                <label>Price:</label>
+                <input type="text" placeholder="Price" value={this.state.price} onChange={this.handlePriceChange} />
+              </div>
 
              <div id="contractParticipantTitle">The Participants</div>
              {
                this.state.participants.map(participant => (
 
-                 <Row className="contractPeople" key={participant.id}>
+                 <Row id="contractPeople" key={participant.id}>
 
                    <Col lg={3} xs={3} id="contractFontCol">
                      <div id="contractFont"><FontAwesome.FaUser /></div>
                    </Col>
 
-                   <Col lg={9} xs={9} id="contractParticipantContent">
-                     <div>
-                       <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
-                         <option value="" >Please Select</option>
-                         {joinContractList}
-                       </select>
-                     </div>
+                    <Col lg={9} xs={9} id="contractParticipantContent">
+                      <div id="contractParticipantGroup">
+                        <select onChange={this.handleParticipantsNameChange.bind(this, participant.id)}>
+                          <option value="" >Select Participant</option>
+                          {joinContractList}
+                        </select>
+                      </div>
 
+                      <div id="contractParticipantGroup">
+                        {/* <label>Percentage:</label> */}
+                        <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
+                        <label>%</label>
+                      </div>
 
-                     <div id="contractPercentage">
-                       {/* <label>Percentage:</label> */}
-                       <input type="number" placeholder="Percentage" value={participant.percentage} onChange={this.handlePercentagesChange.bind(this, participant.id)} />
-                       <label>%</label>
-                     </div>
-
-                     <div>
-                       {/* <label>Day To Use:</label> */}
-                       <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
-                     </div>
+                      <div id="contractParticipantGroup">
+                        {/* <label>Day To Use:</label> */}
+                        <input type="text" placeholder="Which day will use?" value={participant.dayToUse} onChange={this.handleDay.bind(this, participant.id)} />
+                      </div>
 
                    </Col>
                  </Row>
@@ -160,21 +158,20 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
              }
 
 
-             <div className="contractDescription">
-               {/* <label>Description:</label> */}
-               <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
-             </div>
+              <div id="contractDescription">
+                {/* <label>Description:</label> */}
+                <textarea placeholder="Description" value={this.state.description} onChange={this.handleDescriptionChange} />
+              </div>
 
              <div id="contractButton">
                <button onClick={this.handleSubmit}>SUBMIT</button>
              </div>
 
-           </div>
 
 
          </Col>
 
-         <Col lg={6} xs={6}>
+          <Col lg={6} xs={12} id="contractLeft">
 
 
            <div>
@@ -189,48 +186,54 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                    <div id="confiremContract" key={contract.id}>
 
 
-                     <div id="confirmProductAndPrice">
-                       <label>The Product: </label>
-                       <div> {contract.product} </div>
-                     </div>
+                      <div id="confirmProductAndPrice">
+                        <label>Title: </label>
+                        <div> {contract.product} </div>
+                      </div>
 
                      <div id="confirmProductAndPrice">
                        <label>The Price: </label>
                        <div> {contract.price} </div>
                      </div>
 
-                     <div>
-                       {
-                         contract.participants.map(participant => (
+                      <div id="confirmParticipantTitle">The Participants</div>
+                      {
+                        contract.participants.map(participant => (
 
-                           <div id="confirmParticipant" key={participant.id}>
+                          <Row id="confirmPeople" key={participant.id}>
 
-                             <div id="confirmParticipantGroup">
-                               <label>The participant: </label>
-                               <div> {participant.participantName}</div>
-                             </div>
-                             <div id="confirmParticipantGroup">
-                               <label>Percentage: </label>
-                               <div>{participant.percentage}</div>
-                             </div>
-                             <div id="confirmParticipantGroup">
-                               <label>Which day will use: </label>
-                               <div>{participant.dayToUse}</div>
-                             </div>
+                            <Col lg={3} xs={3} id="contractFontColRight">
+                              <div id="contractFont"><FontAwesome.FaUser /></div>
+                            </Col>
+
+                            <Col lg={9} xs={9} id="confirmParticipantContent">
+                              <div id="confirmParticipantGroup">
+                                <label>The participant: </label>
+                                <div> {participant.participantName}</div>
+                              </div>
+                              <div id="confirmParticipantGroup">
+                                <label>Percentage: </label>
+                                <div>{participant.percentage}</div>
+                              </div>
+                              <div id="confirmParticipantGroup">
+                                <label>Which day will use: </label>
+                                <div>{participant.dayToUse}</div>
+                              </div>
+                            </Col>
 
 
 
-                           </div>
+                          </Row>
 
-                         ))
-                       }
+                        ))
+                      }
 
-                     </div>
 
-                     <div id="confiremDescription">
-                       <label>Description:</label>
-                       <div> {contract.description} </div>
-                     </div>
+
+                      <div id="confirmDescription">
+                        <label>Description:</label>
+                        <div> {contract.description} </div>
+                      </div>
 
                      <div id="confirmButton">
                        <button onClick={this.handleButton}>FINISH</button>

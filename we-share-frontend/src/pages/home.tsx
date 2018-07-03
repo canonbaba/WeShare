@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import * as FontAwesome from 'react-icons/lib/fa'
+// import * as FontAwesome from 'react-icons/lib/fa'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import Col from 'reactstrap/lib/Col';
@@ -161,12 +161,12 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                     <Row>
                         <Col lg={12} xs={12} id="homeSearchComponents">
 
-                            <Col lg={12} xs={12} id="homeSearchInput">
-                                <input type="text" placeholder="SEARCH POST" />
-                                <button type="submit"><FontAwesome.FaSearch /></button>
+                            {/* <Col lg={12} xs={12} id="homeSearchInput"> */}
+                                {/* <input type="text" placeholder="SEARCH POST" />
+                                <button type="submit"><FontAwesome.FaSearch /></button> */}
                                 {/* <div className="custom-select"> */}
-                                <select className="custom-select" value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
-                                    <option value="">All</option>
+                                <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
+                                    <option value="">Category</option>
                                     <option value="1">Fashion</option>
                                     <option value="2">Electric Product</option>
                                     <option value="3">Vehicle</option>
@@ -175,7 +175,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                                     <option value="6">Others</option>
                                 </select>
                                 {/* </div> */}
-                            </Col>
+                            {/* </Col> */}
                         </Col>
                     </Row>
 

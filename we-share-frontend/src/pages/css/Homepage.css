@@ -1,11 +1,13 @@
-.row {
+/* .homeFirstPage .row {
     width: 100vw;
-}
+} */
 
 .homeFirstPage {
     background-color: #333333;
     width: 100vw;
+    /* margin-top: 10vw; */
     /* height: 100vw; */
+    /* margin: 0px; */
 }
 
 .titleMargin {
@@ -44,14 +46,14 @@
 
 #clickScroll button {
     outline: 0;
-    width: 15vw;
-    height: 3vw;
-    font-size: 1vw;
+    width: 20vw;
+    height: 5vw;
+    font-size: 1.5vw;
     margin-top: 2vw;
     margin-bottom: 5vw;
     background-color: transparent;
     color: #F5E43C;
-    border-radius: 1.5vw;
+    border-radius: 2.5vw;
     border-color: #F5E43C;
 }
 
@@ -185,18 +187,17 @@
 }
 
 select {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     -moz-appearance: none;
-    -ms-appearance: none;
+    -ms-appearance: none; */
     outline: 0;
     /* box-shadow: none; */
-    border: 0;
     background-color: transparent;
     
 }
 
 select:hover {
-    background-color: #D3D6D6;
+    background-color: #F8F8FA;
 }
 
 /* #sumbitbutton {
@@ -205,22 +206,28 @@ select:hover {
 
 /* Custom Select */
 
-.custom-select {
-    /* padding: 0px; */
-    width: 8vw;
-    height: 2vw;
-    /* overflow: hidden; */
-    /* text-align: center; */
-    margin-left: 1vw;
+#homeSearchComponents {
+    border-width: 1px;
+    text-align: center;
 }
 
-#homeSearchInput select {
-    font-size: 1vw ;
-    /* font-weight: bold; */
+#homeSearchComponents select {
+    border-width: 1px;
     /* padding: 0px; */
+    width: 20vw;
+    height: 5vw;
+    font-size: 2vw;
+    /* overflow: hidden; */
+    text-align: center;
+    /* margin-left: 1vw; */
+    text-align-last:center;
+}
+
+/* #homeSearchInput select {
+    font-size: 1vw ;
     color: #333333;
     cursor: pointer;
-}
+} */
 
 .post {
     display: flex;
