@@ -25,7 +25,7 @@ class HomeRouter {
     }
 
     selectCategoryData(req,res){
-      console.log(req.body)
+      console.log("selectCategoryId",req.body.selectCategoryId)
       return this.homeService
       .categorydata(req.body)
       .then(data => {

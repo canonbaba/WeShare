@@ -3,6 +3,7 @@ import { Col, Glyphicon, Modal, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IHomeData } from 'src/models';
+import { fetchInboxList } from 'src/redux/inbox/action';
 import { joininboxRoom } from 'src/redux/popup_post/action';
 import { IRootState } from 'src/redux/store';
 import './css/popup_post.css';
@@ -14,6 +15,7 @@ interface IPostPopupProps {
     postData: IHomeData;
     postPopupClose: () => void;
     joinInboxRoom: () => void;
+    postLoadInboxList: (userid: number) => void;
 }
 
 class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> {
@@ -105,7 +107,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                         null
                         :
                         <Link id="popupPostbutton" to="/inbox">
-                            <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)}>Contact Inviter</button>
+                            <button onClick={this.props.joinInboxRoom.bind(this, this.props.postData.id, this.props.userid, this.props.loginName)} onMouseUp={this.props.postLoadInboxList.bind(this, this.props.userid)}>Contact Inviter</button>
                         </Link>}
 
 
@@ -137,7 +139,8 @@ const mapStateToProps = (rootState: IRootState) => {
 const mapDispatchToProps = (dispatch: any) => ({
     joinInboxRoom: (postID: number, userid: number, loginName: string) => {
         dispatch(joininboxRoom(postID, userid, loginName))
-    }
+    },
+    postLoadInboxList: (userid: number) => dispatch(fetchInboxList(userid))
 });
 
 const PostPopup = connect(mapStateToProps, mapDispatchToProps)(PurePostPopup)

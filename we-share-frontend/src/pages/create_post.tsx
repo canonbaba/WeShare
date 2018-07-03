@@ -3,12 +3,14 @@ import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { remoteSavePost } from 'src/redux/create_post/actions';
+import { fetchProfilePostData } from 'src/redux/profile/actions';
 import { IRootState } from 'src/redux/store';
 import './css/create_post.css';
 
 interface IPostFormProps {
     userid: number;
     createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => void;
+    createPostLoadProfilePost: (userid: number) => void;
 }
 
 
@@ -196,9 +198,9 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
 
                         <div id="createPostButton">
                             <Link to="/profile">
-                                <button onClick={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
+                                <button onMouseDown={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
                                     this.state.numberOfShareUser,
-                                    this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)}>POST</button>
+                                    this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)} onMouseUp={this.props.createPostLoadProfilePost.bind(this, this.props.userid)}>POST</button>
                             </Link>
                         </div>
 
@@ -217,7 +219,8 @@ const mapStateToProps = (rootState: IRootState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid))
+        createPost: (productName: string, productPrice: string, productPricePercent: string, numberOfShareUser: string, productDescription: string, productCategory: string, photo: string, photoUrl: string, userid: number) => dispatch(remoteSavePost(productName, productPrice, productPricePercent, numberOfShareUser, productDescription, productCategory, photo, photoUrl, userid)),
+        createPostLoadProfilePost: (userid: number) => dispatch(fetchProfilePostData(userid)),
     }
  }
  
