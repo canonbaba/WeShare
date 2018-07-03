@@ -103,7 +103,7 @@ class PureInbox extends React.Component<IInboxProps, IInboxState> {
                                 </div>
                             </Row> :
                             <div>
-                                <h1>Please choose Room</h1>
+                                <h2>↑↑Please select Room↑↑</h2>
                             </div>
                         }
 
