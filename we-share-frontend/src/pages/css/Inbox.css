@@ -1,8 +1,20 @@
+#inbox_body {
+    position: relative;
+}
 #inboxRoom {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#inboxRoom h5 {
+    font-size: 5vh;
+}
+
+@media only screen and (max-width: 500px) {
+    #inboxRoom h5 { font-size: 3.5vh; }
+    #inboxMessage h5 { font-size: 1vh; }
 }
 
 #inboxRoomRow {
@@ -15,6 +27,11 @@
 #inboxScrollRoom {
     display: flex;
     flex-direction: row;
+    padding-bottom: 1vh;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 60%;
+    -webkit-overflow-scrolling: touch;
 }
 
 #inboxList {
@@ -25,6 +42,17 @@
     background-color: transparent;
     font-size: 2vw;
     border-radius: 1vw;
+    color:black;
+    padding: 0.5vh 2vh;
+}
+
+@media only screen and (max-width: 500px) {
+    #inboxList button { font-size: 2vh; }
+}
+
+#inboxList button:focus {
+    background-color: black;
+    color:white;
 }
 
 #inboxMessageRow {
@@ -41,6 +69,22 @@
     flex-direction: column;
 }
 
+#inboxMessage {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vh;
+}
+
+/* #inboxMessage h5 {
+    font-size: 3vh;
+}
+
+
+} */
+
 #inboxContractRow {
     display: flex;
     justify-content: center;
@@ -53,6 +97,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    padding-top: 2vh;
 }
 
 #inboxTextSend input {
@@ -73,19 +118,48 @@
     background-color: transparent;
 }
 
-#inboxContract {
-    width: 80vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+#create_contract_icon {
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
 }
 
 #inboxLinkContract button {
     margin: 2vw;
-    background-color: transparent;
+    background-color: rgb(77, 77, 77);;
     font-size: 2vw;
     border-radius: 1vw;
+    padding: 1vh;
+}
+#inboxLinkContract{
+    position: relative;
+}
+#inboxLinkContract img{
+    width: 4vh;
+    height: 4vh;
+}
+
+#inboxLinkContract #inbox_tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    top:-20px;
+    left: -18px;
+    z-index: 1;
+}
+#inboxLinkContract:hover #inbox_tooltiptext {
+    visibility: visible;
+    background-color: rgb(0, 0, 0);
+}
+#inboxLinkContract:hover button {
+    background-color: rgb(0, 0, 0);
 }
 
 #realMessage {
@@ -95,10 +169,12 @@
 
 #realMessage p {
     color: #AFAFAF;
+    font-size: 2.2vh;
 }
 
-#realMessage {
+#realMessage h5{
     color: #343434;
+    font-size: 2.5vh;
 }
 
 #inboxDate {
@@ -106,100 +182,34 @@
     color: #E0E0E1;
 }
 
-/* #inboxScrollRoom {
-    display: flex;
-    flex-direction: row;
-} */
 
-/* .inbox {
-    background-color: white;
-    margin-top: 125px;
-    border-radius: 10px;
-    width: 780px;
-}
 
-#inboxRoom {
-}
-
-#inboxRoom h2 {
-    color: #5F5861;
-    text-align: center;
-}
-
-#inboxRoom button {
-    color: #5F5861;
-    outline: 0;
-    background-color: transparent;
-    border: 0px;
-    font-size: 2vw
-}
-
-#inboxScrollRoom {
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-}
-
-#inboxList {
-    width: 200px;
-}
-
-#inboxScrollRoom button {
-    width: 200px;
-    text-align: left;
-    font-size: 15px;
+.arrow {
+    float: left;
 }
 
 
 #inboxScroll {
-    height: 345px;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow: scroll;
+    width: 65%;
+    min-width: 320px;
+    height: 60vh;
+    overflow-y: scroll;
 }
 
-#realMessage #inboxDate {
-    text-align: right;
-    font-size: 10px;
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
 }
 
-#realMessage h5 {
-    margin-left: 5px;
-    color: #5F5861;
-    font-size: 20px;
-}
-
-#inboxMessage {
-    border-left: 1px solid #5F5861;
-}
-
-#inboxMessage h2 {
-    color: #5F5861;
-    text-align: center;
-}
-
-#inboxMessage input {
-    background-color: transparent;
-    border: 2px solid grey;
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(224, 224, 224); 
     border-radius: 10px;
-    margin: 10px
 }
 
-#inboxMessage button {
-    color: #5F5861;
-    outline: 0;
-    background-color: transparent;
-    border: 0px;
-    font-size: 20px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(75, 75, 75); 
 }
-
-#inboxLinkContract button {
-    margin-left: 100px;
-    text-align: right;
-    font-weight: bold;
-    color: grey;
-}
-
-#inboxLinkContract button:hover {
-    color: #A2151D;
-} */
