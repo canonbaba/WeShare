@@ -1,13 +1,15 @@
-import { IFetchContractsAction, ILoadContractsData, LOAD_CONTRACTS } from "./actions";
+import { IFetchContractsAction, ILoadContractsData, LOAD_CONTRACTS, USER_CONTRACTS_CONFIRMATION } from "./actions";
 
 export interface ISignContractsState {
  
    loadContracts:ILoadContractsData[];
-
+   is_agree: boolean;
  }
 
 const initialState = {
-   loadContracts: []
+   loadContracts: [],
+   // tslint:disable-next-line:object-literal-sort-keys
+   is_agree: false,
 };
   export const reducer = (oldState: ISignContractsState = initialState, action: IFetchContractsAction) => {
    switch (action.type) {
@@ -22,10 +24,14 @@ const initialState = {
        description: action.loadContracts.description
    });
        return { ...oldState, loadContracts };
-
       }
-
-
+      case USER_CONTRACTS_CONFIRMATION:
+      {
+        return {
+          ...oldState,
+          is_agree: action.is_agree
+        };
+      } 
      default:
        return oldState;
    }

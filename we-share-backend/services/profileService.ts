@@ -23,7 +23,7 @@ class ProfileService {
     }).join('users', 'commentator_id', '=', 'users.id').select('users.name', 'rating.comment', 'rating.rating', 'rating.updated_at')
   }
 
-  profileContractData(input) {
+  profileContractData(input){
     console.log(input);
     return this.knex('contract').select(
       'contract.id as contractId',
