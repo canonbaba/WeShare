@@ -32,9 +32,9 @@ h4{
     line-height: 20px;
 }
 
-/* .modal-dialog {
-    margin: 43px;
-} */
+.modal-dialog {
+    min-width: 360px;
+}
 
 #rate_value_icon {
     width: 50px;
@@ -46,6 +46,7 @@ h4{
 #rating_comment textarea{
     height:auto;
     max-width:50vw;
+    min-width: 250px;
     min-height:30vh;
     color:#999;
     font-weight:400;
@@ -59,6 +60,10 @@ h4{
     box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
     padding:1.5vw 2vw;
 }
+@media (max-width: 500px) {
+    #rating_comment textarea{font-size: 3.4vw;}
+  }
+
 
 #rating_comment button {
     margin-top: 1.5vh;
@@ -66,6 +71,8 @@ h4{
     color: white;
     border: none;
     transition: background-color 0.5s, color 1s ease;
+    padding: 1vh 3vh;
+    border-radius: 10px;
 }
 
 #rating_comment button:hover {

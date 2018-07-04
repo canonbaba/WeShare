@@ -21,7 +21,8 @@ export function getCurrentInboxData(currentMessage: ICurrentMessage[]): IPopupIn
 
 
 export function joininboxRoom(postID: number, userid: number, loginName: string) {
-  // console.log(userid);
+  // tslint:disable-next-line:no-console
+  console.log('load room list',userid);
   return (dispatch: any) => {
     axios
       .post(`${process.env.REACT_APP_API_SERVER}/api/inbox/visitor_join_home`, {

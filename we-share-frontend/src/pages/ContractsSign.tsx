@@ -2,10 +2,9 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-
-import { Col, Row } from 'react-bootstrap';
 import { match } from 'react-router';
 import { Link } from 'react-router-dom';
+import Col from 'reactstrap/lib/Col';
 import { IProfileContractData } from 'src/models';
 import { fetchContracts, fetchSignContract, ILoadContractsData } from 'src/redux/contractsSign/actions';
 import { IRootState } from 'src/redux/store';
@@ -52,60 +51,49 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
   public render() {
 
-    const loadContract = this.props.loadContracts.map((data:any, i:number) => {
-        return <div key={i} className="static-modal contractSign">
-        
-          
-            <h3>The Contract To Be Signed </h3>
-            <h5>Product: {data.productName}</h5>
-            <h5>Price: {data.price}</h5>
-            <div id="signParticipant">{data.participants.map((data2:any, i2:number) => {
+    const loadContract = this.props.loadContracts.map((data: any, i: number) => {
+      return <div key={i} className="contractSign">
+        <h3>The Contract To Be Signed </h3>
+        <h5>Title: {data.productName}</h5>
+        <h5>Price: {data.price}</h5>
+        <div id="signParticipant">{data.participants.map((data2: any, i2: number) => {
 
-
-                // tslint:disable-next-line:no-unused-expression
-               return <div  key={i}>Participant
-                  <h6>Name: {data2.name}</h6>
-                  <h6>Price To Share: {data2.percentageToShare}</h6>
-                  <h6>Day To Use: {data2.daysToUse}</h6>
-                </div>
-            
-          
-            })
-          }
+          // tslint:disable-next-line:no-unused-expression
+          return <div key={i} id="sign_participant">
+            <Col xs={6}>
+              <h6>Name: {data2.name}</h6>
+              <h6>Price To Share: {data2.percentageToShare} %</h6>
+              <h6>Day To Use: {data2.daysToUse}</h6>
+            </Col>
           </div>
-          
-            <h6>Description: {data.description}</h6>
-
-          
-        
+        })
+        }
         </div>
+        <h6>Description: {data.description}</h6>
+      </div>
     })
-
 
     return (
       <div>
-        <Row>
-        <Col lg={3} xs={3} id="contractSignTitle">
+
         {loadContract}
-        </Col>
-        </Row>
-      
 
         {
           (this.props.loadContracts) ? (
-            <div className="static-modal contractSign">
-              <label>Agree</label><input type="checkbox" checked={this.state.agree} onChange={this.handleAgreeChange} />
-              <label>Disagree</label><input type="checkbox" checked={this.state.disagree} onChange={this.handleDisagreeChange} />
+            <div id='sign_agree_clickbox'>
+
+                <span><label>Agree</label><input type="checkbox" checked={this.state.agree} onChange={this.handleAgreeChange} /></span>
+                <span><label>Disagree</label><input type="checkbox" checked={this.state.disagree} onChange={this.handleDisagreeChange} /></span>
+
             </div>
           ) : ''
         }
-
-        <Link id="contractSignbutton" to={'/profile'}>
+        <div id="contractSignbutton">
+        <Link to={'/profile'}>
           <button onClick={this.handleSign} className="static-modal contractSign">Sign</button>
-        </Link> 
-
+        </Link>
+        </div>
       </div>
-
     )
   }
 
@@ -164,7 +152,8 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
 
 const mapStateToProps = (rootState: IRootState, ownProps: { match: match<{ id?: number }> }) => {
-  const contract = rootState.profileContract.profileContract.find(c => {return c.contractId === Number(ownProps.match.params.id)
+  const contract = rootState.profileContract.profileContract.find(c => {
+    return c.contractId === Number(ownProps.match.params.id)
   })
   return {
     // profileContract:rootState.profileContract.profileContract,

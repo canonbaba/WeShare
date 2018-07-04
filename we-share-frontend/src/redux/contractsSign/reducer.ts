@@ -27,7 +27,6 @@ export const reducer = (oldState: ISignContractsState = initialState, action: IF
         return { ...oldState, loadContracts };
 
       }
-
     case USER_CONTRACTS_CONFIRMATION:
       {
         return {

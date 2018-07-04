@@ -86,16 +86,17 @@ export function remoteFetchUsers(email: string, password: string) {
       }).catch(err => {
         // tslint:disable-next-line:no-console
         console.log(err)
+        swal('Invalid email or password')
       });
   };
 }
 
 
-// export function logoutClearData () {
-//   return (dispatch: Dispatch<ILoginAction>) => {
-//     dispatch(setLoginSuccess(false, 0, '', ''));
-//   }
-// }
+export function logoutClearData () {
+  return (dispatch: Dispatch<ILoginAction>) => {
+    dispatch(setLoginSuccess(false, 0, '', ''));
+  }
+}
 
 
 
