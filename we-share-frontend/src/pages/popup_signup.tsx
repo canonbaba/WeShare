@@ -166,7 +166,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                 {/* <FormGroup> */}
                                 <Row>
                                     <Col lg={1} xs={1} id="popsignin">
-                                        <Button onClick={this.props.login.bind(this, this.state.loginemail, this.state.loginpassword)}>Sign in</Button>
+                                        <Button onClick={this.props.login.bind(this, this.state.loginemail, this.state.loginpassword)} onMouseUp={this.props.signupClose}>Sign in</Button>
                                     </Col>
                                     <Col lg={1} xs={1} id="popsignup">
                                         <Button onClick={this.handleLoginSignup}>No Account ?</Button>
