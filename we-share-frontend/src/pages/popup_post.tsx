@@ -66,7 +66,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>Price:</h2>
+                            <h2>Price</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.price}</h2>
@@ -75,7 +75,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>Precentage Of Inviter Paid:</h2>
+                            <h2>Precentage Of Inviter Paid</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.percentageOfPay}</h2>
@@ -84,7 +84,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>People Shared:</h2>
+                            <h2>People Shared</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.numberOfShareUser}</h2>
@@ -93,7 +93,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
                     <Row>
                         <Col lg={6} xs={6} className="ppleft">
-                            <h2>Description:</h2>
+                            <h2>Description</h2>
                         </Col>
                         <Col lg={6} xs={6} className="ppright">
                             <h2>{this.props.postData.description}</h2>
@@ -110,13 +110,13 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
 
 
                     <Row id="ppDataPostRow">
-                        <Col lg={6} xs={6} id="ppDataPost">
+                        <Col lg={12} xs={12} id="ppDataPost">
                             {/* <h2>Created_at: {this.props.postData.created_at}</h2> */}
                             <h3>Created_at: {this.props.postData.created_at.toString().slice(0, 16)}</h3>
                         </Col>
-                        <Col lg={6} xs={6} id="ppDataPostNum">
+                        {/* <Col lg={6} xs={6} id="ppDataPostNum">
                             <h2>{this.props.postData.id}</h2>
-                        </Col>
+                        </Col> */}
                     </Row>
 
                 </Modal>

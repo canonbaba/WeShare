@@ -99,11 +99,11 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                     <h5>Name of Product</h5>
                     <input type="text" placeholder="name" onChange={this.nameChange} value={this.state.productName} /> */}
 
-                        <Row className="cinvitation">
+                        {/* <Row className="cinvitation">
                             <Col>
                                 <div>Invitation</div>
                             </Col>
-                        </Row>
+                        </Row> */}
 
                         <Row className="cname">
                             <Col lg={6}>

@@ -2,21 +2,45 @@
     width: 100vw;
 } */
 
+.homepage {
+    background-color: #F8F8FA;
+}
+
 .homeFirstPage {
     background-color: #333333;
     width: 100vw;
+    font-family: 'Ubuntu Condensed', sans-serif;
     /* margin-top: 10vw; */
     /* height: 100vw; */
     /* margin: 0px; */
 }
 
+@media only screen and (max-width: 375px) {
+    .homeFirstPage {
+        margin-top: 6vw;
+    }
+}
+
+/* @media only screen and (max-width: 768px) {
+    .homeFirstPage {
+        margin-top: 3.5vw;
+    }
+} */
+
+.homeFirstPage .row {
+    width: 100vw;
+    margin: 0px;
+}
+
 .titleMargin {
     margin-top: 5vw;
-    margin-left: 1vw;
+    margin-left: -7vw;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .titleMarginLeft {
-    margin-left: 1vw;
+    margin-left: -7vw;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 #homeWordWhite {
@@ -24,19 +48,37 @@
     font-size: 5vw;
     display: flex;
     align-items: flex-end;
-    transform: scale(.8, 1);
+    transform: scale(.7, 1);
+}
+
+@media only screen and (max-width: 768px) {
+    #homeWordWhite {
+        font-size: 10vw;
+    }
 }
 
 #homeWe {
-    color: #F5E43C;
+    color: #FFB627;
     font-size: 8vw;
-    transform: scale(.8, 1);
+    transform: scale(.7, 1);
+}
+
+@media only screen and (max-width: 768px) {
+    #homeWe {
+        font-size: 15vw;
+    }
 }
 
 #homeWe1 {
     color: white;
     font-size: 8vw;
-    transform: scale(.8, 1);
+    transform: scale(.7, 1);
+}
+
+@media only screen and (max-width: 768px) {
+    #homeWe1 {
+        font-size: 15vw;
+    }
 }
 
 #clickScroll {
@@ -52,14 +94,31 @@
     margin-top: 2vw;
     margin-bottom: 5vw;
     background-color: transparent;
-    color: #F5E43C;
+    color: #FFB627;
     border-radius: 2.5vw;
-    border-color: #F5E43C;
+    border-color: #FFB627;
+}
+
+@media only screen and (max-width: 768px) {
+    #clickScroll button {
+        width: 36vw;
+        height: 5vw;
+        font-size: 2.5vw;
+        margin-top: 2vw;
+        margin-bottom: 5vw;
+        border-radius: 2.5vw;
+
+    }
 }
 
 #homeAbout {
     background-color: #333333;
     width: 100vw;
+}
+
+#homeAbout .row {
+    width: 100vw;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 #homeBottomLine {
@@ -68,21 +127,45 @@
 }
 
 #homeBottomLine p {
-    width:60vw;
+    width: 60vw;
     margin-top: 5vw;
     margin-left: 1vw;
     color: white;
     font-size: 2vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #homeBottomLine p {
+        width: 60vw;
+        margin-top: 5vw;
+        margin-left: 1vw;
+        font-size: 3.5vw;
+    }
+}
+
 #homeBottomLine2 {
-    border-top: 0.2vw solid #F5E43C;
+    border-top: 0.2vw solid #FFB627;
     width: 28vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #homeBottomLine2 {
+        border-top: 0.2vw solid #FFB627;
+        width: 49vw;
+    }
 }
 
 #homeAboutContent {
     transform: scale(.8, 1);
     margin-top: 3vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #homeAboutContent {
+        transform: scale(.8, 1);
+        margin-top: 3vw;
+        width: 100vw;
+    }
 }
 
 #homeAboutContent div {
@@ -91,6 +174,15 @@
     font-size: 2vw;
     letter-spacing: 0.3vw;
     line-height: 200%;
+}
+
+@media only screen and (max-width: 768px) {
+    #homeAboutContent div {
+        margin-left: 1vw;
+        font-size: 4vw;
+        letter-spacing: 0.3vw;
+        line-height: 200%;
+    }
 }
 
 #homeAboutContent1 {
@@ -114,13 +206,18 @@
     margin-bottom: 5vw;
 }
 
+.homeSearch .row {
+    width: 100vw;
+}
+
 #homePostRow {
+    width: 100vw;
     display: flex;
     justify-content: center;
 }
 
 #homePost {
-    width: 10vw;    
+    width: 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,7 +239,7 @@
 #homePostBottomLine {
     border-top: 0.2vw solid #F5E43C;
     width: 9vw;
-    background-color: #333333;    
+    background-color: #333333;
 }
 
 #homeSearchComponents {
@@ -151,7 +248,7 @@
     justify-content: center;
 }
 
-#homeSearchInput {
+/* #homeSearchInput {
     padding-left: 12vw;
     padding-right: 0vw;
     display: flex;
@@ -166,13 +263,12 @@
     border-width: 0.15vw 0vw 0.15vw 0.15vw;
     border-radius: 25px 0px 0px 25px;
     border-color: #808282;
-    /* border-color: black; */
     text-align: center;
     font-size: 1vw;
     background-color: transparent;
-}
+} */
 
-#homeSearchInput button {
+/* #homeSearchInput button {
     background-color: transparent;
     padding: 0px;
     outline: 0;
@@ -184,16 +280,17 @@
     border-width: 0.15vw 0.15vw 0.15vw 0vw;
     border-radius: 0vw 0.5vw 0.5vw 0vw;
     border-color: #808282;
-}
+} */
 
 select {
     /* -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none; */
     outline: 0;
+    color: #AFAFAF;
     /* box-shadow: none; */
-    background-color: transparent;
-    
+    background-color: white;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);    
 }
 
 select:hover {
@@ -220,7 +317,18 @@ select:hover {
     /* overflow: hidden; */
     text-align: center;
     /* margin-left: 1vw; */
-    text-align-last:center;
+    text-align-last: center;
+}
+
+@media only screen and (max-width: 768px) {
+    #homeSearchComponents select {
+        border-width: 1px;
+        width: 30vw;
+        height: 5vw;
+        font-size: 2.5vw;
+        text-align: center;
+        text-align-last: center;
+    }
 }
 
 /* #homeSearchInput select {
@@ -264,13 +372,22 @@ select:hover {
 #overflowPost {
     width: 60vw;
     height: 15vw;
-    margin: 1vw;
-    background-color: #F8F8FA;
+    margin: 2.5vw;
+    background-color: white;
     padding: 10px black;
-    /* padding: black; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+    #overflowPost {
+        width: 80vw;
+        height: 25vw;
+        margin: 2.5vw;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 #overflowPostImg {
@@ -284,10 +401,26 @@ select:hover {
     height: 15vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #overflowPost img {
+        padding: 0.5vw;
+        /* border-width: 1vw; */
+        width: 25vw;
+        height: 25vw;
+    }
+}
+
 #overflowPost h1 {
     margin: 1vw;
     color: #343434;
     font-size: 4vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #overflowPost h1 {
+        margin: 1vw;
+        font-size: 6vw;
+    }
 }
 
 #overflowPost h5 {
@@ -296,183 +429,32 @@ select:hover {
     font-size: 1.5vw;
 }
 
- #openpost button {
-    color: #343434;
-    background-color: transparent;
+@media only screen and (max-width: 768px) {
+    #overflowPost h5 {
+        margin: 1vw;
+        color: #AFAFAF;
+        font-size: 2.5vw;
+    }
+}
+
+#openpost button {
+    background-color: white;
+    color: #AFAFAF;
+    /* border: none; */
+    transition: background-color 0.5s, color 1s ease;
     font-size: 2vw;
     border-radius: 1vw;
+    margin: 3vw;
+    margin-bottom: 5vw;
     /* border: 1vw; */
- }
-
-/* .custom-select option {
-    text-align: center;
-} */
-
-/* .custom-select select::-ms-expand {
-    display: none;
-} */
-
-/* Arrow */
-
-/* .custom-select::after {
-    text-align: center;
-    display: none;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0;
-    background: #333333;
-    pointer-events: none;
-} */
-
-/* Transition */
-
-/* .custom-select::after {
-    -webkit-transition: .25s all ease;
-    -o-transition: .25s all ease;
-    transition: .25s all ease;
-} */
-
-
-/* .homeUpper {
-    padding: 0px;
-    width: 69vw;
-    margin: 0px 0px 0px 3vw;
-    display: flex;
-    align-items: center;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);    
 }
 
-.homeUpper #homeinput {
-    padding: 0px;
-    margin-right: 0.8vw;
-    display: flex;
-    justify-content: flex-end;
+
+@media only screen and (max-width: 768px) {
+    #openpost button {
+        font-size: 6vw;
+        border-radius: 1vw;
+        /* border: 1vw; */
+    }
 }
-
-.homeUpper input {
-    font-size: 1.5vw;
-    font-weight: bold;
-    text-align: right;
-    color: #757575;
-    border: 0px;
-    background-color: transparent;
-    outline: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.homeUpper button {
-    padding: 0px;
-    background-color: transparent;
-    border-color: transparent;
-    outline: 0;
-    color: #A2151D;
-    font-weight: bold;
-    font-size: 5vw;
-}
-
-.post {
-    width: 60vw;
-    margin-right: 0px;
-} */
-
-/* click to post button */
-
-/* #openpost {
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#openpost #homePost {
-    width: 120px;
-    height: 168px;
-    margin: 10px 5px 5px 5px;
-    background-color: transparent;
-    background-image: url("../../images/papergreen.png");
-    background-repeat: no repeat;
-    background-size: 150px 208px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.postright {
-    padding: 0px;
-    margin-top: 50px;
-    width: 63vw;
-    height: 250px;
-    display: flex;
-    flex-direction: row;
-    overflow: scroll;
-    overflow-y: hidden; 
-}
-
-::-webkit-scrollbar {
-    width: 100px;
-}
-
-::-webkit-scrollbar-track {
-    background: none; 
-} */
-
-/* Handle */
-
-/* ::-webkit-scrollbar-thumb {
-    background: none; 
-} */
-
-/* Handle on hover */
-
-/* ::-webkit-scrollbar-thumb:hover {
-    background: white; 
-} */
-
-/* .carousel-indicators {
-    display: none;
-}
-
-.overflowPost {
-    width: 200px;
-    height: 230px;
-    background-color: transparent;
-    background-image: url("../../images/paperwhiteshadow.png");
-    background-repeat: no repeat;
-    background-size: 200px 230px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.overflowPost h1 {
-    font-size: 30px;
-}
-
-.overflowPost img {
-    max-width: 100px;
-    max-height: 80px;
-    border-width: 1px;
-    border-style: solid;
-}
-
-.overflowPost h5 {
-    font-size: 15px;
-    text-align: left;
-}
-
-#homePost {
-    width: 10vw;
-}
-
-#homePost button {
-    padding: 0px;
-    width: 7vw;
-    background-color: transparent;
-    outline: 0;
-    color: #5F5960;
-    font-weight: bold;
-    font-size: 2vw;
-    border: 3px solid #5F5960;
-} */

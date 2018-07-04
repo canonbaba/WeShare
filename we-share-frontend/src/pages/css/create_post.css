@@ -7,7 +7,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vw;
+    margin-top: 6vw;
+}
+
+@media only screen and (min-width: 375px) {
+    #createPost {
+        margin-top: 15vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #createPost {
+        margin-top: 6vw;
+    }
 }
 
 #createBackground {
@@ -43,6 +55,20 @@
     background-color: transparent;
 }
 
+.cname input::placeholder {
+    color: #AFAFAF;
+}
+
+@media only screen and (max-width: 768px) {
+    .cname input {
+        margin: 1vw;
+        font-size: 5vw;
+        /* color:#AFAFAF; */
+        /* border: 0px; */
+        border-radius: 1vw;
+    }
+}
+
 #imageframestyle {
     /* text-align: center; */
     /* margin: 5px 15px; */
@@ -55,8 +81,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 1vw;
     margin: 1vw;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    #imageframestyle {
+        /* text-align: center; */
+        /* margin: 5px 15px; */
+        width: 50vw;
+        height: 50vw;
+        font-size: 3vw;
+    }
 }
 
 .cphoto div {
@@ -72,6 +109,14 @@
     border-width: 1px;
     border-style: solid;
     border-color: #AFAFAF;
+}
+
+@media only screen and (max-width: 768px) {
+    .cphoto img {
+        max-width: 25vw;
+        max-height: 25vw;
+        border-width: 1px;
+    }
 }
 
 .cphotoName1 {
@@ -91,6 +136,7 @@
 }
 
 .cphotoName1 button {
+    color: #AFAFAF;
     background-color: transparent;
     /* border: 0px; */
     border-radius: 0.5vw;
@@ -99,6 +145,15 @@
     width: 8vw;
     margin: 0px;
     padding: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cphotoName1 button {
+        border-radius: 0.5vw;
+        font-size: 3vw;
+        height: 5vw;
+        width: 23vw;
+    }
 }
 
 .cphotoName1 [type=file] {
@@ -115,12 +170,20 @@
 }
 
 .ccategory select {
-    border: 1px;
+    border-width: 1px;
     text-align: left;
     display: flex;
     justify-content: flex-start;
     font-size: 1.5vw;
-    background-color: transparent;
+    /* background-color: transparent; */
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+    .ccategory select {
+        margin-top: 0.5vw;
+        font-size: 3vw;
+    }
 }
 
 .cprice {
@@ -129,16 +192,23 @@
     align-items: center;
     justify-content: center;
     margin-top: 0.5vw;
-    font-size: 1vw;
+    /* font-size: 1vw; */
 }
 
 .cprice h5 {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 0px;
     color: #AFAFAF;
+}
+
+@media only screen and (max-width: 768px) {
+    .cprice h5 {
+        font-size: 4.5vw;
+        margin-top: 2vw;
+    }
 }
 
 .cprice input {
@@ -147,17 +217,27 @@
     justify-content: flex-start;
     text-align: left;
     border-style: solid;
-    font-size: 2vw;
+    font-size: 1.5vw;
     border-color: #AFAFAF;
-    color: #AFAFAF;
+    color: black;
     border-width: 1px;
     border-radius: 1vw;
     width: 20vw;
     background-color: transparent;
 }
 
+@media only screen and (max-width: 768px) {
+    .cprice input {
+        font-size: 2.5vw;
+        border-width: 1px;
+        border-radius: 1vw;
+        width: 20vw;
+        margin-top: 2vw;
+    }
+}
+
 .cprice input::placeholder {
-    color: #AFAFAF;    
+    color: #AFAFAF;
 }
 
 .cwilling {
@@ -166,7 +246,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 1.5vw;
 }
 
 .cwilling h5 {
@@ -175,8 +255,16 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     margin: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cwilling h5 {
+        color: #AFAFAF;
+        font-size: 4.5vw;
+        margin-top: 2vw;
+    }
 }
 
 .cwilling input {
@@ -188,18 +276,28 @@
     justify-content: flex-start;
     text-align: left;
     width: 30vw;
-    font-size: 2vw;
+    font-size: 1.5vw;
     background-color: transparent;
     border-width: 1px;
     border-radius: 1vw;
     background-color: transparent;
     border-color: #AFAFAF;
-    color: #AFAFAF;
+    color: black;
     border-style: solid;
 }
 
+@media only screen and (max-width: 768px) {
+    .cwilling input {
+        width: 35vw;
+        font-size: 2.5vw;
+        border-width: 1px;
+        border-radius: 1vw;
+        margin-top: 2vw;        
+    }
+}
+
 .cwilling input::placeholder {
-    color: #AFAFAF;    
+    color: #AFAFAF;
 }
 
 .cpeople {
@@ -212,12 +310,18 @@
 }
 
 .cpeople h5 {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     color: #AFAFAF;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cpeople h5 {
+        font-size: 4.5vw;
+        margin-top: 2vw;
+    }
 }
 
 .cpeople input {
@@ -230,13 +334,23 @@
     text-align: left;
     width: 35vw;
     background-color: transparent;
-    font-size: 2vw;
+    font-size: 1.5vw;
     border-width: 1px;
     border-radius: 1vw;
     background-color: transparent;
     border-color: #AFAFAF;
-    color: #AFAFAF;
+    color: black;
     border-style: solid;
+}
+
+@media only screen and (max-width: 768px) {
+    .cpeople input {
+        width: 43vw;
+        font-size: 2.5vw;
+        border-width: 1px;
+        border-radius: 1vw;
+        margin-top: 2vw;
+    }
 }
 
 .cpeople input::placeholder {
@@ -257,16 +371,23 @@
     /* align-items: center; */
     justify-content: center;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 1.5vw;
 }
 
 .cdescription h5 {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     color: #AFAFAF;
     display: flex;
     justify-content: flex-end;
     /* align-items: center; */
     margin-top: 3px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cdescription h5 {
+        font-size: 4.5vw;
+        margin-top: 2vw;
+    }
 }
 
 .cdescription textarea {
@@ -277,15 +398,24 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 2vw;
+    font-size: 1.5vw;
     width: 35vw;
     background-color: transparent;
     border-radius: 0.5vw;
     background-color: transparent;
     border-color: #AFAFAF;
-    color: #AFAFAF;
+    color: black;
     text-align: left;
     border-style: solid;
+}
+
+@media only screen and (max-width: 768px) {
+    .cdescription textarea {
+        font-size: 2.5vw;
+        width: 43vw;
+        border-radius: 0.5vw;
+        margin-top: 2vw;
+    }
 }
 
 .cdescription textarea::placeholder {
@@ -297,10 +427,32 @@
     margin: 1vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #createPostButton {
+        text-align: center;
+        margin: 5vw;
+    }
+}
+
 #createPostButton button {
-    width: 20vw;
+    outline: 0;
+    margin-top: 2vw;
+    width: 15vw;
     background-color: transparent;
     border-width: 1px;
-    border-radius: 2.5vw;
-    font-size: 3vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+    color: #AFAFAF;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+    #createPostButton button {
+        width: 50vw;
+        height: 10vw;
+        background-color: transparent;
+        border-width: 1px;
+        border-radius: 2.5vw;
+        font-size: 5vw;
+    }
 }

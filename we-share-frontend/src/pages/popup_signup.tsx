@@ -6,6 +6,7 @@ import {
     //    ControlLabel,
     Form,
     //  FormGroup,
+    // FormControl,
     Glyphicon,
     Modal,
     Row
@@ -140,7 +141,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                     Email
                                 </Col> */}
                                     <Row>
-                                        <Col lg={12} id="popemail">
+                                        <Col lg={12} xs={12} id="popemailpassword">
                                             <input type="text" placeholder="Email" onChange={this.handleLoginEmail} value={this.state.loginemail} />
                                         </Col>
                                     </Row>
@@ -151,7 +152,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                     Password
                                 </Col> */}
                                     <Row>
-                                        <Col lg={12} id="poppassword">
+                                        <Col lg={12} xs={12} id="popemailpassword">
                                             <input type="password" placeholder="Password" onChange={this.handleLoginPassword} value={this.state.loginpassword} />
                                         </Col>
                                     </Row>
@@ -159,7 +160,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
 
                                     {/* <FormGroup> */}
                                     <Row>
-                                        <Col lg={12} id="popclickbox">
+                                        <Col lg={12} xs={12} id="popclickbox">
                                             <Checkbox>Remember me</Checkbox>
                                         </Col>
                                     </Row>
@@ -200,20 +201,20 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                                 <Form horizontal={true}>
                                     {/* <FormGroup controlId="formHorizontalName"> */}
                                     <Row>
-                                        <Col lg={12} id="popemail">
+                                        <Col lg={12} id="popemailpassword">
                                             <input type="text" placeholder="Name" onChange={this.handleSignupName} value={this.state.signUpname} />
                                         </Col>
                                     </Row>
                                     {/* </FormGroup> */}
 
                                     <Row>
-                                        <Col lg={12} id="popemail">
+                                        <Col lg={12} id="popemailpassword">
                                             <input type="text" placeholder="Email" onChange={this.handleSignupEmail} value={this.state.signUpemail} />
                                         </Col>
                                     </Row>
 
                                     <Row>
-                                        <Col lg={12} id="poppassword">
+                                        <Col lg={12} id="popemailpassword">
                                             <input type="password" placeholder="Password" onChange={this.handleSignupPassword} value={this.state.signUppassword} />
                                         </Col>
                                     </Row>

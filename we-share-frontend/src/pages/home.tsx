@@ -129,7 +129,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
 
                 <div id="homeAbout">
                     <Row>
-                        <Col lg={12} xs={12} id="homeBottomLine">
+                        <Col lg={11} xs={11} id="homeBottomLine">
                             <p>About The WeBuy．WeShare</p>
                             <div id="homeBottomLine2" />
                         </Col>

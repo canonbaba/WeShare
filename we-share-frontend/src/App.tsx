@@ -70,10 +70,10 @@ class App extends React.Component<{}, { signupshow: boolean }> {
       
         <div className="App">
 
-            <Navbar inverse={true} collapseOnSelect={false}>
+            <Navbar fixedTop={true} inverse={true} collapseOnSelect={false}>
               <Navbar.Header>
                 <Navbar.Brand>
-                <Link id="appLoginWhite" to="/home">WeBuyWeShare</Link>
+                <Link id="appLoginWhite" to="/home">WeBuy．WeShare</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>
