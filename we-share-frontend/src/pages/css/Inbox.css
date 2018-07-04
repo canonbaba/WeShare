@@ -1,3 +1,8 @@
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
 #inbox_body {
     position: relative;
 }
@@ -138,22 +143,28 @@
     width: 4vh;
     height: 4vh;
 }
+@media only screen and (max-width: 500px) {
+    #inboxLinkContract img { width: 3vh; height: 3vh; }
+}
 
 #inboxLinkContract #inbox_tooltiptext{
     visibility: hidden;
-    width: 120px;
+    font-size: 2vh;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 7px;
 
-    /* Position the tooltip */
     position: absolute;
-    top:-20px;
-    left: -18px;
+    top:-45px;
+    left: -7px;
     z-index: 1;
 }
+@media only screen and (max-width: 500px) {
+    #inboxLinkContract #inbox_tooltiptext { font-size: 1.5vh; }
+}
+
 #inboxLinkContract:hover #inbox_tooltiptext {
     visibility: visible;
     background-color: rgb(0, 0, 0);
