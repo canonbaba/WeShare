@@ -81,7 +81,9 @@ class PureApp extends React.Component<IPureAppProps, { signupshow: boolean }> {
           <Navbar.Collapse>
             <Nav pullRight={true}>
               {this.props.isLoginSuccess ?
-null
+                <NavItem id="appLoginWhite" eventKey={2} href="#">
+                  Logout
+                </NavItem>
                 :
                 <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
                   Login
