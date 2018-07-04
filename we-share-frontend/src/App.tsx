@@ -1,19 +1,19 @@
 import * as React from 'react';
-import { 
+import {
   Col,
   //  MenuItem,
-    Nav,
-     Navbar,
-      // NavDropdown,
-       NavItem
-       } from 'react-bootstrap';
+  Nav,
+  Navbar,
+
+} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { 
+import { LinkContainer } from 'react-router-bootstrap';
+import {
   BrowserRouter as Router,
   Link,
-   Route,
-    Switch
-   } from 'react-router-dom';
+  Route,
+  Switch
+} from 'react-router-dom';
 import AppTopICON from 'src/pages/App_topIcon';
 import ContractsDetail from 'src/pages/ContractsDetail';
 import ContractsList from 'src/pages/ContractsList';
@@ -72,60 +72,61 @@ class PureApp extends React.Component<IPureAppProps, { signupshow: boolean }> {
       <Router>
         <div className="App">
 
-            <Navbar fixedTop={true} inverse={true} collapseOnSelect={false}>
-              <Navbar.Header>
-                <Navbar.Brand>
-                <Link id="appLoginWhite" to="/home">WeBuy．WeShare</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-              </Navbar.Header>
-              <Navbar.Collapse>
+          <Navbar fixedTop={true} inverse={true} collapseOnSelect={false}>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <Link id="appLogoword" to="/home">WeBuy．WeShare</Link>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
               <Nav pullRight={true}>
                 {this.props.isLoginSuccess ?
-                  <NavItem id="appLoginWhite" eventKey={2} href="#" onClick={this.props.logout}>
-                    Logout
-                  </NavItem>
+                  <div>
+                    <LinkContainer to="/home">
+                      <button id="appLoginWhite" onClick={this.props.logout}>
+                        Logout
+                  </button>
+                    </LinkContainer>
+                    <AppTopICON />
+                  </div>
                   :
-                  <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
+                  <button id="appLoginWhite" onClick={this.signupShow}>
                     Login
-                  </NavItem>
+                  </button>
                 }
-                  {/* <NavItem eventKey={2} href="#"> */}
-                    {/* Link Right */}
-                  <AppTopICON />
-                  {/* </NavItem> */}
-                  {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
-            
-              <Col lg={12} xs={12} className="middle">
-              <Switch>
-                <Route path="/postform" exact={true} component={PostForm} />
 
-                <Route path="/home" exact={true} component={Home} />
-                {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
 
-                <Route path="/rating" exact={true} component={Rating} />
-                <Route path="/profile" exact={true} component={Profile} />
+          <Col lg={12} xs={12} className="middle">
+            <Switch>
+              <Route path="/postform" exact={true} component={PostForm} />
 
-                <Route path="/contracts" exact={true} component={ContractsList} />
-                <Route path="/contracts/add" component={ContractsDetail} />
-                <Route path="/contracts/:id" component={ContractsDetail} />
-                <Route path="/contractsSign/:id" component={ContractsSign} />
+              <Route path="/home" exact={true} component={Home} />
+              {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
 
-                <Route path="/inbox" exact={true} component={Inbox} />
-                <Route path="/detail_contract" exact={true} component={DetailContrat} />
-              </Switch>
-            </Col>
-            {/* <Col lg={2} xs={2} id="routeLink"> */}
-              {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
-              {/* <AppTopICON /> */}
-            {/* </Col> */}
-            <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
+              <Route path="/rating" exact={true} component={Rating} />
+              <Route path="/profile" exact={true} component={Profile} />
+
+              <Route path="/contracts" exact={true} component={ContractsList} />
+              <Route path="/contracts/add" component={ContractsDetail} />
+              <Route path="/contracts/:id" component={ContractsDetail} />
+              <Route path="/contractsSign/:id" component={ContractsSign} />
+
+              <Route path="/inbox" exact={true} component={Inbox} />
+              <Route path="/detail_contract" exact={true} component={DetailContrat} />
+            </Switch>
+          </Col>
+          {/* <Col lg={2} xs={2} id="routeLink"> */}
+          {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
+          {/* <AppTopICON /> */}
+          {/* </Col> */}
+          <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
           {/* </Row> */}
         </div>
-        </Router>
+      </Router>
     );
   }
 }
