@@ -103,7 +103,7 @@ class PurePostPopup extends React.Component<IPostPopupProps, { show: boolean }> 
                     </Row>
                     {/* </div> */}
 
-                    {this.props.postData.userId === this.props.userid || this.props.postData.userId === 0?
+                    {this.props.postData.userId === this.props.userid || this.props.userid === 0?
                         null
                         :
                         <Link id="popupPostbutton" to="/inbox">

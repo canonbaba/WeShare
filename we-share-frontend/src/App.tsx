@@ -7,7 +7,9 @@ import {
       // NavDropdown,
        NavItem
        } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import { 
+  BrowserRouter as Router,
   Link,
    Route,
     Switch
@@ -23,18 +25,18 @@ import Inbox from 'src/pages/Inbox';
 import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
-// import { logoutClearData } from 'src/redux/login/actions';
-// import { IRootState } from 'src/redux/store';
+import { logoutClearData } from 'src/redux/login/actions';
+import { IRootState } from 'src/redux/store';
 import './App.css';
 
-// interface IPureAppProps {
-//   isLoginSuccess: boolean;
-//   logout: () => void;
-// }
+interface IPureAppProps {
+  isLoginSuccess: boolean;
+  logout: () => void;
+}
 
 
-class App extends React.Component<{}, { signupshow: boolean }> {
-  constructor(props: any) {
+class PureApp extends React.Component<IPureAppProps, { signupshow: boolean }> {
+  constructor(props: IPureAppProps) {
     super(props);
 
     this.state = {
@@ -67,7 +69,7 @@ class App extends React.Component<{}, { signupshow: boolean }> {
   public render() {
     return (
 
-      
+      <Router>
         <div className="App">
 
             <Navbar inverse={true} collapseOnSelect={false}>
@@ -78,14 +80,20 @@ class App extends React.Component<{}, { signupshow: boolean }> {
                 <Navbar.Toggle />
               </Navbar.Header>
               <Navbar.Collapse>
-                <Nav pullRight={true}>
+              <Nav pullRight={true}>
+                {this.props.isLoginSuccess ?
+                  <NavItem id="appLoginWhite" eventKey={2} href="#" onClick={this.props.logout}>
+                    Logout
+                  </NavItem>
+                  :
                   <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
                     Login
                   </NavItem>
-                  <NavItem eventKey={2} href="#">
+                }
+                  {/* <NavItem eventKey={2} href="#"> */}
                     {/* Link Right */}
                   <AppTopICON />
-                  </NavItem>
+                  {/* </NavItem> */}
                   {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
                 </Nav>
               </Navbar.Collapse>
@@ -117,19 +125,24 @@ class App extends React.Component<{}, { signupshow: boolean }> {
             <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
           {/* </Row> */}
         </div>
+        </Router>
     );
   }
 }
 
-//     isLoginSuccess: rootState.islogin.isLoginSuccess,
-//   }
-// }
-// const mapDispatchToProps = (dispatch: any) => {
-//   return {
-//     logout: () => dispatch(logoutClearData()),
-//   };
-// }
+const mapStateToProps = (rootState: IRootState) => {
+  return {
+    isLoginSuccess: rootState.islogin.isLoginSuccess,
+  }
+}
 
-// const App = connect(mapStateToProps, mapDispatchToProps)(PureApp);
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    logout: () => dispatch(logoutClearData()),
+  };
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(PureApp);
 
 export default App;

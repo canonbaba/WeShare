@@ -86,21 +86,13 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
         const { userid } = this.props;
 
         const { photoUrl } = this.state;
-        let $imagePreview = null;
-        if (photoUrl) {
-            $imagePreview = (<img src={photoUrl} />);
-        } else {
-            $imagePreview = (<div id='imageframestyle'> Please select an Image for Preview</div>);
-        }
+        const $imagePreview = (photoUrl)? (<img src={photoUrl} />) : (<div id='imageframestyle'> Please select an Image for Preview</div>);
+         
 
         return (
             <div className="static-modal" id="createPost">
                 <div id="createBackground">
                     <form>
-                        {/* <h1>Invitation</h1>
-                    <h5>Name of Product</h5>
-                    <input type="text" placeholder="name" onChange={this.nameChange} value={this.state.productName} /> */}
-
                         <Row className="cinvitation">
                             <Col>
                                 <div>Invitation</div>
@@ -112,24 +104,6 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
                                 <input type="text" placeholder="Name of Product" onChange={this.nameChange} value={this.state.productName} />
                             </Col>
                         </Row>
-                        {/* <input className="fileInput"
-                        type="file"
-                        onChange={this.imageChange}/>
-                    <div>
-                        {$imagePreview}
-                    </div> */}
-
-
-                        {/* <h5>Select</h5>
-                    <select value={this.state.productCategory} onChange={this.productCategoryChange}>
-                        <option value="">Please select</option>
-                        <option value="1">Fashion</option>
-                        <option value="2">electric product</option>
-                        <option value="3">vehicle</option>
-                        <option value="4">food & drink</option>
-                        <option value="5">toy</option>
-                        <option value="6">others</option>
-                    </select> */}
 
                         <Row className="cphoto">
                             <Col>
@@ -198,7 +172,8 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
 
                         <div id="createPostButton">
                             <Link to="/profile">
-                                <button onMouseDown={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
+                                <button style={this.state.productName.length < 4? {color: '#b2b2b2'}:{color: 'black'}} disabled={this.state.productName.length < 4}
+                                onMouseDown={this.props.createPost.bind(this, this.state.productName, this.state.productPrice, this.state.productPricePercent,
                                     this.state.numberOfShareUser,
                                     this.state.productDescription, this.state.productCategory, this.state.photo, this.state.photoUrl, userid)} onMouseUp={this.props.createPostLoadProfilePost.bind(this, this.props.userid)}>POST</button>
                             </Link>

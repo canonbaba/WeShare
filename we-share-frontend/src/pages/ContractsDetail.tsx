@@ -164,7 +164,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
               </div>
 
              <div id="contractButton">
-               <button onClick={this.handleSubmit}>SUBMIT</button>
+               <button style={this.state.product.length < 4? {color: '#b2b2b2'}:{color: 'black'}} disabled={this.state.product.length < 4} onClick={this.handleSubmit}>SUBMIT</button>
              </div>
 
 
