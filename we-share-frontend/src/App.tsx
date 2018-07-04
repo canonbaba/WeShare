@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { 
+import {
   Col,
   //  MenuItem,
-    Nav,
-     Navbar,
-      // NavDropdown,
-       NavItem
-       } from 'react-bootstrap';
-import { 
+  Nav,
+  Navbar,
+  // NavDropdown,
+  NavItem
+} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import {
   Link,
-   Route,
-    Switch
-   } from 'react-router-dom';
+  Route,
+  Switch
+} from 'react-router-dom';
 import AppTopICON from 'src/pages/App_topIcon';
 import ContractsDetail from 'src/pages/ContractsDetail';
 import ContractsList from 'src/pages/ContractsList';
@@ -24,17 +25,17 @@ import SignupPopup from 'src/pages/popup_signup';
 import Profile from 'src/pages/profile';
 import Rating from 'src/pages/Rating';
 // import { logoutClearData } from 'src/redux/login/actions';
-// import { IRootState } from 'src/redux/store';
 import './App.css';
+import { IRootState } from './redux/store';
 
-// interface IPureAppProps {
-//   isLoginSuccess: boolean;
-//   logout: () => void;
-// }
+interface IPureAppProps {
+  isLoginSuccess: boolean;
+  // logout: () => void;
+}
 
 
-class App extends React.Component<{}, { signupshow: boolean }> {
-  constructor(props: any) {
+class PureApp extends React.Component<IPureAppProps, { signupshow: boolean }> {
+  constructor(props: IPureAppProps) {
     super(props);
 
     this.state = {
@@ -67,69 +68,78 @@ class App extends React.Component<{}, { signupshow: boolean }> {
   public render() {
     return (
 
-      
-        <div className="App">
 
-            <Navbar inverse={true} collapseOnSelect={false}>
-              <Navbar.Header>
-                <Navbar.Brand>
-                <Link id="appLoginWhite" to="/home">WeBuyWeShare</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-              </Navbar.Header>
-              <Navbar.Collapse>
-                <Nav pullRight={true}>
-                  <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
-                    Login
-                  </NavItem>
-                  <NavItem eventKey={2} href="#">
-                    {/* Link Right */}
-                  <AppTopICON />
-                  </NavItem>
-                  {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
-            
-              <Col lg={12} xs={12} className="middle">
-              <Switch>
-                <Route path="/postform" exact={true} component={PostForm} />
+      <div className="App">
 
-                <Route path="/home" exact={true} component={Home} />
-                {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
+        <Navbar inverse={true} collapseOnSelect={false}>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link id="appLoginWhite" to="/home">WeBuyWeShare</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight={true}>
+              {this.props.isLoginSuccess ?
+null
+                :
+                <NavItem id="appLoginWhite" eventKey={1} onClick={this.signupShow} href="#">
+                  Login
+                </NavItem>
+              }
 
-                <Route path="/rating" exact={true} component={Rating} />
-                <Route path="/profile" exact={true} component={Profile} />
-
-                <Route path="/contracts" exact={true} component={ContractsList} />
-                <Route path="/contracts/add" component={ContractsDetail} />
-                <Route path="/contracts/:id" component={ContractsDetail} />
-                <Route path="/contractsSign/:id" component={ContractsSign} />
-
-                <Route path="/inbox" exact={true} component={Inbox} />
-                <Route path="/detail_contract" exact={true} component={DetailContrat} />
-              </Switch>
-            </Col>
-            {/* <Col lg={2} xs={2} id="routeLink"> */}
+              <NavItem eventKey={3} href="#">
+                {/* Link Right */}
+                <AppTopICON />
+              </NavItem>
               {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
-              {/* <AppTopICON /> */}
-            {/* </Col> */}
-            <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
-          {/* </Row> */}
-        </div>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
+        <Col lg={12} xs={12} className="middle">
+          <Switch>
+            <Route path="/postform" exact={true} component={PostForm} />
+
+            <Route path="/home" exact={true} component={Home} />
+            {/* <Route path="/home" exact={true} component={Home} showProfileLogo={this.showProfileicon} /> */}
+
+            <Route path="/rating" exact={true} component={Rating} />
+            <Route path="/profile" exact={true} component={Profile} />
+
+            <Route path="/contracts" exact={true} component={ContractsList} />
+            <Route path="/contracts/add" component={ContractsDetail} />
+            <Route path="/contracts/:id" component={ContractsDetail} />
+            <Route path="/contractsSign/:id" component={ContractsSign} />
+
+            <Route path="/inbox" exact={true} component={Inbox} />
+            <Route path="/detail_contract" exact={true} component={DetailContrat} />
+          </Switch>
+        </Col>
+        {/* <Col lg={2} xs={2} id="routeLink"> */}
+        {/* <button id="appbutton" onClick={this.signupShow}>LOGIN</button> */}
+        {/* <AppTopICON /> */}
+        {/* </Col> */}
+        <SignupPopup signupPopup={this.state.signupshow} signupClose={this.signuphide} />
+        {/* </Row> */}
+      </div>
     );
   }
 }
 
-//     isLoginSuccess: rootState.islogin.isLoginSuccess,
-//   }
-// }
+const mapStateToProps = (rootState: IRootState) => {
+  return {
+    isLoginSuccess: rootState.islogin.isLoginSuccess,
+  }
+}
+
+
 // const mapDispatchToProps = (dispatch: any) => {
 //   return {
 //     logout: () => dispatch(logoutClearData()),
 //   };
 // }
 
-// const App = connect(mapStateToProps, mapDispatchToProps)(PureApp);
+const App = connect(mapStateToProps, {})(PureApp);
 
 export default App;
