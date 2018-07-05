@@ -75,7 +75,7 @@ postSignData (input) {
         return this.knex('user_contract').where({ contract_id: input.contractId }).distinct('is_agree')
     })
     .then(data => {
-        if(data[0].is_agree === true) {
+        if(data.length < 2) {
             return this.knex('contract').where({ id: input.contractId }).update({ is_confirm: true })
         }
     })

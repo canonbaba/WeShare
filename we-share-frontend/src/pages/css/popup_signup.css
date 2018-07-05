@@ -12,7 +12,13 @@
     outline: 0;
     background-color: transparent;
     border: 0px;
-    font-size: 5vw;
+    font-size: 3vw;
+}
+
+@media only screen and (max-width: 768px) {
+    .text-right button {
+        font-size: 5vw;
+    }
 }
 
 #popupSignUpTitle {
@@ -23,19 +29,15 @@
     margin: 0px;
 }
 
-#poploginRow {
-    /* width: 80vw; */
-}
 
 #poplogin {
-    margin: 1vw;
+    margin-top: 1vw;
     display: flex;
     justify-content: center;
-    /* text-align: center; */
 }
 
 #poplogin h1 {
-    margin: 1vw;
+    margin-top: 1vw;
     font-size: 3vw;
 }
 
@@ -46,8 +48,8 @@
 }
 
 #popemailpassword {
-    margin: 1vw;
-    border-width: 3px;
+    margin-top: 1vw;
+    /* border-width: 3px; */
     border-color: black;
     /* width: 80vw; */
     display: flex;
@@ -55,11 +57,11 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     #popemailpassword {
         width: 100vw;
     }
-}
+} */
 
 #popemailpassword input {
     outline: 0;
@@ -89,7 +91,7 @@
 
 #popclickbox {
     /* font-size: 1vw; */
-    margin: 1vw;
+    margin-top: 1vw;
     /* width: 80vw; */
     display: flex;
     justify-content: center;
@@ -106,7 +108,8 @@
 } */
 
 #popsignin {
-    margin: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -114,7 +117,7 @@
 
 @media only screen and (max-width: 768px) {
     #popsignin {
-        margin: 3vw;
+        margin-top: 3vw;
     }
 }
 
@@ -134,7 +137,8 @@
 }
 
 #popsignup {
-    margin: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -142,7 +146,7 @@
 
 @media only screen and (max-width: 768px) {
     #popsignup {
-        margin: 3vw;
+        margin-top: 3vw;
     }
 }
 
@@ -160,113 +164,3 @@
         width: 25vw;
     }
 }
-
-/*
-#popemail input {
-    border: 0px;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#poppassword {
-    display: flex;
-    justify-content: center;
-}
-
-#poppassword input {
-    border: 0px;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#popclickbox {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#popsignup {
-    display: flex;
-    justify-content: flex-start;
-}
-
-#popsignup button {
-    outline: 0;
-    margin: 10px;
-}
-
-#popsignin {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#popsignin button {
-    outline: 0;
-    margin: 10px;
-} */
-
-/* #popclickbox checkbox {
-
-} */
-
-/* #popsignupfont {
-    display: flex;
-    justify-content: center;
-}
-
-#popsignupfont h1 {
-    font-size: 50px;
-    margin: 10px;
-}
-
-#popsignupemail {
-    display: flex;
-    justify-content: center;
-}
-
-#popsignupemail input {
-    border: 0px;
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#popsignuppassword {
-    display: flex;
-    justify-content: center;
-}
-
-#popsignuppassword input {
-    border: 0px;
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#popclickbox {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#popsignup {
-    display: flex;
-    justify-content: flex-start;
-}
-
-#popsignup button {
-    margin: 10px;
-}
-
-#popsignin {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#popsignin button {
-    margin: 10px;
-} */

@@ -53,45 +53,48 @@ class PureContractsSign extends React.Component<IContractsSignProps, IContractsS
 
     const loadContract = this.props.loadContracts.map((data: any, i: number) => {
       return <div key={i} className="contractSign">
-        <h3>The Contract To Be Signed </h3>
-        <h5>Title: {data.productName}</h5>
-        <h5>Price: {data.price}</h5>
+        <div id="contractSignHead">
+          <h3>The Contract To Be Signed </h3>
+          <h5>Title: {data.productName}</h5>
+          <h5>Price: {data.price}</h5>
+        </div>
         <div id="signParticipant">{data.participants.map((data2: any, i2: number) => {
 
           // tslint:disable-next-line:no-unused-expression
-          return <div key={i} id="sign_participant">
-            <Col xs={6}>
-              <h6>Name: {data2.name}</h6>
-              <h6>Price To Share: {data2.percentageToShare} %</h6>
-              <h6>Day To Use: {data2.daysToUse}</h6>
-            </Col>
-          </div>
+          return <Col lg={6} xs={6} id="sign_participantGroup" key={i}>
+            <h6>Name: {data2.name}</h6>
+            <h6>Price To Share: {data2.percentageToShare} %</h6>
+            <h6>Day To Use: {data2.daysToUse}</h6>
+          </Col>
         })
         }
         </div>
-        <h6>Description: {data.description}</h6>
+        <div id="signContractDescription">
+          <h3>Description: {data.description}</h3>
+        </div>
       </div>
     })
 
     return (
-      <div>
-
-        {loadContract}
+      <div className="contractSignDiv">
+        <div className="loadContractDiv">
+          {loadContract}
+        </div>
 
         {
           (this.props.loadContracts) ? (
             <div id='sign_agree_clickbox'>
 
-                <span><label>Agree</label><input type="checkbox" checked={this.state.agree} onChange={this.handleAgreeChange} /></span>
-                <span><label>Disagree</label><input type="checkbox" checked={this.state.disagree} onChange={this.handleDisagreeChange} /></span>
+              <span><label>Agree</label><input type="checkbox" checked={this.state.agree} onChange={this.handleAgreeChange} /></span>
+              <span><label>Disagree</label><input type="checkbox" checked={this.state.disagree} onChange={this.handleDisagreeChange} /></span>
 
             </div>
           ) : ''
         }
         <div id="contractSignbutton">
-        <Link to={'/profile'}>
-          <button onClick={this.handleSign} className="static-modal contractSign">Sign</button>
-        </Link>
+          <Link to={'/profile'}>
+            <button onClick={this.handleSign} className="static-modal contractSign">Sign</button>
+          </Link>
         </div>
       </div>
     )

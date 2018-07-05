@@ -150,12 +150,12 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                 </div>
 
 
-                <Row id="homePostRow">
+                {/* <Row id="homePostRow">
                     <Col lg={12} xs={12} id="homePost">
                         <div>Post</div>
                         <div id="homePostBottomLine" />
                     </Col>
-                </Row>
+                </Row> */}
 
                 <div className="homeSearch">
                     <Row>
@@ -166,6 +166,7 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                                 <button type="submit"><FontAwesome.FaSearch /></button> */}
                                 {/* <div className="custom-select"> */}
                                 <select value={this.state.selectCategoryId} onChange={this.handleSelectCategory} onMouseOut={this.props.selectCategoryData.bind(this, this.state.selectCategoryId)}>
+                                    <option value="">Category</option>
                                     <option value="1000">All</option>
                                     <option value="1">Fashion</option>
                                     <option value="2">Electric Product</option>

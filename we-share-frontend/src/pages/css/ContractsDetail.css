@@ -1,6 +1,13 @@
 #contractCreate {
     background-color: white;
-    margin-top: 3vw;
+    margin-top: 4.5vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractCreate {
+        background-color: white;
+        margin-top: 15vw;
+    }
 }
 
 #contractLeft {
@@ -16,8 +23,16 @@
 
 #contractProduct input {
     outline: 0;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractProduct input {
+        outline: 0;
+        font-size: 6vw;
+        text-align: center;
+    }
 }
 
 #contractCreate input {
@@ -38,7 +53,14 @@
 }
 
 #contractPrice label {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
+    color: #AFAFAF
+}
+
+@media only screen and (max-width: 768px) {
+    #contractPrice label {
+        font-size: 5vw;
+    }
 }
 
 #contractPrice input {
@@ -46,6 +68,14 @@
     width: 10vw;
     font-size: 1.5vw;
     text-align: center;
+    color: #AFAFAF
+}
+
+@media only screen and (max-width: 768px) {
+    #contractPrice input {
+        width: 10vw;
+        font-size: 5vw;
+    }
 }
 
 #contractPrice label {
@@ -54,11 +84,33 @@
 
 #contractParticipantTitle {
     text-align: center;
-    font-size: 2vw;
+    font-size: 1.5vw;
+    color: #AFAFAF
+}
+
+@media only screen and (max-width: 768px) {
+    #contractParticipantTitle {
+        font-size: 5vw;
+    }
 }
 
 #contractPeople {
     padding: 1vw;
+    background-color: #F3F3F3;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    height: 10vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractPeople {
+        /* width: 60vw; */
+        height: 30vw;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .contractPeople input {
@@ -66,40 +118,45 @@
 }
 
 #contractFontCol {
-    background-color: #F8F8FA;
+    /* background-color: #F8F8FA; */
     /* width: 10vw; */
-    height: 13vw;
+    /* height: 8vw; */
     padding: 0px;
     /* margin: 1vw 0vw 1vw 3vw; */
-    margin-bottom: 1vw;
+    /* margin-bottom: 1vw; */
     /* margin-left: 1vw; */
 }
 
 #contractFont {
-    font-size: 8vw;
+    font-size: 5vw;
     color: #AFAFAF;
-    margin-left: 3vw;
+    margin-left: 1vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractFont {
+        font-size: 15vw;
+        color: #AFAFAF;
+        margin-left: 5vw;
+    }
 }
 
 #contractParticipantContent {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
-    background-color: #F8F8FA;
+    /* background-color: #F8F8FA; */
     /* width: 40vw; */
-    height: 13vw;
+    /* height: 13vw; */
     padding: 0px;
     /* margin: 1vw 0vw 1vw 0vw; */
-    margin-bottom: 1vw;
+    /* margin-bottom: 1vw; */
 }
 
-#contractParticipantContent div {
-    margin: 0.5vw;
-    height: 2vw;
-}
-
-#contractParticipantGroup {
-    /* display: flex; */
+@media only screen and (max-width: 768px) {
+    #contractParticipantContent {
+        height: 30vw;
+    }
 }
 
 #contractParticipantGroup label {
@@ -112,30 +169,53 @@
     height: 2.5vw;
 }
 
-
 #contractParticipantGroup select {
-    font-size: 1.5vw;
-    height: 3vw;
-    background-color: #E2E3E4;
+    font-size: 1.3vw;
+    height: 2vw;
+    background-color: transparent;
     text-align: center;
-    /* margin-left: 0.5vw; */
-    font-size: 2vw;
     width: 18vw;
+    margin: 0vw 0vw 0.5vw 0vw;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
+}
+
+@media only screen and (max-width: 768px) {
+    #contractParticipantGroup select {
+        font-size: 5vw;
+        height: 8vw;
+        width: 50vw;
+        margin-top: 1vw;
+    }
 }
 
 /* 
 #contractParticipantContent select {
 } */
 
-
 #contractParticipantGroup input {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
+    margin: 0vw 0vw 0.5vw 0vw;
 }
 
-#contractParticipantGroup  label {
-    font-size: 1.5vw;
+@media only screen and (max-width: 768px) {
+    #contractParticipantGroup input {
+        font-size: 5vw;
+        height: 6vw;
+        margin-top: 2vw;
+    }
 }
 
+#contractParticipantGroup label {
+    font-size: 1.3vw;
+    margin: 0.5vw 0vw 0.5vw 0vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractParticipantGroup label {
+        font-size: 5vw;
+        /* margin-top: 16vw; */
+    }
+}
 
 /* #contractDayToUse {
     width: 20vw;
@@ -148,107 +228,220 @@
 }
 
 #contractDescription textarea {
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: left;
     width: 50vw;
     height: 10vw;
-    margin-left: 1vw;
+    /* margin-left: 1vw; */
     border-color: #AFAFAF;
 }
 
+@media only screen and (max-width: 768px) {
+    #contractDescription textarea {
+        font-size: 3.5vw;
+        width: 100vw;
+        height: 30vw;
+    }
+}
 
 .contractDescription textarea::placeholder {
     color: #AFAFAF;
 }
-
 
 #contractButton {
     display: flex;
     justify-content: center;
 }
 
-
 #contractButton button {
     outline: 0;
-    background-color: transparent;
-    border-radius: 1vw;
-    font-size: 2vw;
-    font-weight: bold;
+    background-color: white;
     color: #AFAFAF;
+    /* border: none; */
+    transition: background-color 0.5s, color 1s ease;
+    font-size: 2vw;
+    border-radius: 1vw;
     margin: 1vw;
+    margin-bottom: 5vw;
+    /* border: 1vw; */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    width: 15vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #contractButton button {
+        font-size: 5vw;
+        border-radius: 2.5vw;
+        margin: 3vw;
+        margin-bottom: 5vw;
+        width: 50vw;
+    }
 }
 
 /* __________________________________________________________________left part */
 
-
 #confirmProductAndPrice {
     display: flex;
     justify-content: center;
-    margin-top: 0.5vw;
+    /* margin-top: 0.5vw; */
 }
-
 
 #confirmProductAndPrice label {
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #confirmProductAndPrice label {
+        font-size: 5vw;
+    }
+}
 
 #confirmProductAndPrice div {
-    font-size: 2vw;
+    font-size: 1.5vw;
     margin-left: 1vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #confirmProductAndPrice div {
+        font-size: 5vw;
+        margin-left: 1vw;
+    }
+}
 
 #confirmParticipantTitle {
     text-align: center;
-    font-size: 2vw;
-    margin-top: 1.5vw;
-    margin-bottom: 1vw;
+    font-size: 1.5vw;
+    /* margin-top: 1vw; */
+    margin-bottom: 2.5vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #confirmParticipantTitle {
+        text-align: center;
+        font-size: 5vw;
+        /* margin-top: 1vw; */
+        margin-bottom: 2.5vw;
+    }
+}
 
 #confirmPeople {
-    margin: 1vw 0vw 0vw 0vw;
+    /* margin: 1vw 0vw 0vw 0vw; */
     /* width: 50vw; */
+    padding: 1vw;
+    height: 10vw;
+    margin-top: 2.2vw;
+    /* margin-bottom: 2vw; */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    background-color: #F3F3F3;
 }
 
+@media only screen and (max-width: 768px) {
+    #confirmPeople {
+        height: 30vw;
+        margin-top: 5vw;
+    }
+}
 
 #contractFontColRight {
-    background-color: #F8F8FA;
     /* width: 10vw; */
-    height: 13vw;
+    /* height: 13vw; */
+    height: 10vw;
     padding: 0px;
-    margin: 0vw 0vw 2vw 0vw;
+    /* margin: 0vw 0vw 2vw 0vw; */
+}
+
+@media only screen and (max-width: 768px) {
+    #contractFontColRight {
+        height: 30vw;
+    }
+}
+
+#confirmFont {
+    font-size: 5vw;
+    color: #AFAFAF;
+    margin-left: 2vw;
+    /* margin-top: 1vw; */
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmFont {
+        font-size: 15vw;
+        margin-left: 5vw;
+    }
 }
 
 #confirmParticipantContent {
     /* width: 30vw; */
-    height: 13vw;
-    background-color: #F8F8FA;
+    /* height: 13vw; */
+    /* background-color: #F8F8FA; */
+    height: 10vw;
 }
 
 #confirmParticipantGroup {
     display: flex;
 }
 
-
 #confirmParticipantGroup label {
     font-size: 1.5vw;
-    margin: 1.1vw;
+    /* margin: 1.1vw; */
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmParticipantGroup label {
+        font-size: 3.5vw;
+        margin-top: 1.3vw;
+    }
 }
 
 #confirmParticipantGroup div {
     font-size: 1.5vw;
-    margin: 1.1vw;
+    /* margin: 1.1vw; */
 }
 
 #confirmDescription {
     text-align: left;
-    font-size: 2vw;
-    width: 40vw;
-    height: 10vw;
-    margin-left: 3vw;
+    font-size: 1.5vw;
+    width: 50vw;
+    height: 10.5vw;
+    /* margin-left: 3vw; */
     border-color: #AFAFAF;
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmDescription {
+        text-align: left;
+        font-size: 1.5vw;
+        width: 50vw;
+        height: 15vw;
+        /* margin-left: 3vw; */
+        border-color: #AFAFAF;
+    }
+}
+
+
+#confirmDescription div {
+    font-size: 1.5vw;
+    text-align: left;
+    /* width: 50vw; */
+    height: 30vw;
+    /* margin-left: 1vw; */
+    border-color: #AFAFAF;
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmDescription div {
+        font-size: 3.5vw;
+        /* width: 100vw; */
+        height: 30vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmDescription label {
+        font-size: 3.5vw;
+        width: 100vw;
+        height: 30vw;
+    }
 }
 
 #confirmButton {
@@ -258,10 +451,25 @@
 
 #confirmButton button {
     outline: 0;
-    background-color: transparent;
-    border-radius: 1vw;
-    font-size: 2vw;
-    font-weight: bold;
+    background-color: white;
     color: #AFAFAF;
+    /* border: none; */
+    transition: background-color 0.5s, color 1s ease;
+    font-size: 2vw;
+    border-radius: 1vw;
     margin: 1vw;
+    margin-bottom: 5vw;
+    /* border: 1vw; */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    width: 15vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #confirmButton button {
+        font-size: 5vw;
+        border-radius: 2.5vw;
+        margin: 3vw;
+        margin-bottom: 5vw;
+        width: 50vw;
+    }
 }

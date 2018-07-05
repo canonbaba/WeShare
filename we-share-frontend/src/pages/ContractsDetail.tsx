@@ -164,7 +164,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
               </div>
 
              <div id="contractButton">
-               <button style={this.state.product.length < 4? {color: '#b2b2b2'}:{color: 'black'}} disabled={this.state.product.length < 4} onClick={this.handleSubmit}>SUBMIT</button>
+               <button style={this.state.product.length < 4? {color: '#b2b2b2'}:{color: 'black'}} disabled={this.state.product.length < 4} onClick={this.handleSubmit}>Submit</button>
              </div>
 
 
@@ -203,7 +203,7 @@ class PureContractsDetail extends React.Component<IContractsDetailProps, IContra
                           <Row id="confirmPeople" key={participant.id}>
 
                             <Col lg={3} xs={3} id="contractFontColRight">
-                              <div id="contractFont"><FontAwesome.FaUser /></div>
+                              <div id="confirmFont"><FontAwesome.FaUser /></div>
                             </Col>
 
                             <Col lg={9} xs={9} id="confirmParticipantContent">

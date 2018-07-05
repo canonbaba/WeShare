@@ -121,7 +121,7 @@ class SignupPopup extends React.Component<ISignupProps, ISignupState> {
                     {/* toggle Login or Signup */}
                     {this.state.toggleLoginSignup ?
                         <div id="popupSignUpTitle">
-                            <Row id="poploginRow">
+                            <Row>
                                 <Col lg={12} id="poplogin">
                                     <h1>Login</h1>
                                 </Col>

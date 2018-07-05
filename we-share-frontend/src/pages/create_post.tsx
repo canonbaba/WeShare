@@ -93,14 +93,9 @@ class PostFormBuilder extends React.Component<IPostFormProps, IPostFormState> {
             <div className="static-modal" id="createPost">
                 <div id="createBackground">
                     <form>
-                        <Row className="cinvitation">
-                            <Col>
-                                <div>Invitation</div>
-                            </Col>
-                        </Row> */}
 
                         <Row className="cname">
-                            <Col lg={6}>
+                            <Col lg={6} id="cnameCol">
                                 <input type="text" placeholder="Name of Product" onChange={this.nameChange} value={this.state.productName} />
                             </Col>
                         </Row>

@@ -27,22 +27,15 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
 
                 {this.props.isLoginSuccess &&
                     <div>
-                        {/* <NavItem eventKey={3} href="#"> */}
-                            {/* Link Right */}
+
                             <LinkContainer id="topIconMargin" to="/inbox">
                                 <NavItem eventKey={3} >Inbox</NavItem>
                             </LinkContainer>
-                            {/* <AppTopICON /> */}
-                        {/* </NavItem> */}
-                        {/* <NavItem eventKey={4} href="#"> */}
+
                             <LinkContainer id="topIconMargin" to="/profile">
                                 <NavItem eventKey={4} >Profile</NavItem>
                             </LinkContainer>
-                        {/* </NavItem> */}
 
-                        {/* <Link to="/profile">
-                            <button>Rating</button>
-                        </Link> */}
                     </div>
                 }
             </div>
