@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { NavItem } from 'react-bootstrap';
-// import { NavItem } from 'react-bootstrap';
-// import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-// import { Link } from 'react-router-dom';
 import { IRootState } from 'src/redux/store';
 import './css/App_topIcon.css';
 
@@ -29,11 +25,11 @@ class PureAppTopICON extends React.Component<IAppTopICON, {}> {
                     <div>
 
                             <LinkContainer id="topIconMargin" to="/inbox">
-                                <NavItem eventKey={3} >Inbox</NavItem>
+                                <button className="top_icon" ><span><img src="https://png.icons8.com/metro/50/FFFFFF/inbox.png"/></span></button>
                             </LinkContainer>
 
                             <LinkContainer id="topIconMargin" to="/profile">
-                                <NavItem eventKey={4} >Profile</NavItem>
+                                <button className="top_icon"><span><img src="https://png.icons8.com/metro/50/FFFFFF/contacts.png"/></span></button>
                             </LinkContainer>
 
                     </div>

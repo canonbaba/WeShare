@@ -16,7 +16,11 @@
 
 #appLoginWhite {
     color: white;
-    outline: 0;
-    /* font-size: 2vw; */
-    /* padding: 1vw; */
+    background-color: transparent;
+    border: none;
+    line-height: 45px;
+}
+
+#appLogoword {
+    color: white;
 }
