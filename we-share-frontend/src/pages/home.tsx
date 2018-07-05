@@ -122,9 +122,9 @@ class HomePage extends React.Component<IHomeProps, IHomeState> {
                         <Col lg={12} xs={12} className="titleMarginLeft" id="homeWe1">We Have</Col>
                     </Row>
                     {/* </div> */}
-                    <Row id="clickScroll">
+                    {/* <Row id="clickScroll">
                         <button type="submit" >Let's Share With Others !</button>
-                    </Row>
+                    </Row> */}
                 </div>
 
                 <div id="homeAbout">
